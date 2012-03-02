@@ -32,7 +32,6 @@ Eingebunden: von show_stat.php, index.html  (<link>)
 h1 {
 font-size: 130%;
 width: 100%;
-font-family: Calibri, "Trebuchet MS", sans-serif;
 color: black;
 background-color: white;
 margin-bottom: 0px;
@@ -41,12 +40,10 @@ margin-top: 2px;
 
 h2 {
 font-size: 110%;
-font-family: Calibri, Arial, sans-serif;
 }
 
 h3 {
 font-size: 100%;
-font-family: Calibri, Arial, sans-serif;
 font-style:italic;
 }
 
@@ -54,7 +51,7 @@ body {
 margin-bottom: 0px;
 padding-bottom: 0px;
 padding-left: 4px;
-font-family: Calibri, "Times New Roman", Times, Arial, serif;
+font-family: Calibri, "Trebuchet MS", Arial, Helvetica, Geneva, sans-serif;
 }
 
 html {
@@ -107,7 +104,6 @@ margin-right:1px;
 margin-bottom: 4px;
 font-size: 75%;
 color: black;
-font-family: Calibri, "Times New Roman", Times, Arial, serif;
 background-color: white;
 }
 
@@ -170,7 +166,6 @@ margin: 5px;
 table.daten {
 font-size: 100%;
 color: black;
-font-family: Calibri, "Times New Roman", Times, Arial, serif;
 background-color: white;
 width:100%;
 border-collapse:collapse;
@@ -256,10 +251,6 @@ font-weight:normal;
 tr.separate td {
 padding-top: 10px;
 border-top: 1px solid #CACACA;
-}
-
-select, option {
-font-family: Calibri, Arial, sans-serif;
 }
 
 table.table_pad td {
