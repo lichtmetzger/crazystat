@@ -33,8 +33,8 @@ Included:                        by
 // set internal encoding to UTF-8
 mb_internal_encoding("UTF-8");
 
-require_once('config_default.php');
-require_once('../usr/config.php');
+require_once(dirname(__FILE__).'/config_default.php');
+require_once(dirname(__FILE__).'/../usr/config.php');
 
 // set memory-limit
 @ini_set('memory_limit', $config_stat_memory_limit . 'M');
@@ -50,9 +50,9 @@ if(!$config_stat_lang_fix)
  setcookie('CrazyStat_lang',$_SESSION['lang'],time()+3600*90);
  $config_stat_lang=$_SESSION['lang'];
  }
-require_once('lang/'.$config_stat_lang.'.php');
-require_once('log_funcs.php');
-require_once('password_protect.php');
+require_once(dirname(__FILE__).'/lang/'.$config_stat_lang.'.php');
+require_once(dirname(__FILE__).'/log_funcs.php');
+require_once(dirname(__FILE__).'/password_protect.php');
 
 // set Session-ID-constant (XSS-resistant)
 define('SIDX',htmlspecialchars(SID));
