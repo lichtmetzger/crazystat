@@ -224,9 +224,9 @@ if (empty($message_fatal)) {
 		$browsers = file('../usr/keywords/browser.txt');
 		foreach ($browsers as $browser_line) {
 			$browser_line = trim($browser_line);
-			$trenner = mb_strpos($browser_line, '=');
+			$trenner = strpos($browser_line, '=');
 			if ($trenner !== false)
-				$browser_strings[mb_substr($browser_line, 0, $trenner)] = mb_substr(
+				$browser_strings[substr($browser_line, 0, $trenner)] = substr(
 						$browser_line, $trenner + 1);
 			else
 				$browser_strings[$browser_line] = $browser_line;
@@ -236,9 +236,9 @@ if (empty($message_fatal)) {
 		$systems = file('../usr/keywords/os.txt');
 		foreach ($systems as $system_line) {
 			$system_line = trim($system_line);
-			$trenner = mb_strpos($system_line, '=');
+			$trenner = strpos($system_line, '=');
 			if ($trenner !== false)
-				$system_strings[mb_substr($system_line, 0, $trenner)] = mb_substr(
+				$system_strings[substr($system_line, 0, $trenner)] = substr(
 						$system_line, $trenner + 1);
 			else
 				$system_strings[$system_line] = $system_line;
@@ -248,10 +248,10 @@ if (empty($message_fatal)) {
 		$queryregex = file('../usr/keywords/queryregex.txt');
 		foreach ($queryregex as $regex) {
 			$regex = trim($regex);
-			$trenner = mb_strpos($regex, "\t");
+			$trenner = strpos($regex, "\t");
 			// to support UTF8, pre_replace was replaced by mb_ereg, so we need
 			// to remove / at the beginning and end
-			$queryregex_str[trim(mb_substr($regex, 0, $trenner),'/')] = mb_substr($regex,
+			$queryregex_str[trim(substr($regex, 0, $trenner),'/')] = substr($regex,
 					$trenner + 1);
 		}
 		unset($trenner, $regex);
@@ -400,7 +400,7 @@ if (empty($message_fatal)) {
 			}
 
 			foreach ($robots as $robot) {
-				if (mb_strpos($daten[4], $robot) !== false) {
+				if (strpos($daten[4], $robot) !== false) {
 					// robot detected. Skip this line.
 					continue 2;
 				}
@@ -577,7 +577,7 @@ if (empty($message_fatal)) {
 													> $daten[1]))) {
 						$match = false;
 						foreach ($system_strings as $system_string => $system_name) { // teste alle Systeme durch bis gefunden
-							if (mb_strpos($daten[4], $system_string) !== false) {
+							if (strpos($daten[4], $system_string) !== false) {
 								@$_SESSION['module_system_data'][$system_name]++;
 								if ($_SESSION['set_system_time_rel'])
 									$_SESSION['module_system_data_timestamps'][$system_name][] = $daten[1];
@@ -604,7 +604,7 @@ if (empty($message_fatal)) {
 													> $daten[1]))) {
 						$match = false;
 						foreach ($browser_strings as $browser_string => $browser_name) { // teste alle Browser durch bis gefunden
-							if (mb_strpos($daten[4], $browser_string) !== false) {
+							if (strpos($daten[4], $browser_string) !== false) {
 								@$_SESSION['module_browser_data'][$browser_name]++;
 								if ($_SESSION['set_browser_time_rel'])
 									$_SESSION['module_browser_data_timestamps'][$browser_name][] = $daten[1];
@@ -682,10 +682,10 @@ if (empty($message_fatal)) {
 							$ignore = false;
 							if (is_array($config_stat_referer_ignore)) {
 								foreach ($config_stat_referer_ignore as $page)
-									if (mb_strpos($daten[6], $page) === 0)
+									if (strpos($daten[6], $page) === 0)
 										$ignore = true;
 							} elseif (is_string($config_stat_referer_ignore))
-								if (mb_strpos($daten[6], $page) === 0)
+								if (strpos($daten[6], $page) === 0)
 									$ignore = true;
 							if (!$ignore) {
 								@$_SESSION['module_referer_data'][$daten[6]]++;
@@ -710,7 +710,7 @@ if (empty($message_fatal)) {
 							foreach ($queryregex_str as $regex => $key) {
 								if (mb_ereg($regex, $daten[6], $keyword)) {
 									$keyword[$key] = trim(urldecode($keyword[$key]));
-									if(!mb_check_encoding($keyword[$key])) {
+									if(function_exists('mb_check_encoding') && !mb_check_encoding($keyword[$key])) {
 									 /* the utf8-string is somehow corrupted.
 									  Decode to keep at least the ANSI-characters...
 									  */
