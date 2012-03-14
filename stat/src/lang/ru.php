@@ -4,6 +4,7 @@ define('L_PASSWORD_MES_ERR_NEW_INVALID', 'Новый пароль отсутст
 define('L_PASSWORD_MES_ERR_NOT_CHANGED', 'Пароль не изменен! ');
 define('L_PASSWORD_MES_ERR_RETRY',' Повторить ');
 define('L_PASSWORD_MES_ERR_WRITING_FAILED', 'Файл с паролями не может быть открыт для редактирования. Пожалуйста, проверьте разрешения (CHMOD или блокировка записи) на файле ');
+define('L_PASSWORD_MES_ERR_SEE_README','Добро пожаловать! Похоже Вы еще не  установили(не доконца) CrazyStat. Пожалуйста, посмтрите <a href="../doc/install_ru.txt" target="_blank">ХЕЛП(на английском)</a> чтобы установить CrazyStat.');
 define('L_PASSWORD_MES_OK_CHANGED', 'Ваш пароль был изменен! ');
 define('L_PASSWORD_MES_ERR_NOT_LOGGED_IN', 'Время сессии истекло или вы не вошли корректно.');
 define('L_PASSWORD_MES_ERR_RELOGIN',' Повторите Вход');
