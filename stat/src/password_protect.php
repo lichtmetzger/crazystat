@@ -275,7 +275,7 @@ else // Login-form
       <input type="hidden" name="<?php echo htmlspecialchars(session_name()); ?>" value="<?php echo htmlspecialchars(session_id()); ?>" />
       </form>
       <?php
-       if(isset($_POST['passwort']) || isset($_POST['username'])) $message_error.=L_PASSWORD_MES_ERR_WRONG_DATA."\n";
+       if(isset($_POST['passwort']) || isset($_POST['username'])) $message_error.=L_PASSWORD_MES_ERR_WRONG_DATA."<br />\n".L_PASSWORD_MES_ERR_WRONG_DATA_SEE_FAQ."\n";
        if(isset($_GET['logout']))  $message_ok.=L_PASSWORD_MES_OK_THANK_YOU."<br />\n<i>".L_PASSWORD_MES_SUPPORT_CRAZYSTAT."</i>\n";
        if($message_ok!='') echo '<p class="meldung_ok">'.$message_ok.'</p>';
        if($message_error!='') echo '<p class="meldung_fehler">'.$message_error.'</p>';

@@ -16,6 +16,8 @@ define('L_PASSWORD_PASSWORD','Wachtwoord');
 define('L_PASSWORD_DO_NOT_COUNT','Aantal bezoeken van deze computer niet meetellen');
 define('L_PASSWORD_PLEASE_WAIT','Een ogenblik geduld alstublieft');
 define('L_PASSWORD_MES_ERR_WRONG_DATA','Gebruikersnaam of wachtwoord onjuist. Toegang geweigerd.');
+// todo: translate
+define('L_PASSWORD_MES_ERR_WRONG_DATA_SEE_FAQ','See <a href="../doc/faq_en.html#faq5">FAQ</a> in case you forgot your password and need to reset it.');
 define('L_PASSWORD_MES_OK_THANK_YOU','Bedankt voor het gebruiken van CrazyStat!');
 define('L_PASSWORD_MES_SUPPORT_CRAZYSTAT','<a href="http://en.christosoft.de/Support">Ondersteun CrazyStat!</a>');
 define('L_PASSWORD_NO_JAVASCRIPT','Waarschuwing! Het wachtwoord zal onbeveiligd worden verzonden, omdat uw browser geen JavaScript ondersteunt!');

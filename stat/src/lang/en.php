@@ -15,6 +15,7 @@ define('L_PASSWORD_PASSWORD','Password');
 define('L_PASSWORD_DO_NOT_COUNT','Do not count hits from this computer');
 define('L_PASSWORD_PLEASE_WAIT','Please wait...');
 define('L_PASSWORD_MES_ERR_WRONG_DATA','Username or password incorrect. Access denied.');
+define('L_PASSWORD_MES_ERR_WRONG_DATA_SEE_FAQ','See <a href="../doc/faq_en.html#faq5">FAQ</a> in case you forgot your password and need to reset it.');
 define('L_PASSWORD_MES_OK_THANK_YOU','Thank you for using CrazyStat!');
 define('L_PASSWORD_MES_SUPPORT_CRAZYSTAT','<a href="http://en.christosoft.de/Support">Please support CrazyStat!</a>');
 define('L_PASSWORD_NO_JAVASCRIPT','Attention! The password has to be transferred unencrypted because your browser does not support JavaScript!');
