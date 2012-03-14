@@ -4,6 +4,7 @@ define('L_PASSWORD_MES_ERR_NEW_INVALID','Neues Passwort leer oder Wiederholung d
 define('L_PASSWORD_MES_ERR_NOT_CHANGED','Passwort wurde nicht geändert!');
 define('L_PASSWORD_MES_ERR_RETRY','Erneut versuchen');
 define('L_PASSWORD_MES_ERR_WRITING_FAILED','Passwort-Datei konnte nicht zum Schreiben geöffnet werden. Überprüfen Sie den CHMOD bzw. ob die Datei schreibgeschützt ist.');
+define('L_PASSWORD_MES_ERR_SEE_README','Willkommen! Es sieht so aus als wäre CrazyStat noch nicht richtig installiert. Bitte lesen Sie in der <a href="../doc/README_de.html" target="_blank">Readme</a> nach, wie man CrazyStat installiert.');
 define('L_PASSWORD_MES_OK_CHANGED','Passwort wurde erfolgreich geändert!');
 define('L_PASSWORD_MES_ERR_NOT_LOGGED_IN','Login abgelaufen bzw. nicht eingeloggt.');
 define('L_PASSWORD_MES_ERR_RELOGIN','Neu einloggen');

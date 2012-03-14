@@ -145,3 +145,5 @@ ToDos and Ideas for CrazyStat:
  - ignore visits from certain IPs (setting)
  - include.php - (optionally): do not echo the (X)HTML, put everything in a
    variable makes it easier to integrate CrazyStat into some CMS
+ - Visitor distinction by (hashed?) session-id (NAT-users etc.)
+   optionally? (all hits/by IP / by session)

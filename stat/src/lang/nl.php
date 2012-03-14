@@ -4,6 +4,8 @@ define('L_PASSWORD_MES_ERR_NEW_INVALID','Nieuw wachtwoord ontbreekt of komt niet
 define('L_PASSWORD_MES_ERR_NOT_CHANGED','Wachtwoord is niet veranderd!');
 define('L_PASSWORD_MES_ERR_RETRY','Opnieuw proberen');
 define('L_PASSWORD_MES_ERR_WRITING_FAILED','Wachtwoord-bestand kon niet geopend worden voor bewerking. Kijk alstublieft de rechten (CHMOD of write lock) van het bestand na.');
+// todo: translate
+define('L_PASSWORD_MES_ERR_SEE_README','Welcome! It looks as if you have not installed CrazyStat yet. Please have a look at the <a href="../doc/README_en.html" target="_blank">Readme</a> on how to install CrazyStat.');
 define('L_PASSWORD_MES_OK_CHANGED','Uw wachtwoord is veranderd!');
 define('L_PASSWORD_MES_ERR_NOT_LOGGED_IN','Sessie verlopen of niet ingelogd.');
 define('L_PASSWORD_MES_ERR_RELOGIN','Opnieuw inloggen');

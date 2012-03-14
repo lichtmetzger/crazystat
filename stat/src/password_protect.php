@@ -57,7 +57,7 @@ if($config_salt_str=='SomeRand0m_strlng' && isset($config_stat_user['admin']) &&
  if($pass_file===false)
   {
   session_destroy();
-  $message_error.=L_PASSWORD_MES_ERR_WRITING_FAILED.'<br /><a href="show_stat.php?logout=1&change_pass=1">'.L_PASSWORD_MES_ERR_RETRY.'</a>';
+  $message_error.=L_PASSWORD_MES_ERR_SEE_README.'<br />'.L_PASSWORD_MES_ERR_WRITING_FAILED.'<br /><a href="show_stat.php">'.L_PASSWORD_MES_ERR_RETRY.'</a>';
   }
  else
   {
