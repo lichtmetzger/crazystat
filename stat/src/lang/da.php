@@ -16,6 +16,7 @@ define('L_PASSWORD_PASSWORD','Adgangskode');
 define('L_PASSWORD_DO_NOT_COUNT','Medt&aelig;l ikke hits fra denne computer');
 define('L_PASSWORD_PLEASE_WAIT','Vent venligst...');
 define('L_PASSWORD_MES_ERR_WRONG_DATA','Brugernavnet eller adgangskoden var forkert. Adgang n&aelig;gtet.');
+define('L_PASSWORD_MES_ERR_WRONG_DATA_SEE_FAQ','Se <a href="../doc/faq_en.html#faq5">FAQ</a> hvis du har glemt din adgangskode og har brug for at nulstille den.');
 define('L_PASSWORD_MES_OK_THANK_YOU','Tak fordi du bruger CrazyStat!');
 define('L_PASSWORD_MES_SUPPORT_CRAZYSTAT','<a href="http://en.christosoft.de/Support">St&oslash;t venligst CrazyStat!</a>');
 define('L_PASSWORD_NO_JAVASCRIPT','OBS! Adgangskoden skal overf&oslash;res uden kryptering, fordi din browser ikke underst&oslash;tter JavaScript!');

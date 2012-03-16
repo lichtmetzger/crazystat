@@ -15,6 +15,7 @@ define('L_PASSWORD_PASSWORD', 'пароль');
 define('L_PASSWORD_DO_NOT_COUNT', 'Не вести подсчет с этого компьютера!');
 define('L_PASSWORD_PLEASE_WAIT', 'Пожалуйста, подождите');
 define('L_PASSWORD_MES_ERR_WRONG_DATA', 'Имя пользователя и/или пароль введены  не верно! Отказано в доступе .');
+define('L_PASSWORD_MES_ERR_WRONG_DATA_SEE_FAQ','Посмотрите <a href="../doc/faq_en.html#faq5">Популярные вопроссы и ответы(на английском)</a> если вы забыли свой пароль, ивам его надо изменить.');
 define('L_PASSWORD_MES_OK_THANK_YOU', 'Спасибо за использование CrazyStat! ');
 define('L_PASSWORD_MES_SUPPORT_CRAZYSTAT',' Поддержи <a href="http://en.christosoft.de/Support"> CrazyStat </a>');
 define('L_PASSWORD_NO_JAVASCRIPT', 'Внимание: пароль будет передан не безопасным, потому что ваш браузер не поддерживает JavaScript ');
