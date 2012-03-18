@@ -6,6 +6,7 @@ define('L_PASSWORD_MES_ERR_NEW_INVALID','Ny adgangskode ikke angivet eller den e
 define('L_PASSWORD_MES_ERR_NOT_CHANGED','Adgangskoden blev ikke skiftet!');
 define('L_PASSWORD_MES_ERR_RETRY','Pr&oslash;v igen');
 define('L_PASSWORD_MES_ERR_WRITING_FAILED','Adgangskodefilen er ikke skrivbar. Tjek venligst filens attributter (CHMOD eller skrivebeskyttelse).');
+define('L_PASSWORD_MES_ERR_SEE_README','Velkommen! Det ser ikke ud til, at du har installeret CrazyStat endnu. Se venligst <a href="../doc/README_da.html" target="_blank">Readme</a> for at få vejledning i, hvordan CrazyStat skal installeres.');
 define('L_PASSWORD_MES_OK_CHANGED','Adgangskoden er nu blevet &aelig;ndret!');
 define('L_PASSWORD_MES_ERR_NOT_LOGGED_IN','Sessionen udl&oslash;b eller du er ikke logget ind.');
 define('L_PASSWORD_MES_ERR_RELOGIN','Log ind igen');

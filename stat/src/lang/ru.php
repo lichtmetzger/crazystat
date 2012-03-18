@@ -1,4 +1,6 @@
 <?php
+// Russian language file for CrazyStat 1.71 by Vladimir (thanks!)
+
 // Password_protect.php
 define('L_PASSWORD_MES_ERR_NEW_INVALID', 'Новый пароль отсутствует или не схож с повторенным.');
 define('L_PASSWORD_MES_ERR_NOT_CHANGED', 'Пароль не изменен! ');

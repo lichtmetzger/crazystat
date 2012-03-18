@@ -1,4 +1,10 @@
 <?php
+/* Dutch language file for CrazyStat 1.71
+   Originally translated by plaise.nl (thanks!)
+   NOW TRANSLATION IS INCOMPLETE
+   PLEASE CONTACT ME TO COMPLETE IT: http://en.christosoft.de/Contact
+*/
+
 // password_protect.php
 define('L_PASSWORD_MES_ERR_NEW_INVALID','Nieuw wachtwoord ontbreekt of komt niet overeen met de herhaling.');
 define('L_PASSWORD_MES_ERR_NOT_CHANGED','Wachtwoord is niet veranderd!');
