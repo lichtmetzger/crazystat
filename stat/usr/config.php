@@ -62,6 +62,7 @@ $config_respect_dnt=false; // do not record users that send Do-not-track header?
 $config_stat_lang="en"; // Language (de/en/nl?)
 $config_stat_weekdays_sunday_first=false; // Sunday first day of the week?
 $config_stat_timezone="Europe/Berlin"; // Timezone
+               // see http://php.net/manual/en/timezones.php for valid timezones
 
 // +++++ Counter settings +++++
 
