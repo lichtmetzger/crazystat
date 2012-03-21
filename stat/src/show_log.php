@@ -241,10 +241,10 @@ while(isset($_SESSION['log_files']) && isset($_SESSION['log_ids'][$id_nr]) && is
   if(!empty($zeile))
    {
    $daten[$i]=explode('#',$zeile);
-   foreach($daten as $data_i=>$data)
+   foreach($daten[$i] as $data_i=>$data)
     {
     // unescape separation-character #
-    $daten[$data_i] = str_replace('&num;','#',$data);
+    $daten[$i][$data_i] = str_replace('&num;','#',$data);
     }
    }
   if(($richtung=='zur' && $a<2) || ($richtung=='vor' && feof($logdatei))) break;
@@ -271,7 +271,7 @@ while(isset($_SESSION['log_files']) && isset($_SESSION['log_ids'][$id_nr]) && is
    {
    // Filter ("Suchen")
    $fertig=!$search;
-   for($i=0;!$fertig && $i<=$_SESSION['search_anz'];$i++)
+   for($i=0;!$fertig && $i<=$_SESSION['search_count'];$i++)
     {
     $feld=$_SESSION['search_field'.$i];
     if($feld=='5x')
