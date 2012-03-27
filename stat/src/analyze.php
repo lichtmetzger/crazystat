@@ -116,6 +116,7 @@ function clear_module($modul) {
 		$_SESSION['module_hit_data']['letzten_monat'] = 0;
 		$_SESSION['module_hit_data']['user_online'] = 0;
 		$_SESSION['module_hit_data']['max'] = 0;
+		$_SESSION['module_hit_data']['durchschnitt'] = 0;
 		break;
 	case 'hour':
 		for ($i = 0; $i <= 23; $i++)
@@ -802,8 +803,10 @@ if (empty($message_fatal)) {
 	// average User/day
 	if (isset($hits_user_tag)) {
 		$hits_user_anz_tage = count($hits_user_tag);
-		$_SESSION['module_hit_data']['durchschnitt'] = $_SESSION['module_hit_data']['gesamt_ip']
-				/ $hits_user_anz_tage;
+		if($hits_user_anz_tage>0) {
+			$_SESSION['module_hit_data']['durchschnitt'] = $_SESSION['module_hit_data']['gesamt_ip']
+					/ $hits_user_anz_tage;
+		} else $_SESSION['module_hit_data']['durchschnitt'] = 0; 
 	}
 
 	// Hits per User
@@ -811,9 +814,11 @@ if (empty($message_fatal)) {
 			/ $_SESSION['module_hit_data']['gesamt_ip'];
 
 	// Average visiting time
-	$_SESSION['module_hit_data']['visit_time_avg'] = round(
-			$_SESSION['module_hit_data']['visit_time_total']
-					/ $_SESSION['module_hit_data']['gesamt_ip'] / 60, 2);
+	if($_SESSION['module_hit_data']['gesamt_ip']>0) {
+		$_SESSION['module_hit_data']['visit_time_avg'] = round(
+				$_SESSION['module_hit_data']['visit_time_total']
+						/ $_SESSION['module_hit_data']['gesamt_ip'] / 60, 2);
+	} else $_SESSION['module_hit_data']['visit_time_avg']=0;
 
 	// Maximal-values and total values
 	foreach ($list_modules as $modul) {
