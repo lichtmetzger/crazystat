@@ -73,8 +73,12 @@ if(!is_array($config_stat_user) && isset($config_stat_passwort) && isset($config
 
 if($config_stat_password_md5 && isset($_POST['passwort'])) // password saved as hash
  {
- if(!empty($_POST['md5'])) $_POST['passwort']=$_POST['md5'];  // already got an MD5 hash from the client (using JS)
- else $_POST['passwort']=md5(md5($_POST['passwort'].$config_salt_str).$_SESSION['login_rand']); // plain password sent by client
+ if(!empty($_POST['md5'])) {
+  $_POST['passwort']=$_POST['md5'];  // already got an MD5 hash from the client (using JS)
+ }
+ else {
+  $_POST['passwort']=md5(md5($_POST['passwort'].$config_salt_str).$_SESSION['login_rand']); // plain password sent by client
+  }
  }
 elseif(!$config_stat_password_md5 && !empty($_POST['md5']) && isset($_POST['username']) && isset($config_stat_user[$_POST['username']]))  // password not saved as hash, but client sent hash
  {
@@ -188,6 +192,7 @@ else // Login-form
    
   function encPass()
    {
+   document.getElementById('submitButton').disabled=true;
    var pass2=document.getElementById('md5Input').value;
    if(pass2=='')
     {
@@ -268,7 +273,7 @@ else // Login-form
        if($check) echo 'checked="checked"'; ?> /> <?php echo L_PASSWORD_DO_NOT_COUNT; ?><br />
       </div>
       <div>
-       <input type="submit" value="Login" onclick="this.disabled=true; this.value='<?php echo L_PASSWORD_PLEASE_WAIT; ?>'; document.getElementById('body').style.cursor='wait'; this.form.submit(); " />
+       <input type="submit" value="Login" id="submitButton" onclick="this.value='<?php echo L_PASSWORD_PLEASE_WAIT; ?>'; document.getElementById('body').style.cursor='wait'; encPass(); this.form.submit(); " />
       </div>
       <input type="hidden" name="ajax" value="0" id="ajaxInput" />
       <input type="hidden" name="md5" value="" id="md5Input" />
