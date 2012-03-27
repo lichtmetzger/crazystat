@@ -113,7 +113,7 @@ if(($config_stat_password_protect==true && isset($_POST['passwort']) && isset($_
   else
    {
    require('../usr/config_pass.php');
-   if($config_stat_password_md5 && isset($_POST['md5neu'])) $_POST['passwort_neu']=$_POST['md5neu'];
+   if($config_stat_password_md5 && isset($_POST['md5neu']) && $_POST['md5neu']!='') $_POST['passwort_neu']=$_POST['md5neu'];
    elseif($config_stat_password_md5) $_POST['passwort_neu']=md5($_POST['passwort_neu'].$config_salt_str);
    
    $config_stat_user[$_SESSION['username']]=$_POST['passwort_neu'];
