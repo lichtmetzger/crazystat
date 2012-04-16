@@ -6,6 +6,14 @@ K-Meleon
 Nautilus
 KHTML
 Camino
+Firefox/20=Firefox 20
+Firefox/19=Firefox 19
+Firefox/18=Firefox 18
+Firefox/17=Firefox 17
+Firefox/16=Firefox 16
+Firefox/15=Firefox 15
+Firefox/14=Firefox 14
+Firefox/13=Firefox 13
 Firefox/12=Firefox 12
 Firefox/11=Firefox 11
 Firefox/10=Firefox 10
