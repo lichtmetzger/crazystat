@@ -85,6 +85,9 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
      </p>
     </div>
    </div>
+   <div id="hotscripts">
+    <a href="http://www.hotscripts.com/rate/118512/?RID=N568334" title="Rate our Script at Hot Scripts" target="_blank"><img src="http://cdn.hotscripts.com/img/widgets/btn_88x31-1.gif" alt="Rate our Script at Hot Scripts" style="border: 0;" /></a> <span style="display: block; width: 88px; text-align: center; margin: 2px 0 0; padding: 0; color: #999; font: normal 9px Arial, Helvetica, sans-serif;">Listed in <a target="_blank" href="http://www.hotscripts.com/category/scripts/php/scripts-programs/web-traffic-analysis/?RID=N568334" style="color: #666; font-size: 9px; text-decoration: none;">HotScripts</a></span> 
+   </div>
    <p class="copyright">&copy; Copyright 2004-2012 <a href="<?php echo $christosoft_url; ?>" target="_blank">Christopher Kramer</a></p>
   </div>
  </body>
