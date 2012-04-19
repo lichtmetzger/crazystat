@@ -82,6 +82,8 @@ function anonymize_ip($ip, $resolution, $colors) {
 	$ip_a .= ($user_ip + $user_colors) % 256 . '.';
 	// 4th octet: sum up user characteristics
 	$ip_a .= ($user_ip + $user_ua + $user_res + $user_salt) % 256;
+	// add an asterisk to make clear the IP has been anonymized
+	$ip_a .= '*'; 
 	return $ip_a;
 }
 
