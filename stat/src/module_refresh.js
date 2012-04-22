@@ -38,12 +38,12 @@ var mk=false;
 var ajaxTree=true;
 var modul='';
 
-function refresh(lmodul,parameter)  // nachladen von Kindelementen
+function refresh(lmodul,parameter)  // Refresh module data via ajax
  {
  waitmessage();
  if(!use_ajax) return true;
- zeit=new Date();          // Zeit wird angeh�ngt um Browser-Caching zu verhinern
- ajaxObj_Refresh=ajax();    // XMLHttpRequest-Objekt
+ zeit=new Date();          // time will be appended to Request to avoid browser caching
+ ajaxObj_Refresh=ajax();    // XMLHttpRequest-Object
  if(lmodul=='ALL')
   {
   modul=list_modules[mod_count];
@@ -78,7 +78,7 @@ function refresh(lmodul,parameter)  // nachladen von Kindelementen
  return false;
  }
 
-function replaceData()  // nachgeladene Daten empfangen, tausche HTMl aus
+function replaceData()  // got new data from server, replace HTML with net data
  {
  if(ajaxObj_Refresh.readyState==4)
   {
@@ -104,15 +104,15 @@ function replaceData()  // nachgeladene Daten empfangen, tausche HTMl aus
  }
 
 
-function refreshJSdata()
+function refreshJSdata() // Refresh data array "js_data" with new values via AJAX (JSON)
  {
- ajaxObj_Refresh_js=ajax();    // XMLHttpRequest-Objekt
+ ajaxObj_Refresh_js=ajax();    // XMLHttpRequest-Object
  ajaxObj_Refresh_js.open('get','module_out.php?'+sid+'&modul=referer&js_data=1&stamp='+zeit.getTime(),true);
  ajaxObj_Refresh_js.onreadystatechange=replaceJSData;
  ajaxObj_Refresh_js.send(null);
  }
  
-function replaceJSData()
+function replaceJSData()  // new data for "js_data" is there - replace data with new data
  {
  if(ajaxObj_Refresh_js.readyState==4)
   {

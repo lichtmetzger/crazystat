@@ -31,6 +31,8 @@ Aufrufbar:   (ja)
 Eingebunden: von ajaxTree.js (per AJAX angefordert)
 */
 
+// Do not return a login form in case there is no valid session!
+$noForm = true;
 // load general include (memory limit, start session etc)
 @include_once('../../general_include.php');
 // try to start the session even if general_include.php could not be included 

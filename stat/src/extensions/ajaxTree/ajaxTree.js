@@ -25,46 +25,46 @@ Web: http://www.christosoft.de
 Version: 1.71
 
 *** ajaxTree.js ***
-Funktion:    JavaScript-Teil von ajaxTree
-Aufrufbar:   nein
-Eingebunden: von show_stat.php
+Funktion:    JavaScript-part of ajaxTree
+Aufrufbar:   no
+Eingebunden: by show_stat.php
 */
 
-function prozent(teil, gesamt)  // Prozent-Funktion
+function prozent(teil, gesamt)  // percentage-function
  {
  if(gesamt<=0) return 0;
  return Math.round(teil/gesamt*100);
  }
 
-var ajaxObj=ajax();    // XMLHttpRequest-Objekt
-var id;                // ID (des Parents das geoeffnet/geschlossen werden soll).
-var expand=false;      // soll der ganze Baum momentan expanded werden?
-var js_data;           // von PHP übergebene Werte
-var zeit=new Date(); // Zeit wird angehängt um Browser-Caching zu verhinern
+var ajaxObj=ajax();    // XMLHttpRequest-Object
+var id;                // ID (of the parent node that should be opened/closed).
+var expand=false;      // are we currebntly expanding the whole tree?
+var js_data;           // some values transferred from PHP via JSON
+var zeit=new Date();   // time is appened to request to avoid browser caching
 
-// js_data['parents']: Array, in dem Zustand der Elternzeilen steht (0/undefined=collapsed & nicht geladen, 1=collapsed & geladen, 2=expanded und geladen)
+// js_data['parents']: Array, which contains status of parent nodes (0/undefined=collapsed & nor loaded, 1=collapsed & loaded, 2=expanded and loaded)
 
 
 
-function menuclick(id) // Beim Klick auf ein Parent
+function menuclick(id) // when clicking on a perent node
  {
- var bild, i; // bild: Welches plus/minus-gif wird verwendet? i: Zähler
- if(id==1 && js_data['host_anz']==1 && js_data['parents'][id]==2) bild=5;
- else if(id==1) bild=1;
- else if(id==js_data['host_anz'] && js_data['parents'][id]==2) bild=3;
- else bild=2;
+ var nodeimage, i; // nodeimage: Which plus/minus-image is used? i: counter
+ if(id==1 && js_data['host_anz']==1 && js_data['parents'][id]==2) nodeimage=5;
+ else if(id==1) nodeimage=1;
+ else if(id==js_data['host_anz'] && js_data['parents'][id]==2) nodeimage=3;
+ else nodeimage=2;
 
  var row;
 
- if(!expand && js_data['parents'][id]==2) // geladen und expanded => collapse
+ if(!expand && js_data['parents'][id]==2) // loaded and expanded => collapse
   {
-  document.getElementById('pic'+id).src='extensions/ajaxTree/plus'+bild+'.gif';
+  document.getElementById('pic'+id).src='extensions/ajaxTree/plus'+nodeimage+'.gif';
   js_data['parents'][id]=1;
   for(i=1; i<=js_data['childs'][id]; i++) if(row=document.getElementById('row'+id+'_'+i)) row.style.display='none';
   }
- else if(js_data['parents'][id]==1) // geladen und collapse=> expand
+ else if(js_data['parents'][id]==1) // loaded and collapsed => expand
   {
-  document.getElementById('pic'+id).src='extensions/ajaxTree/minus'+bild+'.gif';
+  document.getElementById('pic'+id).src='extensions/ajaxTree/minus'+nodeimage+'.gif';
   js_data['parents'][id]=2;
   for(i=1; i<=js_data['childs'][id]; i++) document.getElementById('row'+id+'_'+i).style.display='';
   if(expand && id<js_data['host_anz']) menuclick(id+1);
@@ -74,96 +74,104 @@ function menuclick(id) // Beim Klick auf ein Parent
    hide_waitbox();
    }
   }
- else if(js_data['parents'][id]!=2) // nicht geladen => nachladen
+ else if(js_data['parents'][id]!=2) // not loaded => load data
   {
   js_data['parents'][id]=2;
-  document.getElementById('pic'+id).src='extensions/ajaxTree/minus'+bild+'.gif';
+  document.getElementById('pic'+id).src='extensions/ajaxTree/minus'+nodeimage+'.gif';
   nachladen(id);
   }
  }
 
-function nachladen(pid)  // nachladen von Kindelementen
+function nachladen(pid)  // load data of child nodes
  {
  if(!expand) 
   {
   waitmessage();
   }
  ajaxObj.open('get','extensions/ajaxTree/refpages.php?'+js_data['sid']+'&id='+(pid-1)+'&stamp='+zeit.getTime(),true);
- id=pid; // uebergebe id und childs an addRows per globalen Variablen
+ id=pid; // pass id via global variable to addRows
  ajaxObj.onreadystatechange=addRows;
  ajaxObj.send(null);
  }
 
 
-function addRows()  // nachgeladene Daten empfangen, erweitere Tabelle um Kind-Zeilen
+function addRows()  // got loaded data, add new rows to the table for the childs
  {
  if(ajaxObj.readyState==4)
   {
-  var child,zeile,spalte1,spalte2,spalte3,spalte4,bild1,link2,gekuerzt,text2,text3,bild4b,bild4b,text4,proz,proz2;
-  var children=ajaxObj.responseText.split("\n"); // Splitte Kinder auf
-  
-  if(id==js_data['host_anz']) var ziel_zeile=document.getElementById('row'+id).nextSibling;
-  else var ziel_zeile=document.getElementById('row'+(id+1));
-
-  for(var i=1; i<=js_data['childs'][id]; i++)
+  if(ajaxObj.responseText.length<200 && ajaxObj.responseText.search('<!-- NOT_LOGGED_IN -->')==0)
    {
-   child=children[i-1].split('@'); // Splitte Daten des Kindes
-   
-   // Erstelle neue Elemente
-   zeile=document.createElement('tr');
-   spalte1=document.createElement('td');
-   spalte2=document.createElement('td');
-   spalte3=document.createElement('td');
-   spalte4=document.createElement('td');
-   bild1=document.createElement('img');
-   link2=document.createElement('a');
-   if(child[0].length>100) gekuertzt=child[0].substring(0,100)+'[...]';
-   else  gekuertzt=child[0];
-   text2=document.createTextNode(gekuertzt);
-   text3=document.createTextNode(child[1]);
-   bild4a=document.createElement('img');
-   bild4b=document.createElement('img');
-   
-   text4=document.createTextNode(prozent(child[1],js_data['gesamt']));
-   zeile.id='row'+id+'_'+i;
-   if(((js_data['childs'][id]-i+id)%2)==1) zeile.style.backgroundColor='#DFE2FF';
-   // Generiere Spalten-Inhalte
-   if(i==1 && id==js_data['host_anz']) bild1.src='extensions/ajaxTree/line2.gif';
-   else bild1.src='extensions/ajaxTree/line.gif';
-   link2.href='anonymous_redirect.php?go_anonym=http://'+js_data["hosts"][id]+child[0].replace(/&/g,'%26');
-   link2.target='_blank';
-   link2.className='ajaxTreeLink';
-   link2.appendChild(text2);
-   proz=prozent(child[2],js_data['gesamt']);
-   proz2=Math.round(prozent(child[1],js_data['gesamt2'])/100*js_data['laenge']);
-   bild4a.width=proz2;
-   bild4a.height=10;
-   bild4a.title=proz+'%';
-   bild4b.width=js_data['laenge']-proz2;
-   bild4b.height=10;
-   bild4b.title=proz+'%';
-   bild4a.src='img/bar1.gif';   
-   bild4b.src='img/bar0.gif';
-   // Fuege Inhalte in Spalten
-   spalte1.appendChild(bild1);
-   spalte2.appendChild(link2);
-   spalte3.appendChild(text3);
-   spalte4.appendChild(bild4a);
-   spalte4.appendChild(bild4b);
-   // Fuege Spalten in Zeile ein
-   zeile.appendChild(spalte1);
-   zeile.appendChild(spalte2);
-   zeile.appendChild(spalte3);
-   zeile.appendChild(spalte4);
-   document.getElementById('tabelle').insertBefore(zeile,ziel_zeile);
+   messagebox('<p>'+ajaxObj.responseText+'</p>');
    }
-
-  if(expand && id<js_data['host_anz']) menuclick(id+1);
   else
    {
-   expand=false;
-   hide_waitbox();
-   }
+   var child,zeile,spalte1,spalte2,spalte3,spalte4,bild1,link2,gekuerzt,text2,text3,bild4b,bild4b,text4,proz,proz2;
+   var children=ajaxObj.responseText.split("\n"); // split string into individual childs
+   
+   if(id==js_data['host_anz']) var ziel_zeile=document.getElementById('row'+id).nextSibling;
+   else var ziel_zeile=document.getElementById('row'+(id+1));
+ 
+   for(var i=1; i<=js_data['childs'][id]; i++)
+    {
+    child=children[i-1].split('@'); // split data of this child
+    
+    // generate new HTML elements for the new row
+    zeile=document.createElement('tr');
+    spalte1=document.createElement('td');
+    spalte2=document.createElement('td');
+    spalte3=document.createElement('td');
+    spalte4=document.createElement('td');
+    bild1=document.createElement('img');
+    link2=document.createElement('a');
+    if(child[0].length>100) gekuertzt=child[0].substring(0,100)+'[...]';
+    else  gekuertzt=child[0];
+    text2=document.createTextNode(gekuertzt);
+    text3=document.createTextNode(child[1]);
+    bild4a=document.createElement('img');
+    bild4b=document.createElement('img');
+    
+    text4=document.createTextNode(prozent(child[1],js_data['gesamt']));
+    zeile.id='row'+id+'_'+i;
+    if(((js_data['childs'][id]-i+id)%2)==1) zeile.style.backgroundColor='#DFE2FF';
+    // Create Contents for columns
+    if(i==1 && id==js_data['host_anz']) bild1.src='extensions/ajaxTree/line2.gif';
+    else bild1.src='extensions/ajaxTree/line.gif';
+    link2.href='anonymous_redirect.php?go_anonym=http://'+js_data["hosts"][id]+child[0].replace(/&/g,'%26');
+    link2.target='_blank';
+    link2.className='ajaxTreeLink';
+    link2.appendChild(text2);
+    proz=prozent(child[2],js_data['gesamt']);
+    proz2=Math.round(prozent(child[1],js_data['gesamt2'])/100*js_data['laenge']);
+    bild4a.width=proz2;
+    bild4a.height=10;
+    bild4a.title=proz+'%';
+    bild4b.width=js_data['laenge']-proz2;
+    bild4b.height=10;
+    bild4b.title=proz+'%';
+    bild4a.src='img/bar1.gif';   
+    bild4b.src='img/bar0.gif';
+    // put content of columns inside the columns
+    spalte1.appendChild(bild1);
+    spalte2.appendChild(link2);
+    spalte3.appendChild(text3);
+    spalte4.appendChild(bild4a);
+    spalte4.appendChild(bild4b);
+    // put the columns into the row
+    zeile.appendChild(spalte1);
+    zeile.appendChild(spalte2);
+    zeile.appendChild(spalte3);
+    zeile.appendChild(spalte4);
+    // put the row into the table
+    document.getElementById('tabelle').insertBefore(zeile,ziel_zeile);
+    }
+
+   if(expand && id<js_data['host_anz']) menuclick(id+1);
+   else
+    {
+    expand=false;
+    hide_waitbox();
+    }
+   } 
   }
  }
 
