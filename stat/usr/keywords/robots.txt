@@ -1,5 +1,6 @@
 Googlebot
 bingbot
+BingPreview/
 Yahoo! Slurp
 Robot
 robot
