@@ -77,7 +77,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
 <p><?php echo L_INDEX_THIS_IS_CRAZYSTAT; ?></p>
 <table class="gitter">
  <tr><td><?php echo L_INDEX_INSTALLED_VERSION; ?></td><td style="vertical-align:top"><?php echo L_INDEX_CURRENT_VERSION; ?></td></tr>
- <tr><td width="150">1.71</td><td style="vertical-align:top; padding:0px; margin:0px;"><iframe src="http://www.christosoft.de/crazystat_version.php?v=170&amp;about=1" frameborder="0" height="40" width="150" scrolling="no"></iframe></td></tr>
+ <tr><td width="150">1.71 RC1</td><td style="vertical-align:top; padding:0px; margin:0px;"><iframe src="http://www.christosoft.de/crazystat_version.php?v=170&amp;about=1" frameborder="0" height="40" width="150" scrolling="no"></iframe></td></tr>
 </table>
 <p><?php echo L_ABOUT_PLEASE_SEE; ?>
  <a href="../doc/README_<?php echo (is_file('../doc/README_'.$config_stat_lang.'.html')?$config_stat_lang:'en'); ?>.html" target="_blank"><?php echo L_ABOUT_README; ?></a>

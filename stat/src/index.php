@@ -59,7 +59,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="generator" content="CrazyStat" />
-  <title>CrazyStat 1.71</title>
+  <title>CrazyStat 1.71 RC1</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="style2.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
@@ -77,7 +77,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
      <a href="<?php echo $christosoft_url; ?>" target="_blank"><?php echo $christosoft_url; ?></a></p>
      <table class="gitter">
       <tr><td><?php echo L_INDEX_INSTALLED_VERSION; ?></td><td style="vertical-align:top"><?php echo L_INDEX_CURRENT_VERSION; ?></td></tr>
-      <tr><td width="200">1.71</td><td style="vertical-align:top; padding:0px; margin:0px;"><iframe src="http://www.christosoft.de/crazystat_version.php?v=171" frameborder="0" height="60" width="200"></iframe></td></tr>
+      <tr><td width="200">1.71 RC1</td><td style="vertical-align:top; padding:0px; margin:0px;"><iframe src="http://www.christosoft.de/crazystat_version.php?v=171" frameborder="0" height="60" width="200"></iframe></td></tr>
      </table>
      <p>
       <?php echo L_INDEX_NEWS; ?> <a href="<?php echo $christosoft_url; ?>" target="_blank"><?php echo $christosoft_url; ?></a>:<br />
