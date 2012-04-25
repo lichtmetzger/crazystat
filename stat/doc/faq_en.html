@@ -72,7 +72,7 @@
       </li>
       <li>
         <a href="#faq14">How do I embed CrazyStat into files that are placed in different
-        folders?</a>
+        folders (directories, paths)?</a>
       </li>
       <li>
         <a href="#faq15">How do I display the counter on certain pages?</a>
@@ -147,6 +147,9 @@
       <li>
         <a href="#faq36">I want to remove Session-IDs / parameter XY from the file entries.</a>
         <a href="#faq36">How does it work?</a>
+      </li>
+      <li>
+        <a href="#faq41">What is $config_ip_anonymous? / What are anonymized IPs?</a>
       </li>
       <li>
         <a href="#faq37">Nothing found?</a>
@@ -421,7 +424,7 @@
     </p>
     <h3>
       <a name="faq14" id="faq14"></a> How do I embed CrazyStat into files that are placed in
-      different folders?
+      different folders (directories, paths)?
     </h3>
     <p>
       --- Option 1: ---<br />
@@ -807,6 +810,41 @@ CrazyStat - - - " title=" - - - By CrazyStat - - - " style="border:0px"
     <p>
       <a href="#top">Top</a>
     </p>
+    <h3>
+      <a name="faq41" id="faq41">What is $config_ip_anonymous? / What are anonymized IPs?</a>
+    </h3>
+    <p>
+	  CrazyStat can anonymize the IPs of your visitors <i>before</i> writing them to the logfile. This allows you to respect your user's privacy.
+	  In some countries, IP addresses are considered personal data and thefore, data privacy constraints must be obeyed to. In case
+	  the law of your country requires that you anonymize IPs, or in case you simply want to respect your user's privacy, turn this feature on.
+	  You will not notice any difference in CrazyStat, therefore I recommend you to turn it on in any case.<br />
+	  In CrazyStat before 1.71, this setting made CrazyStat calculate a salted hash of the IP and store it instead of the actual IP.
+	  Salted hashs cannot be (easily) reverted into cleartext which made this an easy but efficient approach.
+	  But salted hashs do not look like IPs at all and you cannot even guess the country out of these anonymized
+	  IPs. Therefore, CrazyStat 1.71 comes with a new approach: It generates an anonymized IP for each visitor
+	  that looks like a normal IP and cannot be reverted to the real IP. In most cases the country can still be deteted with some accuracy, but this can also be completly wrong.
+	  Country detection will be introduced before IP anonymization in upcoming versions.<br />
+	  This is how anonymization is done in 1.71: The first two octets are kept unchanged (example: 111.122.133.144 -> 111.122.x.x) to make it possible
+	  to detect the country with at least some accuracy. The last two octets are completely removed
+	  and not kept. Then two virtual octets are calculated based on user characteristics: The third octet is calculated based on the salted hash of the
+	  complete IP and the user's color depth. The fourth octet is calculated based on the salted hash of the users complete ip, the user agent
+	  (browser and operating system) and the screen resolution. All this data is included to make anonymized IPs rather unique for individual visitors although
+	  the two last octets are removed.<br />
+	  So can the real IP be calculated from an anonymized IP? Well, you'd have to brute-force 65.536 possible IPs using the same anonymization algorithm with the data of the log entry.
+	  You'd need to include your secret random salt string (this means reading usr/config_pass.php - so even if you disable password protection or use a weak password, an attacker would not be able to revert IPs).
+	  So unless you have some real security problem, you are the only one who could <i>try</i> to revert IPs using brute force.
+	  This is not that complicated
+	  and could be done within seconds on a normal modern computer (for one IP). But the result won't help you much: You will get about 200-300 possible IPs that have the same anonymized IP. Unless you
+	  have further knowledge about the visitor, it is impossible to decide which of those IPs is the real IP of the user. Please contact me if you think you found a way to work around this.<br />
+	  Please also note that this is rather ridiculous: You first activate ip-anonymization and later on, you use <i>much</i> effort including brute force to revert anonymization. You could have
+	  stored the real IP straight away if you did not respect your user's privacy.<br />
+	  Anonymized IPs are marked with an asterisk at the end to distinguish them from real IPs.<br />
+	  <u>Note:</u> Of course, if you turn this feature on, this means you will not be able to revert IPs to their real value as discussed above.<br />
+	  Also see <a href="config_settings_en.html#config_ip_anonymous">configuration documentation</a>.
+    </p>
+    <p>
+      <a href="#top">Top</a>
+    </p>    
     <h3>
       <a name="faq37" id="faq37"></a> Nothing found?
     </h3>

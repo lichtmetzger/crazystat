@@ -147,3 +147,4 @@ ToDos and Ideas for CrazyStat:
    variable makes it easier to integrate CrazyStat into some CMS
  - Visitor distinction by (hashed?) session-id (NAT-users etc.)
    optionally? (all hits/by IP / by session)
+   Generate virtual anonymous IP from session ID?
