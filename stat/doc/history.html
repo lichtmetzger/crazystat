@@ -10,17 +10,86 @@
 <p><i>Version 1.70</i></p>
 <h2>History</h2>
 
-      
-<h3>Version 1.70</h3>
+<p>This file lists changes in CrazyStat versions. For even more details, you might want to have a look at <a href="https://sourceforge.net/p/crazystat/code/log/" target="_blank">the SVN logs</a>.</p>
+
+<h3>Version 1.71</h3>
+     
 
 <h4>1.71 RC1</h4>
 <ul>
- <li>Danish language file added (thanks to Liza Overgaard for the translation)</li>
+ <li>password_protect.php: In case you enter wrong user/password, it points you to the FAQ on how to reset your password in case you forgot it.</li>
+ <li>password_protect.php now points the user to the Readme in case CrazyStat is not yet installed correctly.</li>
+ <li>Changing default value of $config_stat_tree to "ajax" because mk-tree uses absolute positioning which is buggy and normally, ajax-tree works.</li>
+ <li>Added a "rate our script on hotscripts" button to the start/login screen. Please rate CrazyStat on <a href="http://www.HotScripts.com/?RID=N568334" target="_blank">HotScripts</a> to make more people aware of it! Thanks.</li>
+ <li>ajaxTree: If session expired, a message box is opened with a link to relogin (just like module_refresh.js does)
+  In 1.70, this did silently fail. In some previous 1.71, this caused HTML code to be shown in GUI! (since general_include.php was introduced in refpages.php)</li>
+ <li>IP Anonymization: Now adds an asterisk at the end to make it possible to differentiate between anonymized and real IPs</li>
+ <li>CSS: cleaned up font-family declarations</li>
+ <li>Documentation: Replaced advanced_presets.txt with html-version <a href="advanced_presets.html">advanced_presets.html</a></li>
+ <li>Documentation: New <a href="faq_en.html#faq42">FAQ entry</a> regarding <a href="config_settings_de.html#config_ip_anonymous">$config_ip_anonymous</a></li>
+ <li>Encoding: Using mb_str*-functions now to make keywords-module UTF8-compatible</li>
+ <li>Browser: added Firefox 13-20, just in case ;-)</li>
+ <li>added new bot: BingPreview, Microsoft Bing's preview generator (which appeared as KHTML/Win7 before - Microsoft is using Apple Webkit!? Trident (IE's engine) not suitable!? )</li>
+ <li>fix: If browser could not create md5-hash, changing password caused set the password hash to "" which cannot match with any password and makes it impossible to login.
+ Resistant-X made me aware of this bug, see <a href="http://forum.christosoft.de/viewtopic.php?f=2&t=10">Forum post</a> </li>
+ <li>Fix: Chrome did not hash the password before submitting the login form.</li>
+ <li>Fix: two bugs fixed where div/0 could happen (if no data is there yet)</li>
+ <li>Fix: Fixed some minor bugs introduced in beta1 and beta2</li>
+ <li>Translated some code and comments into English</li>
 </ul>
+
+<h4>1.71 beta2</h4>
+<ul>
+ <li>Replaced hard-coded memory-limit in show_log.php with configuration-variable like in analyze.php</li>
+ <li>Average visiting time: split in minutes and seconds</li>
+ <li>Memory limit: Moved this into general_include.php and made sure it is set everywhere else <em>before</em> the session is started. Because with a lot of data, we might get huge sessions that need a lot of memory, so we need to increase memory limit before starting the session.</li>
+ <li>Some minor bug fixing that caused notice errors and bugs introduced in beta1</li>
+ <li>Translated some code and comments into English</li>
+</ul>
+
+<h4>1.71 beta1</h4>
+<ul>
+ <li>Removed workarounds for PHP4 and old GDlib. This means <strong>PHP4 is not supported anymore</strong>. PHP 5.1 is at least required. GDlib 1.x is not supported anymore.</li>
+ <li><strong>Russian language file added</strong> (thanks to Vladimir for the translation)</li>
+ <li><strong>Danish language file added</strong> (thanks to Liza Overgaard for the translation)</li>
+ <li>file-module: link entries to the file mentioned (<a href="config_settings_de.html#config_stat_files_link">$config_stat_files_link</a> added)</li>
+ <li>IP anonymization reworked. This is default now. See <a href="faq_en.html#faq41">FAQ</a> for details.</li>
+ <li>Optionally, CrazyStat now respects Do-Not-Track headers (and does not record those users). See
+     <a href="config_settings_de.html#config_respect_dnt">$config_respect_dnt</a> and <a href="config_settings_de.html#config_counter_dnt_text">$config_counter_dnt_text</a></li>
+ <li>Average + total visiting time in hits-module</li>
+ <li>New Logo by <a href="http://www.kartoffelpfluecker.de/" target="_blank">kartoffelpfluecker</a>, gray colors now slightly blue, favicon added</li>
+ <li>Browser: Firefox 5-12 and IE10 added, IE8 and IE9 now correctly detected even if in compatibility mode</li>
+ <li>added UTF-8 as charset everywhere where htmlentities() is used (avoid problems with Russian and similar languages)</li>
+ <li>analyze.php skips corrupt lines with more columns than expected</li>
+ <li>DirectoryIterator used instead of opendir()</li>
+ <li>Reformatted some code. Currently, some files are formatted according to the new style, some to the old. All files will have new style in upcoming versions.</li>
+ <li>Translated some code comments into English</li>
+ <li>~ as average symbol in English</li>
+ <li>Comma or dot as decimal separator: Defined a lang-Constant and used number_format</li>
+ <li>Cookie "lang" renamed to "CrazyStat_lang" to avoid collisions</li>
+ <li>added "pointer" cursor over table headings to make user aware that it's sortable</li>
+ <li>robots.txt: "crawler" now a generic keyword, deleted the specific robots entries that contain "crawler"</li>
+ <li>improved OS detection slightly: more mobile phones. Moved down strings that might cause false positives (like Win).</li>
+ <li>increased redirection time in anonymous_redirect.php because 1 sec is considered like a permanent 301 redirect by some search engines</li>
+ <li>Fix: escaping # (doh :-| )</li>
+ <li>Fix: blind.gif was removed in 1.70 but is still used when $config_xhtml=true (which resulted in 404 errors, which were not shown but logged by the server)</li>
+ <li>Fix: logs.php brought PHP warning if no logfile (e.g. after everything was deleted)</li>
+ <li>Fix: Lots of invalid HTML fixed, mostly in documentation</li>
+ <li>Fix: Pie chart zoom (title): module is not translated and lower case in German</li>
+ <li>Fix: corrected language constant (refresh-button of hits-module)</li>
+ <li>Fix: about-dialog: languages other than de/en linked to inexisting FAQ and Readme files (now link to English file)</li>
+ <li>Fix: In FAQ: corrected codes for (X)HTML inclusion (encodeURIComponent added around referer)</li>
+ <li>Fix: Fixed lots of bugs that produce PHP Notice errors (undefined array indexes or variables)</li>
+ <li>Fix: Screen resolution:  "?" -> "no JavaScript": replace this after caching (language-changing causes troubles otherwise)</li>
+ <li>Fix: Screen resolution: undefined x undefined: list as "not saved" (browser &lt; JavaScript 1.2)</li>
+ <li>Fix: clear_module() did not produce enough days if the month had 31 days which resulted in weird ordering</li>
+</ul>
+
+<h3>Version 1.70</h3>
 
 <h4>1.70 Final</h4>
 <ul>
- <li>Dutch language file added (thanks to <a href="http://www.plaise.nl" target="_blank">plaise.nl</a>)</li>
+ <li><strong>Dutch language file added</strong> (thanks to <a href="http://www.plaise.nl" target="_blank">plaise.nl</a>)</li>
  <li>Operating System Detection: Linux now also detected if lower case (seldom)</li>
  <li>Robots: Introduced generic detection strings and deleted some specific ones that are covered by the generic ones.</li>
  <li>$config_stat_memory_limit added to adjust the memory limit (which was hard coded before). New default is now 128MB (60MB before).</li>
@@ -102,7 +171,7 @@
 
 <h4>RC1</h4>
 <ul>
-<li>     Oberfl&auml;che Multilanguage (bisher de/en). Code, Kommentare und interne Bezeichner
+<li>     Oberfl&auml;che <strong>Multilanguage</strong> (bisher de/en). Code, Kommentare und interne Bezeichner
          werden langfristig St&uuml;ck f&uuml;r St&uuml;ck komplett englisch sein, damit wurde schon
          ansatzweise begonnen.
 </li><li>Echte gzip-Kompression mit zlib komprimiert Logdateien und Cachedateien
