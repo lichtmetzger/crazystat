@@ -16,3 +16,8 @@ td,th {
  border: 1px solid black;
  vertical-align: top;
 }
+
+dt {
+ font-style: italic;
+ font-weight: bold;
+}
