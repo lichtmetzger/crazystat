@@ -74,7 +74,6 @@ function refresh(lmodul,parameter)  // Refresh module data via ajax
   }
  ajaxObj_Refresh.onreadystatechange=replaceData;
  ajaxObj_Refresh.send(null);
- if(lmodul=='referer' && ajaxTree) refreshJSdata();
  return false;
  }
 
@@ -88,8 +87,9 @@ function replaceData()  // got new data from server, replace HTML with net data
    }
   else
    {
+   if(modul=='referer' && ajaxTree) refreshJSdata();
    document.getElementById('module_'+modul).innerHTML=ajaxObj_Refresh.responseText;
-   hide_waitbox();
+   if(modul!='referer' || !ajaxTree) hide_waitbox();
    }
   if(modul=='referer' && mk) convertTrees();
   ajaxObj_Refresh=null;
@@ -117,5 +117,6 @@ function replaceJSData()  // new data for "js_data" is there - replace data with
  if(ajaxObj_Refresh_js.readyState==4)
   {
   js_data=JSON.parse(ajaxObj_Refresh_js.responseText);
+  hide_waitbox();
   }
  }

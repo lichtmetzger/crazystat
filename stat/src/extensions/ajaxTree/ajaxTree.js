@@ -111,7 +111,7 @@ function addRows()  // got loaded data, add new rows to the table for the childs
    if(id==js_data['host_anz']) var ziel_zeile=document.getElementById('row'+id).nextSibling;
    else var ziel_zeile=document.getElementById('row'+(id+1));
  
-   for(var i=1; i<=js_data['childs'][id]; i++)
+   for(var i=1; i < children.length; i++)
     {
     child=children[i-1].split('@'); // split data of this child
     
@@ -132,7 +132,7 @@ function addRows()  // got loaded data, add new rows to the table for the childs
     
     text4=document.createTextNode(prozent(child[1],js_data['gesamt']));
     zeile.id='row'+id+'_'+i;
-    if(((js_data['childs'][id]-i+id)%2)==1) zeile.style.backgroundColor='#DFE2FF';
+    if(((children.length-1-i+id)%2)==1) zeile.style.backgroundColor='#DFE2FF';
     // Create Contents for columns
     if(i==1 && id==js_data['host_anz']) bild1.src='extensions/ajaxTree/line2.gif';
     else bild1.src='extensions/ajaxTree/line.gif';
