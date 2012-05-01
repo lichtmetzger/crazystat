@@ -31,7 +31,7 @@ Eingebunden: von show_stat.php (Link)
 */
 require_once('general_include.php');
 
-if(isset($_GET['delete'])) // delete a single file
+if(isset($_GET['delete']) && isset($_SESSION['log_files'][$_GET['delete']])) // delete a single file
  {
  $_POST['delete_x']=0;
  $_POST['logfile']=array($_GET['delete']=>true);
@@ -63,7 +63,11 @@ elseif(isset($_POST['delete2'])) // confirmed
   {
   foreach($_SESSION['log_ids'] as $id)
    {
-   unlink('../usr/'.$config_logfile_folder.'/'.$_SESSION['log_files'][$id]);
+   if(isset($_SESSION['log_files'][$id]))
+    {
+    $delete_filename='../usr/'.$config_logfile_folder.'/'.$_SESSION['log_files'][$id];
+    if(is_file($delete_filename)) unlink($delete_filename);
+    }
    }
   }
  elseif($_POST['button']!=L_CANCEL) $message=L_LOGS_MSG_ERR_GUEST_DELETE;
@@ -77,21 +81,21 @@ function get_checked_logs($include_counterfile=true)
   {
   foreach($_POST['logfile'] as $id=>$checked)
    {
-   if($checked && ($_SESSION['log_files'][$id]!=$config_count_file || $include_counterfile)) $checked_logs[]=$id;
+   if($checked && isset($_SESSION['log_files'][$id]) && ($_SESSION['log_files'][$id]!=$config_count_file || $include_counterfile)) $checked_logs[]=$id;
    }
   }
  return $checked_logs;
  }
 
-function download($datei,$neuerName)
+function download($file,$newName)
  {
- $groesse=filesize($datei);
+ $size=filesize($file);
  @header('Content-type: text/plain');
- @header('Content-Disposition: attachment; filename='.$neuerName);
- @header('Content-Length: '.$groesse);
+ @header('Content-Disposition: attachment; filename='.$newName);
+ @header('Content-Length: '.$size);
  @header('Pragma: no-cache');
  @header('Expires: 0');
- @readfile($datei);
+ @readfile($file);
  exit;
  }
  
@@ -99,8 +103,8 @@ if(isset($_GET['download']) && isset($_SESSION['log_files'][$_GET['download']]))
  {
  if(($config_stat_password_protect && $config_stat_user_log_download) || $config_stat_guest_log_download)
   {
-  $dateiname=$_SESSION['log_files'][$_GET['download']];
-  download('../usr/'.$config_logfile_folder.'/'.$dateiname,date('Y_m_d').'_'.$dateiname);
+  $filename=$_SESSION['log_files'][$_GET['download']];
+  download('../usr/'.$config_logfile_folder.'/'.$filename, date('Y_m_d').'_'.$filename);
   }
  else $message=L_LOGS_MSG_ERR_GUEST_DOWNLOAD;
  }

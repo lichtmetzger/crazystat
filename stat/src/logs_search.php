@@ -34,7 +34,7 @@ require_once('general_include.php');
 
 $js_date_format=str_replace('Y','yyyy',str_replace('d','dd',str_replace('m','MM',L_DATE_FORMAT))); 
 
-if(isset($_GET['id'])) $_SESSION['log_ids']=array($_GET['id']);
+if(isset($_GET['id']) && isset($_SESSION['log_files'][$_GET['id']])) $_SESSION['log_ids']=array($_GET['id']);
 
 header('Content-Type: text/html; charset=UTF-8');
 echo '<?xml version="1.0" encoding="UTF-8"?>';
@@ -185,7 +185,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
   <div class="menue">
    <a href="about.php" target="_blank" rel="lyteframe" rev="width: 420px; height: 380px; scrolling: no;"><img src="img/about.png" alt="<?php echo L_MENU_ABOUT; ?>" title="<?php echo L_MENU_ABOUT; ?>" /></a>
    <a href="anonymous_redirect.php?go_anonym=<?php echo 'http://'.($config_stat_lang=='de'?'www':'en').'.christosoft.de'; ?>" target="_blank"><img src="img/website.png" alt="<?php echo L_MENU_WEBSITE; ?>" title="<?php echo L_MENU_WEBSITE; ?>" /></a>
-   <a href="logs.php?<?php echo SIDX.'&amp;'.time(); ?>" onclick="waitmessage();"><img src="img/refresh.png" alt="<?php echo L_REFRESH; ?>" title="<?php echo L_REFRESH; ?>" /></a>  
+   <a href="logs.php?<?php echo SIDX.'&amp;'.time(); ?>" onclick="waitmessage();"><img src="img/logs.png" alt="<?php echo L_SHOWSTAT_LOGS; ?>" title="<?php echo L_SHOWSTAT_LOGS; ?>" /></a>  
    <a href="show_stat.php?<?php echo SIDX; ?>"><img src="img/chart_bar.png" alt="<?php echo L_MENU_STATISTIC; ?>" title="<?php echo L_MENU_STATISTIC; ?>" /></a>
    <?php if($config_stat_password_protect) { ?><a href="logs.php?<?php echo SIDX; ?>&amp;logout=true"><img src="img/logout.png" alt="<?php echo L_LOGOUT; ?>" title="<?php echo L_LOGOUT; ?>" /></a><?php } ?>
   </div>

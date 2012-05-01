@@ -69,7 +69,7 @@ if(isset($_GET['richtung']) && ($_GET['richtung']=='vor' || $_GET['richtung']=='
 $richtung=$_SESSION['log_richtung'];
 
 // ID
-if(isset($_REQUEST['id']))
+if(isset($_REQUEST['id']) && isset($_SESSION['log_files'][$_REQUEST['id']]))
  {
  $_SESSION['log_ids']=array($_REQUEST['id']);
  unset($_SESSION['log_seite']);
@@ -103,6 +103,8 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
   </head>
  <body>
   <div class="menue">
+   <a href="logs.php?<?php echo SIDX.'&amp;download='.$_SESSION['log_ids'][0]; ?>"><img src="img/save.png" alt="<?php echo L_LOGS_BACKUP; ?>" title="<?php echo L_LOGS_BACKUP; ?>" /></a>
+   <a href="logs_search.php?<?php echo SIDX; ?>"><img src="img/find.png" alt="<?php echo L_LOGS_SEARCH; ?>" title="<?php echo L_LOGS_FILTER_TITLE; ?>" /></a>
    <a href="about.php" target="_blank" rel="lyteframe" rev="width: 420px; height: 380px; scrolling: no;"><img src="img/about.png" alt="<?php echo L_MENU_ABOUT; ?>" title="<?php echo L_MENU_ABOUT; ?>" /></a>
    <a href="anonymous_redirect.php?go_anonym=<?php echo 'http://'.($config_stat_lang=='de'?'www':'en').'.christosoft.de'; ?>" target="_blank"><img src="img/website.png" alt="<?php echo L_MENU_WEBSITE; ?>" title="<?php echo L_MENU_WEBSITE; ?>" /></a>
    <a href="show_log.php?<?php echo SIDX.'&amp;seite='.$seite.'&amp;richtung='.$richtung.($search?'&amp;aktion=search':'').'&amp;'.time(); ?>" onclick="waitmessage();"><img src="img/refresh.png" alt="<?php echo L_REFRESH; ?>" title="<?php echo L_REFRESH; ?>" /></a>  
