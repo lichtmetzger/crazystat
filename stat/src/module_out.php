@@ -325,7 +325,8 @@ function module_out($modul) {
 						}
 					}
 				@arsort($hostanz_array);
-
+              //   ___________Tree view (referer) - mktree______________________
+                 
 				if ($_SESSION['tree'] == 'mk') { //  use plugin mktree
 					echo ' <tr><th colspan="2">' . $name
 							. '<span class="ref130">' . L_MODULEOUT_NUM
@@ -431,6 +432,9 @@ function module_out($modul) {
 							. ' (&#248; ' . average($gesamt, $module_werte)
 							. ')</span></div>';
 				} elseif ($_SESSION['tree'] == 'ajax') { //mit plugin ajaxTree
+
+              //   ___________Tree view (referer) - ajaxTree____________________
+
 					echo ' <tr><td colspan="2">';
 					// Speichere Baum-Daten in Session fuer ref_pages.php
 					$anz_hosts = count($hostanz_array);
@@ -491,24 +495,24 @@ function module_out($modul) {
       </tfoot>
       <tbody id="tabelle">
 <?php
-					// Hosts durchgehen
+					// loop through Hosts 
 					$id = 0;
 					$js_data['hosts'] = array("");
 					if (isset($hostanz_array))
-						foreach ($hostanz_array as $eintrag => $hostanz) {
+						foreach ($hostanz_array as $host_name => $host_count) {
 							$id++;
-							// Ausgabe
+							// Output host
 							if (!isset($config_stat_limit[$modul])
 									|| ((!$_SESSION['set_' . $modul . '_all']
 											&& $id
 													<= $config_stat_limit[$modul])
 											|| $_SESSION['set_' . $modul
 													. '_all'])) {
-								$prozent = prozent($hostanz, $gesamt_hosts);
+								$prozent = prozent($host_count, $gesamt_hosts);
 								if ($config_stat_long_bars
 										&& isset($max_referer_hosts))
 									$prozent2 = round(
-											prozent($hostanz,
+											prozent($host_count,
 													$max_referer_hosts) / 100
 													* $config_stat_bar_length);
 								else
@@ -519,8 +523,8 @@ function module_out($modul) {
 								$handle = 'onclick="menuclick(' . $id
 										. '); return false;"';
 								$js_data['childs'][] = count(
-										$module_werte[$eintrag]);
-								$js_data['hosts'][] = $eintrag;
+										$module_werte[$host_name]);
+								$js_data['hosts'][] = $host_name;
 
 								echo '<tr id="row' . $id
 										. '" class="ajaxTreeZeile' . ($id % 2)
@@ -538,9 +542,11 @@ function module_out($modul) {
 										. ' class="ajaxTreeHand" /></td>';
 
 								echo '<td><a href="nojs.php" ' . $handle
-										. ' class="ajaxTreeDomain">' . $eintrag
-										. '</a></td>
-								<td>' . $hostanz
+										. ' class="ajaxTreeDomain">' . htmlentities($host_name)
+										. '</a> <a href=\''. linkprep('http://'.$host_name) .'\' target="_blank">'
+										. '<img src="img/external_link.png" width="10" height="10" alt="-&gt;" /></a>'
+										. '</td>
+								<td>' . $host_count
 										. '</td>
 								<td><img src="img/bar1.gif" height="10" width="'
 										. $prozent2 . '" title="' . $prozent

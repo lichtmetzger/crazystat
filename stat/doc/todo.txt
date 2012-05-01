@@ -56,7 +56,6 @@ ToDos and Ideas for CrazyStat:
  - show_log: link IP-adresses (if not anonymized) to a lookup site (configurable)
    like http://ip-whois-lookup.com/lookup.php?ip= or
    http://www.infosniper.net/index.php?ip_address=
- - refererTree: link to Domain (not only subpage)
  - sortable table: display sort-icon onmousover
  - special default-preset with the settings of the last session
  - menu: breadcrumbs: Statistic > Logs > stat.log
