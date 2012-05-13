@@ -7,13 +7,24 @@
  <body class="l3">
 
 <h1><a name="top"></a>CrazyStat</h1>
-<p><i>Version 1.71 RC1</i></p>
+<p><i>Version 1.71 RC2</i></p>
 <h2>History</h2>
 
 <p>This file lists changes in CrazyStat versions. For even more details, you might want to have a look at <a href="https://sourceforge.net/p/crazystat/code/log/" target="_blank">the SVN logs</a>.</p>
 
 <h3>Version 1.71</h3>
-     
+<h4>1.71 RC2</h4>
+<ul>
+ <li>show_log.php: Added buttons to the toolbar to download and search the current logfile directly</li>
+ <li>AjaxTree: Now there is also a link to the domain (base hostname / node), not only links to the subpages.</li>
+ <li>Fix: of a bug around AjaxTree: When clicking Plus-symbol, nothing happened sometimes.</li>
+ <li>Fix: Always checking ID parameters of logfile-ids for validity. This might have been an XSS problem, but I think Ids have never been echoed (before), so no security issue I guess. Worst case would have probably been some php errors happening when somebody tries to inject invalid IDs.</li>
+ <li>Fix: logs.php: deleting of logfiles: Checking if logfile (still) exists before deleting (would have produced PHP error before)</li>
+ <li>Fix: logs_search.php: The toolbar-link to logs.php had a refresh-symbol, which does not make sense here. Replaced it with a logs-symbol, which is semantically correct.</li>
+ <li>Documentation slightly improved (invalid XHTML, corrected links etc.)</li>
+ <li>translated some code and comments into English</li>
+</ul>
+      
 
 <h4>1.71 RC1</h4>
 <ul>
@@ -30,7 +41,7 @@
  <li>Encoding: Using mb_str*-functions now to make keywords-module UTF8-compatible</li>
  <li>Browser: added Firefox 13-20, just in case ;-)</li>
  <li>added new bot: BingPreview, Microsoft Bing's preview generator (which appeared as KHTML/Win7 before - Microsoft is using Apple Webkit!? Trident (IE's engine) not suitable!? )</li>
- <li>fix: If browser could not create md5-hash, changing password caused set the password hash to "" which cannot match with any password and makes it impossible to login.
+ <li>Fix: If browser could not create md5-hash, changing password caused set the password hash to "" which cannot match with any password and makes it impossible to login.
  Resistant-X made me aware of this bug, see <a href="http://forum.christosoft.de/viewtopic.php?f=2&t=10">Forum post</a> </li>
  <li>Fix: Chrome did not hash the password before submitting the login form.</li>
  <li>Fix: two bugs fixed where div/0 could happen (if no data is there yet)</li>

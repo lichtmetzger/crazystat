@@ -156,7 +156,7 @@ else // Login-form
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-  <title>CrazyStat 1.71 RC1 - <?php echo (isset($_GET['change_pass']) ? L_LOGIN_MENU_CHANGE_PASSWORD : L_LOGIN_MENU_LOGIN); ?></title>
+  <title>CrazyStat 1.71 RC2 - <?php echo (isset($_GET['change_pass']) ? L_LOGIN_MENU_CHANGE_PASSWORD : L_LOGIN_MENU_LOGIN); ?></title>
   <link href="<?php if(!is_file('style.css') && is_file('../style.css')) echo '../'; ?>style.css" rel="stylesheet" type="text/css" />
   <link href="<?php if(!is_file('style2.css') && is_file('../style2.css')) echo '../'; ?>style2.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
