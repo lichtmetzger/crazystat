@@ -827,7 +827,7 @@ CrazyStat - - - " title=" - - - By CrazyStat - - - " style="border:0px"
 	  IPs. Therefore, CrazyStat 1.71 comes with a new approach: It generates an anonymized IP for each visitor
 	  that looks like a normal IP and cannot be reverted to the real IP. In most cases the country can still be deteted with some accuracy, but this can also be completly wrong.
 	  Country detection will be introduced before IP anonymization in upcoming versions.<br />
-	  This is how anonymization is done in 1.71: The first two octets are kept unchanged (example: 111.122.133.144 -> 111.122.x.x) to make it possible
+	  This is how anonymization is done in 1.71: The first two octets are kept unchanged (example: 111.122.133.144 -&gt; 111.122.x.x) to make it possible
 	  to detect the country with at least some accuracy. The last two octets are completely removed
 	  and not kept. Then two virtual octets are calculated based on user characteristics: The third octet is calculated based on the salted hash of the
 	  complete IP and the user's color depth. The fourth octet is calculated based on the salted hash of the users complete ip, the user agent

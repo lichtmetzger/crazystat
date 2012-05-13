@@ -551,31 +551,31 @@ Regul&auml;re Ausdr&uuml;cke von Jeffrey Friedl ISBN: 3-89721-349-4</p>
     <p>
 	  CrazyStat kann die IP-Adressen Ihrer Besucher anonymisieren, <i>bevor</i> sie in die Logdatei geschrieben werden. Dies erlaubt es Ihnen, den Datenschutz Ihrer
 	  Besucher zu respektieren.
-	  In einigen Ländern werden IP-Adressen als pesonenbezogene Daten aufgefasst und unterliegen daher besonderen datenschutzrechtlichen Bestimmungen.
-	  Wenn Sie in einem solchen Land leben oder den Datenschutz Ihrer Nutzer in besonderer Weise respektieren möchten, dann aktivieren Sie diese Funktion.
+	  In einigen LÃ¤ndern werden IP-Adressen als pesonenbezogene Daten aufgefasst und unterliegen daher besonderen datenschutzrechtlichen Bestimmungen.
+	  Wenn Sie in einem solchen Land leben oder den Datenschutz Ihrer Nutzer in besonderer Weise respektieren mÃ¶chten, dann aktivieren Sie diese Funktion.
 	  Sie werden keinen Unterschied in CrazyStat bemerken, daher empfehle ich Ihnen in jedem Fall diese Option zu aktivieren.<br />
       CrazyStat hat vor Version 1.71 einen "salted Hash" der IP anstatt der richtigen IP gespeichert, wenn diese Option aktiviert war.
-      Salted Hashs lassen sich nicht ohne weiteres zurück umwandeln, daher ist dies ein einfacher und effizienter Ansatz.
-      Allerdings sehen salted Hashs IP-Adressen nicht mehr ähnlich und es lässt sich keinerlei Information über die Herkunft (z.B. das Land) des Besuchers mehr ermitteln.
-	  Aus diesen Gründen führt Version 1.71 ein neues Verfahren ein: Es generiert anonymisierte IP-Adressen,
-      die aussehen wie normale IP-Adressen aber trotzdem nicht rückverfolgbar sind. Das Land lässt sich meist mit einer gewissen Genauigkeit noch ableiten, dies
-	  kann oft aber auch falsche Ergebnisse zur Folge haben (zukünftige CrazyStat-Versionen werden das Land vor der Anonymisierung erkennen).<br />
-      Im Detail funktioniert das Verfahren so: Die ersten beiden Oktette werden belassen (Beispiel: 111.122.133.144 -> 111.122.x.x) damit das Land sich noch mit einer
-	  gewissen Genauigkeit ableiten lässt. Das dritte und letzte Oktett wird entfernt. Dafür werden zwei virtuelle Oktette berechnet, die auf Nutzer-Charakteristiken beruhen.
+      Salted Hashs lassen sich nicht ohne weiteres zurÃ¼ck umwandeln, daher ist dies ein einfacher und effizienter Ansatz.
+      Allerdings sehen salted Hashs IP-Adressen nicht mehr Ã¤hnlich und es lÃ¤sst sich keinerlei Information Ã¼ber die Herkunft (z.B. das Land) des Besuchers mehr ermitteln.
+	  Aus diesen GrÃ¼nden fÃ¼hrt Version 1.71 ein neues Verfahren ein: Es generiert anonymisierte IP-Adressen,
+      die aussehen wie normale IP-Adressen aber trotzdem nicht rÃ¼ckverfolgbar sind. Das Land lÃ¤sst sich meist mit einer gewissen Genauigkeit noch ableiten, dies
+	  kann oft aber auch falsche Ergebnisse zur Folge haben (zukÃ¼nftige CrazyStat-Versionen werden das Land vor der Anonymisierung erkennen).<br />
+      Im Detail funktioniert das Verfahren so: Die ersten beiden Oktette werden belassen (Beispiel: 111.122.133.144 -&gt; 111.122.x.x) damit das Land sich noch mit einer
+	  gewissen Genauigkeit ableiten lÃ¤sst. Das dritte und letzte Oktett wird entfernt. DafÃ¼r werden zwei virtuelle Oktette berechnet, die auf Nutzer-Charakteristiken beruhen.
 	  Das dritte Oktett wird basierend auf dem Salted Hash der kompletten IP und der Farbtiefe des Benutzers berechnet. Das vierte Oktett berechnet sich aus dem Salted Hash
-	  der kopmpletten IP, dem User Agent (Browser und Betriebssystem) sowie der Bildschirmauflösung. Diese Daten werden einbezogen, damit jedem Benutzer eine annähernd
+	  der kopmpletten IP, dem User Agent (Browser und Betriebssystem) sowie der BildschirmauflÃ¶sung. Diese Daten werden einbezogen, damit jedem Benutzer eine annÃ¤hernd
 	  eindeutige anonymisierte IP zugewiesen wird, obwohl die letzten zwei Oktette entfernt wurden.<br /> 
-	  Kann die richtige IP aus einer anonymisierten berechnet werden? Dazu wäre es nötig, per Brute-Force alle 65.536 möglichen IP-Adressen mit den Daten des Logeintrags
-	  genau wie CrazyStat zu anonymisieren. Dabei muss der Salt-String bekannt sein, d.h. ein Angreifer muss usr/config_pass.php lesen können - es reicht nicht aus, dass
-	  ein Angreifer Zugriff auf die Web-Oberfläche von CrazyStat hat (z.B. weil kein Passwortschutz eingerichtet ist oder ein unsicheres Passwort verwendet wird).
-	  Wenn Sie kein schwerwiegendes Sicherheitsproblem haben, sind Sie also der einzige, der sinnvoll <i>versuchen</i> kann, eine IP mit Brute Force zurück zu berechnen.
-	  Dies ist nicht sonderlich kompliziert und lässt sich auf einem modernen PC in wenigen Sekunden ausführen. Allerdings wird Sie das Ergebnis wenig weiterbringen: Es werden
+	  Kann die richtige IP aus einer anonymisierten berechnet werden? Dazu wÃ¤re es nÃ¶tig, per Brute-Force alle 65.536 mÃ¶glichen IP-Adressen mit den Daten des Logeintrags
+	  genau wie CrazyStat zu anonymisieren. Dabei muss der Salt-String bekannt sein, d.h. ein Angreifer muss usr/config_pass.php lesen kÃ¶nnen - es reicht nicht aus, dass
+	  ein Angreifer Zugriff auf die Web-OberflÃ¤che von CrazyStat hat (z.B. weil kein Passwortschutz eingerichtet ist oder ein unsicheres Passwort verwendet wird).
+	  Wenn Sie kein schwerwiegendes Sicherheitsproblem haben, sind Sie also der einzige, der sinnvoll <i>versuchen</i> kann, eine IP mit Brute Force zurÃ¼ck zu berechnen.
+	  Dies ist nicht sonderlich kompliziert und lÃ¤sst sich auf einem modernen PC in wenigen Sekunden ausfÃ¼hren. Allerdings wird Sie das Ergebnis wenig weiterbringen: Es werden
 	  ca. 200-300 IPs herauskommen, welche bei gleichen Nutzer-Charakteristiken alle die selbe anonymisierte IP haben. Welche dieser IPs die korrekte IP des Besuchers war,
-	  können Sie ohne zusätzliches Wissen nicht entscheiden. Bitte lassen Sie mich wissen, wenn Sie glauben einen Weg gefunden zu haben, dies zu umgehen.<br />
-	  Beachten Sie auch, dass es etwas seltsam anmutet, zunächst die IPs der eigenen Besucher anonymisiert zu speichern um später mit erheblichem Aufwand die IP wieder
-	  rückzuberechnen. Würden Sie den Datenschutz Ihrer Nutzer nicht respektieren, könnten Sie vor vorneherein echte IP-Adressen abspeichern.<br />
-	  Anonymisierte IP-Adressen werden mit einem abschließenden Stern markiert um sie von echten IP-Adressen unterscheidbar zu machen.<br />
-	  <u>Hinweis:</u> Wenn diese Funktion aktiv ist, ist es wie oben diskutiert nicht möglich, im Nachhinein die richtigen IPs zu ermitteln.<br />
+	  kÃ¶nnen Sie ohne zusÃ¤tzliches Wissen nicht entscheiden. Bitte lassen Sie mich wissen, wenn Sie glauben einen Weg gefunden zu haben, dies zu umgehen.<br />
+	  Beachten Sie auch, dass es etwas seltsam anmutet, zunÃ¤chst die IPs der eigenen Besucher anonymisiert zu speichern um spÃ¤ter mit erheblichem Aufwand die IP wieder
+	  rÃ¼ckzuberechnen. WÃ¼rden Sie den Datenschutz Ihrer Nutzer nicht respektieren, kÃ¶nnten Sie vor vorneherein echte IP-Adressen abspeichern.<br />
+	  Anonymisierte IP-Adressen werden mit einem abschlieÃŸenden Stern markiert um sie von echten IP-Adressen unterscheidbar zu machen.<br />
+	  <u>Hinweis:</u> Wenn diese Funktion aktiv ist, ist es wie oben diskutiert nicht mÃ¶glich, im Nachhinein die richtigen IPs zu ermitteln.<br />
 	  Beachten Sie auch die <a href="config_settings_de.html#config_ip_anonymous">Konfigurations-Dokumentation</a>.
     </p>
     <p>
@@ -585,7 +585,7 @@ Regul&auml;re Ausdr&uuml;cke von Jeffrey Friedl ISBN: 3-89721-349-4</p>
     <h3>
       <a name="faq42" id="faq42">Wie binde ich CrazyStat in Wordpress ein?</a>
     </h3>
-    <p>Dies wird <a href="http://blog.christosoft.de/?p=148" target="_blank">im Christosoft Blog erklärt</a>.
+    <p>Dies wird <a href="http://blog.christosoft.de/?p=148" target="_blank">im Christosoft Blog erklÃ¤rt</a>.
 	</p>
 	<p>
       <a href="#top">Nach oben</a>
