@@ -291,10 +291,34 @@ if (empty($message_fatal)) {
 								&& !isset($_SESSION['error_including_pfc'])))) {
 			if (isset($_GET['clearcache']))
 				$message_error .= L_ANALYZE_MSG_ERR_GUEST_CLEAR_CACHE;
+			
+			if($pfc_compress) {
+				// we are going to include a compressed file
+				// PHP extension suhosin might not allow us to use zlib-wrapper
+				// for inclusion, so we need to check whether we are allowed to
+				$check_suhosin=ini_get('suhosin.executor.include.whitelist');
+				if($check_suhosin!==false && strpos($check_suhosin,'zlib')===false) {
+					// suhosin is enabled and it does not allow zlib-inclusion :(
+					// so we need to uncompress the file first
+					$pfc_comp=fopen('compress.zlib://'.$pfc_filename,'r');
+					$pfc_uncomp_filename = tempnam("/tmp", "CrazyStat_cachefile_");
+					$pfc_uncomp_handle = fopen($pfc_uncomp_filename, "w");
+					while(!feof($pfc_comp)) fwrite($pfc_uncomp_handle, fgets($pfc_comp));
+					fclose($pfc_comp);
+					fclose($pfc_uncomp_filename);
+					$pfc_filename=$pfc_uncomp_filename;
+					$pfc_compress=false;
+				}
+				
+			}
 			$error_including_pfc = true;
 			@include_once(($pfc_compress ? 'compress.zlib://' : '')
 					. $pfc_filename);
 			$error_including_pfc = false;
+			if(isset($pfc_uncomp_filename) && is_file($pfc_uncomp_filename)) {
+				// we had uncompressed a cache-file temporarily. Unlink it now.
+				unlink($pfc_uncomp_filename);
+			}
 			if (isset($save_timestamp)) {
 				$save_monat = date('m', $save_timestamp);
 				$save_jahr = date('Y', $save_timestamp);
