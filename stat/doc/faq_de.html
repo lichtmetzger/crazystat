@@ -300,14 +300,13 @@ dieses Features m&ouml;glichst in allen Dateien $set_rel_path festlegen.<br />
 --- 2. M&ouml;glichkeit: ---<br />
 Sie setzen $config_rel_path auf den Pfad von der Domain aus gesehen, beginnend mit einem
 Slash. Beispiel: "http://www.meineseite.de/stat/" --&gt; $config_rel_path="/stat/".<br />
-Diese M&ouml;glichkeit wird nicht empfohlen und funktioniert nicht immer.
-(Nicht wenn $config_xhtml=true und $config_counter_enabled=true)<br />
+Diese M&ouml;glichkeit funktioniert eventuell nicht immer, ist aber meist leichter umzusetzen als M&ouml;glichkeit 1.<br />
 <br />
 --- 3. M&ouml;glichkeit: ---<br />
 Sie setzen $config_rel_path auf den absoluten Pfad (URI) zur Statistik, also z.B.
-"http://www.meineseite.de/stat/". Diese M&ouml;glichkeit wird nicht empfohlen und
-funktioniert nicht immer.<br />
-(Nicht wenn $config_xhtml=true und $config_counter_enabled=true)</p>
+"http://www.meineseite.de/stat/".<br />
+Diese M&ouml;glichkeit funktioniert eventuell nicht immer, ist aber meist leichter umzusetzen als M&ouml;glichkeit 1.
+</p>
 
 <p><a href="#top">Nach oben</a></p><h3><a name="faq15"></a>Wie kann ich den Counter nur auf bestimmten Seiten anzeigen lassen?</h3>
 <p>Indem Sie folgenden Code auf der Seite verwenden, auf der der Counter angezeigt werden

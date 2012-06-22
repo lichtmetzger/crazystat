@@ -301,7 +301,7 @@ if (empty($message_fatal)) {
 					// suhosin is enabled and it does not allow zlib-inclusion :(
 					// so we need to uncompress the file first
 					$pfc_comp=fopen('compress.zlib://'.$pfc_filename,'r');
-					$pfc_uncomp_filename = tempnam("/tmp", "CrazyStat_cachefile_");
+					$pfc_uncomp_filename = tempnam(sys_get_temp_dir(), 'CrazyStat_cachefile_');
 					$pfc_uncomp_handle = fopen($pfc_uncomp_filename, "w");
 					while(!feof($pfc_comp)) fwrite($pfc_uncomp_handle, fgets($pfc_comp));
 					fclose($pfc_comp);

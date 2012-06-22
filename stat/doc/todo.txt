@@ -147,3 +147,5 @@ ToDos and Ideas for CrazyStat:
  - Visitor distinction by (hashed?) session-id (NAT-users etc.)
    optionally? (all hits/by IP / by session)
    Generate virtual anonymous IP from session ID?
+ - optionally include bots (or only bots)?  just like IP-blocking?
+   Module: which bot accesses the site most?
