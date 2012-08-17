@@ -25,7 +25,7 @@ define('L_PASSWORD_NEW_PASSWORD','Neues Passwort');
 define('L_PASSWORD_REPEAT_PASSWORD','Passwort wiederholen');
 define('L_PASSWORD_CHANGE_AND_LOGIN','Ändern und Einloggen');
 define('L_PASSWORD_MSG_ERR_NOMD5','Achtung! Das neue Passwort muss im Klartext übertragen werden, da Sie $config_stat_password_md5=false gesetzt haben.<br />Es wird empfohlen, dies auf true zu setzen und das Passwort verschlüsselt abzuspeichern (s. FAQ).');
-define('L_PASSWORD_MSG_ERR_NO_MD5JS','Achtung! Das Passwort muss im Klartext übertragen werden, da die Datei src/extensions/md5.js fehlt. Es wird empfohlen, diese Extension nicht zu löschen. Die Datei ist im <a href="http://www.christosoft.de/_download/crazystat_current_version" target="_blank">CrazyStat-Downbload</a> enthalten.');
+define('L_PASSWORD_MSG_ERR_NO_MD5JS','Achtung! Das Passwort muss im Klartext übertragen werden, da die Datei src/extensions/md5.js fehlt. Es wird empfohlen, diese Extension nicht zu löschen. Die Datei ist im <a href="http://www.christosoft.de/_download/crazystat_current_version" target="_blank">CrazyStat-Download</a> enthalten.');
 
 // index.php  (manches auch in index.php genutzt)
 define('L_INDEX_WELCOME','Herzlich willkommen!');
