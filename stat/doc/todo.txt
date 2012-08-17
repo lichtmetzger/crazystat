@@ -1,4 +1,6 @@
 ToDos and Ideas for CrazyStat:
+ - include.php: Move everything in a function, to avoid name collisions
+   of variables etc.
  - login screen: when another language was selected, reload
    (only if no user/pw yet!)
  - Monday or Sunday first day of the week: Allow language-file to overwrite the

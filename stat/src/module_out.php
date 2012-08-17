@@ -269,10 +269,11 @@ function module_out($modul) {
 								$eintrag = L_ANALYZE_UNSAVED;
 							elseif ($eintrag == '?')
 								$eintrag = L_ANALYZE_UNKNOWN_RESOLUTION;
+							$eintrag =  htmlentities($eintrag, ENT_COMPAT, "UTF-8");
 						}
 						echo '<tr><td><span style="background-color:'
 								. $farben[$i] . ';">&nbsp;&nbsp;</span>&nbsp;'
-								. htmlentities($eintrag, ENT_COMPAT, "UTF-8") . '</td><td>'
+								. $eintrag . '</td><td>'
 								. $anzahl . '</td><td>' . $prozent
 								. ' %</td></tr>';
 						$i++;
@@ -669,7 +670,9 @@ function module_out($modul) {
 															. $eintrag_ungekuertzt)
 											. '\' target="_blank">' . $eintrag
 											. '</a>';
-							} elseif ($modul == 'colordepth') {
+							} elseif ($modul == 'resolution') {
+								$eintrag = htmlentities($eintrag, ENT_COMPAT, "UTF-8");
+							} elseif ($modul == 'colordepth' && $eintrag != L_MODULEOUT_NO_DATA) {
 								$eintrag = '<span title="' . pow(2, $eintrag)
 										. ' ' . L_MODULEOUT_COLORS . '">'
 										. prettyInt(pow(2, $eintrag)) . ' '
