@@ -165,7 +165,7 @@ window.onload=CrazyStat;
 </script>
 <?php echo $crazystat_link; ?><img id="CrazyStatImage" src="<?php echo $config_rel_path; ?>src/img/blind.gif" <?php echo $crazystat_attribute; ?> width="1" /><?php if(!empty($crazystat_link)) echo '</a>';
 if($config_xhtml_noscript) { ?>
-<noscript><?php echo $crazystat_link; ?><img src="<?php echo $config_rel_path; ?>stat.php?datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add.'&amp;t='.$crazystat_zeit; ?>" <?php echo $crazystat_attribute.' width="'.$crazystat_breite.'"'; ?> /><?php if(!empty($crazystat_link)) echo '</a>'; ?></noscript>
+<noscript><?php echo $crazystat_link; ?><img src="<?php echo $config_rel_path; ?>src/stat.php?datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add.'&amp;t='.$crazystat_zeit; ?>" <?php echo $crazystat_attribute.' width="'.$crazystat_breite.'"'; ?> /><?php if(!empty($crazystat_link)) echo '</a>'; ?></noscript>
 <?php
  } }
 else
