@@ -55,6 +55,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 <html>
  <head>
   <title><?php echo L_ANONYMOUS_REDIRECT.' '.$_GET['go_anonym']; ?></title>
+  <meta name="referrer" content="never" />
   <meta http-equiv="refresh" content="2; URL=<?php echo $_GET['go_anonym']; ?>" />
  </head>
  <body>
