@@ -1,6 +1,10 @@
 ToDos and Ideas for CrazyStat:
+ - calendar: next to the calendar-icon, add an arrow to open a drop-down menu
+   with all the important (relative) timespans like today, last24h, this week,
+   last 7 days, this month, a month's time, this year, 12 months, all time
+ - number-format all numbers  (e.g. visitors > 1000 etc.)
  - include.php: Move everything in a function, to avoid name collisions
-   of variables etc.
+   of variables etc. (use namespace? for constants?)
  - login screen: when another language was selected, reload
    (only if no user/pw yet!)
  - Monday or Sunday first day of the week: Allow language-file to overwrite the
@@ -58,6 +62,7 @@ ToDos and Ideas for CrazyStat:
  - show_log: link IP-adresses (if not anonymized) to a lookup site (configurable)
    like http://ip-whois-lookup.com/lookup.php?ip= or
    http://www.infosniper.net/index.php?ip_address=
+   Feature Request:   http://forum.christosoft.de/viewtopic.php?f=7&t=6
  - sortable table: display sort-icon onmousover
  - special default-preset with the settings of the last session
  - menu: breadcrumbs: Statistic > Logs > stat.log
@@ -125,6 +130,8 @@ ToDos and Ideas for CrazyStat:
  - StatServer-Docu
  - Country or Language of visitors (Maxmind GeoIP (GeoLite) Country/City?)
    detect US-States? continent-module? City?
+   http://code.google.com/p/ip-countryside/
+   Feature Request: http://forum.christosoft.de/viewtopic.php?f=7&t=6
  - improve queryregex.txt (more engines, not all sites etc ...)
  - How many visitors come from which search engine? (search-engine-module?)
  - Diagrams using jpGraph? (http://www.aditus.nu/jpgraph/)
@@ -144,6 +151,9 @@ ToDos and Ideas for CrazyStat:
  - automatic check whether .htaccess-protection of logfiles works
  - heatmaps / where do people click? / ...
  - ignore visits from certain IPs (setting)
+   Feature Request: http://forum.christosoft.de/viewtopic.php?f=7&t=6
+ - ignore visits from the IP that was used to logn into CrazyStat for a certain
+   amount of time http://forum.christosoft.de/viewtopic.php?f=7&t=6
  - include.php - (optionally): do not echo the (X)HTML, put everything in a
    variable makes it easier to integrate CrazyStat into some CMS
  - Visitor distinction by (hashed?) session-id (NAT-users etc.)
@@ -151,3 +161,4 @@ ToDos and Ideas for CrazyStat:
    Generate virtual anonymous IP from session ID?
  - optionally include bots (or only bots)?  just like IP-blocking?
    Module: which bot accesses the site most?
+   Feature Request: http://forum.christosoft.de/viewtopic.php?f=7&t=15
