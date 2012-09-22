@@ -53,109 +53,109 @@ require_once('lang/'.$config_stat_lang.'.php');
 
 if(!isset($_GET['modul'])) die(L_MSG_ERR_NO_MODULE.' '.L_MSG_ERR_INCLUDE_ONLY);
 
-if(isset($_GET['size']) && is_numeric($_GET['size'])) $breite=$_GET['size'];
-else $breite=$config_stat_pie_size;
-$hoehe=$breite;
+if(isset($_GET['size']) && is_numeric($_GET['size'])) $width=$_GET['size'];
+else $width=$config_stat_pie_size;
+$height=$width;
 
 // anti-aliasing
-if(!is_callable('imagecreatetruecolor') || !is_callable('imagecopyresampled')) $glaett_faktor=1;
-else $glaett_faktor=4;
-$orig_breite=$breite;
-$orig_hoehe=$hoehe;
-$breite*=$glaett_faktor;
-$hoehe*=$glaett_faktor;
+if(!is_callable('imagecreatetruecolor') || !is_callable('imagecopyresampled')) $anti_alias_factor=1;
+else $anti_alias_factor=4;
+$orig_width=$width;
+$orig_height=$height;
+$width*=$anti_alias_factor;
+$height*=$anti_alias_factor;
 
 
 if(!isset($_SESSION['module_'.$_GET['modul'].'_data']))
  {
  header('Content-type: image/png');
- $handle=imagecreate($orig_breite,$orig_hoehe);
- $mes_farbe=imagecolorallocate($handle,255,255,255);
- $mes_farbe=imagecolorallocate($handle,255,0,0);
- imagestring($handle,1,1,1,'FEHLER',$mes_farbe);
- imagestring($handle,1,1,15,'Keine Daten',$mes_farbe);
+ $handle=imagecreate($orig_width,$orig_height);
+ $message_color=imagecolorallocate($handle,255,255,255);
+ $message_color=imagecolorallocate($handle,255,0,0);
+ imagestring($handle,1,1,1,strtoupper(L_MSG_ERR),$message_color);
+ imagestring($handle,1,1,15,L_MODULEOUT_NO_DATA,$message_color);
  imagepng($handle);
  imagedestroy($handle);
  exit;
  }
-$werte=$_SESSION['module_'.$_GET['modul'].'_data'];
+$module_data=$_SESSION['module_'.$_GET['modul'].'_data'];
 
 
-$farben=$config_stat_pie_colors;
-if(!isset($werte)) $werte[]=0;
+$slice_colors=$config_stat_pie_colors;
+if(!isset($module_data)) $module_data[]=0;
 
-$diagramm=imagecreate($breite,$hoehe);
+$diagram_img=imagecreate($width,$height);
 
-$hoehe--;
-$breite--;
-$weiss=imagecolorallocate($diagramm, 255, 255, 255);
-$schwarz=imagecolorallocate($diagramm, 0, 0, 0);
+$height--;
+$width--;
+$color_background=imagecolorallocate($diagram_img, 255, 255, 255);
+$color_border=imagecolorallocate($diagram_img, 0, 0, 0);
 
 
-imagefilledrectangle($diagramm,0,0,$breite,$hoehe,$weiss);
+imagefilledrectangle($diagram_img,0,0,$width,$height,$color_background);
 
-foreach($farben as $nummer => $farbe)
+foreach($slice_colors as $color_id => $color_string)
  {
- $rgb=hex2rgb($farbe);
- $farben[$nummer]=imagecolorallocate($diagramm, $rgb[0],$rgb[1],$rgb[2]);
+ $color_rgb=hex2rgb($color_string);
+ $slice_colors[$color_id]=imagecolorallocate($diagram_img, $color_rgb[0],$color_rgb[1],$color_rgb[2]);
  }
 
-$grauton=0;
-$winkel=270;    // top mid is 270 deegree, so we start here
-$teil=0;
+$gray_shade=0;
+$angle=270;    // top mid is 270 deegree, so we start here
+$slice_nr=0;
 $over360=false; // have we crossed mid right (360 degree) once?
-rsort($werte);
+rsort($module_data);
 
-foreach($werte as $wert)
+foreach($module_data as $value_abs)
  {
- $wert=prozent($wert,$_SESSION['module_'.$_GET['modul'].'_total']);    // percentage
+ $value_rel=prozent($value_abs,$_SESSION['module_'.$_GET['modul'].'_total']);    // percentage
 
- if(!isset($farben[$teil]))
+ if(!isset($slice_colors[$slice_nr]))
   {
-  $grauton+=20;
-  if($grauton>255) $grauton=0;
-  $farben[$teil]=imagecolorallocate($diagramm,$grauton,$grauton,$grauton);
+  $gray_shade+=20;
+  if($gray_shade>255) $gray_shade=0;
+  $slice_colors[$slice_nr]=imagecolorallocate($diagram_img,$gray_shade,$gray_shade,$gray_shade);
   }
 
- if($winkel>360)
+ if($angle>360)
   {
   $over360=true;
-  $winkel-=360;
+  $angle-=360;
   }
- $wert=round(($wert/100)*360);  // degree
+ $value_degree=round(($value_rel/100)*360);  // degree
 
- if($wert>0 && (!$over360 || $winkel+$wert<=270))
+ if($value_degree>0 && (!$over360 || $angle+$value_degree<=270))
   {
-  // Tortenstueck zeichnen
-  @$ausfuellen=imagefilledarc($diagramm, round($breite/2), round($hoehe/2), $breite, $hoehe, $winkel, $winkel+$wert, $farben[$teil],IMG_ARC_EDGED);
-  $winkel+=$wert;
+  // draw pie slice
+  @imagefilledarc($diagram_img, round($width/2), round($height/2), $width, $height, $angle, $angle+$value_degree, $slice_colors[$slice_nr],IMG_ARC_EDGED);
+  $angle+=$value_degree;
   }
- $teil++;
+ $slice_nr++;
  }
 
 
-// Redraw circle (border-width: $glaett_faktor, so after anti-aliasing it is 1px)
-for($i=0; $i<$glaett_faktor; $i++)
- imagearc($diagramm, round($breite/2), round($hoehe/2), $breite-$i, $hoehe-$i, 0, 360, $schwarz);
+// Redraw circle (border-width: $anti_alias_factor, so after anti-aliasing it is 1px)
+for($i=0; $i<$anti_alias_factor; $i++)
+ imagearc($diagram_img, round($width/2), round($height/2), $width-$i, $height-$i, 0, 360, $color_border);
 
 // now do the anti-aliasing
 if(is_callable('imagecreatetruecolor') && is_callable('imagecopyresampled'))
  {
- $diagramm_geglaettet=imagecreatetruecolor($orig_breite, $orig_hoehe);
- imagecopyresampled($diagramm_geglaettet, $diagramm, 0, 0, 0, 0, $orig_breite, $orig_hoehe, $breite+1, $hoehe+1);
+ $diagram_img_antaliased=imagecreatetruecolor($orig_width, $orig_height);
+ imagecopyresampled($diagram_img_antaliased, $diagram_img, 0, 0, 0, 0, $orig_width, $orig_height, $width+1, $height+1);
  }
 else
  {
  // fallback because old gdlib misses essential functions -> do not use anti-aliasing
- $diagramm_geglaettet=imagecreate($orig_breite, $orig_hoehe);
- imagecopyresized ($diagramm_geglaettet, $diagramm, 0, 0, 0, 0, $orig_breite, $orig_hoehe, $breite+1, $hoehe+1);
+ $diagram_img_antaliased=imagecreate($orig_width, $orig_height);
+ imagecopyresized ($diagram_img_antaliased, $diagram_img, 0, 0, 0, 0, $orig_width, $orig_height, $width+1, $height+1);
  }
 
 
 header('Content-type: image/png');
-imagepng($diagramm_geglaettet);
-imagedestroy($diagramm_geglaettet);
-imagedestroy($diagramm);
+imagepng($diagram_img_antaliased);
+imagedestroy($diagram_img_antaliased);
+imagedestroy($diagram_img);
 
 // convert Hex into RGB
 function hex2rgb($hex)
@@ -167,9 +167,9 @@ function hex2rgb($hex)
  }
 
 // Percentage helper-function
-function prozent($teil, $gesamt)
+function prozent($part, $total)
  {
- if($gesamt==0) return 100;
- return @$teil/$gesamt*100;
+ if($total==0) return 100;
+ return @$part/$total*100;
  }
 ?>
