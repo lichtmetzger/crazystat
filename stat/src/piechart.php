@@ -89,7 +89,7 @@ $diagram_img=imagecreate($width,$height);
 $height--;
 $width--;
 $color_background=imagecolorallocate($diagram_img, 255, 255, 255);
-$color_border=imagecolorallocate($diagram_img, 0, 0, 0);
+$color_border=imagecolorallocate($diagram_img, 200, 200, 200);
 
 
 imagefilledrectangle($diagram_img,0,0,$width,$height,$color_background);
