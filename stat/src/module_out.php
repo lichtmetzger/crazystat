@@ -120,14 +120,12 @@ function module_out($modul) {
       <tr><td><?php echo L_MODULEOUT_HITS_USER_ONLINE; ?>:</td><td><?php echo $module_werte['user_online']; ?></td></tr>
       <tr><td><?php echo L_MODULEOUT_HITS_MAX_DAY; ?> <?php echo @$module_werte['max_tag']; ?>:</td><td><?php echo $module_werte['max']; ?></td></tr>
       <tr><td><?php echo L_MODULEOUT_HITS_AV_PER_DAY; ?></td><td>
-	      <?php echo number_format($module_werte['durchschnitt'], 2,
-				L_DECIMAL_SEPARATOR, L_THOUSANDS_SEPARATOR);
+	      <?php echo my_number_format($module_werte['durchschnitt']);
 		  ?></td></tr>
       <tr>
        <td><?php echo L_MODULEOUT_HITS_HITS_PER_USER; ?></td>
        <td>
-<?php echo number_format($module_werte['proUser'], 2, L_DECIMAL_SEPARATOR,
-						  L_THOUSANDS_SEPARATOR);
+<?php echo my_number_format($module_werte['proUser']);
 ?>
 	   </td>
 	  </tr>
@@ -140,8 +138,7 @@ function module_out($modul) {
 	   </td>
 	  </tr>
       <tr><td><?php echo L_MODULEOUT_HITS_VISIT_TIME_TOTAL; ?></td><td>
-<?php echo number_format($module_werte['visit_time_total'] / 60 / 60 / 24, 2,
-				L_DECIMAL_SEPARATOR, L_THOUSANDS_SEPARATOR).' '.L_DAYS;
+<?php echo my_number_format($module_werte['visit_time_total'] / 60 / 60 / 24).' '.L_DAYS;
 ?></td></tr>
      </tbody>
     </table>
@@ -243,7 +240,7 @@ function module_out($modul) {
          <td><?php echo $gesamt; ?></td>
          <td>
 <?php
-				echo '(' . L_AVG_SYMBOL .' '. average($gesamt, $module_werte) . ')';
+				echo '(' . L_AVG_SYMBOL .' '. my_number_format(average($gesamt, $module_werte)) . ')';
 ?>
 		 </td>
         </tr>
@@ -366,10 +363,10 @@ function module_out($modul) {
 								// Hostname ausgeben
 								if (is_array($wert)) { // einzelne Referer durchgehen
 									echo '<span class="ref130">' . $hostanz
-											. '</span><span class="ref20"><img src="img/bar1.gif" height="10" width="'
+											. '</span><span class="ref20"><img src="img/bar1.gif" height="18" width="'
 											. $prozent2 . '" title="'
 											. $prozent . '%" alt="' . $prozent
-											. '%" /><img src="img/bar0.gif" height="10" width="'
+											. '%" /><img src="img/bar0.gif" height="18" width="'
 											. $rest . '" title="' . $prozent
 											. '%" alt="" /></span>'; // Anzahl Hits  und Balken des Host
 									echo '<ul>';
@@ -410,7 +407,7 @@ function module_out($modul) {
 													. $prozent2 . '" title="'
 													. $prozent . '%" alt="'
 													. $prozent
-													. '%" /><img src="img/bar0.gif" height="10" width="'
+													. '%" /><img src="img/bar0.gif" height="18" width="'
 													. $rest . '" title="'
 													. $prozent
 													. '%" alt="" /></span>';
@@ -430,7 +427,7 @@ function module_out($modul) {
 					echo '<div style="border-top: 1px solid #CACACA;"><span style="margin-left: 20px">'
 							. L_MODULEOUT_TOTAL
 							. '</span><span class="ref130">' . $gesamt
-							. ' (&#248; ' . average($gesamt, $module_werte)
+							. ' (&#248; ' . my_number_format(average($gesamt, $module_werte))
 							. ')</span></div>';
 				} elseif ($_SESSION['tree'] == 'ajax') { //mit plugin ajaxTree
 
@@ -490,7 +487,7 @@ function module_out($modul) {
 							. L_MODULEOUT_PAGES . '/' . L_MODULEOUT_DOMAINS
 							. '</td><td>' . $gesamt . '/'
 							. count($hostanz_array) . '</td><td>' . '('
-							. L_AVG_SYMBOL .' '. average($gesamt, $module_werte)
+							. L_AVG_SYMBOL .' '. my_number_format(average($gesamt, $module_werte))
 							. ')' . '</td></tr>';
 ?>
       </tfoot>
@@ -549,10 +546,10 @@ function module_out($modul) {
 										. '</td>
 								<td>' . $host_count
 										. '</td>
-								<td><img src="img/bar1.gif" height="10" width="'
+								<td><img src="img/bar1.gif" height="18" width="'
 										. $prozent2 . '" title="' . $prozent
 										. '%" alt="' . $prozent
-										. '%" /><img src="img/bar0.gif" height="10" width="'
+										. '%" /><img src="img/bar0.gif" height="18" width="'
 										. $rest . '" title="' . $prozent
 										. '%" alt="" /></td>
        </tr>';
@@ -592,6 +589,7 @@ function module_out($modul) {
 											. $h . 'px; overflow:auto; ' : '')
 							. 'width:100%;">';
 				}
+				$average_value = average($gesamt, $module_werte);
 				echo '<table class="daten" id="daten_' . $modul
 						. '"><thead><tr><th title="' . L_MODULEOUT_SORT_BY
 						. ' ' . $name . '">' . $name . '</th><th title="'
@@ -602,7 +600,7 @@ function module_out($modul) {
 						. '</th></tr></thead>
           <tfoot><tr class="gesamt"><td>' . L_MODULEOUT_TOTAL . '</td><td>'
 						. $gesamt . '</td><td>' . '(' . L_AVG_SYMBOL . ' '
-						. average($gesamt, $module_werte)
+						. my_number_format($average_value)
 						. ')</td></tr></tfoot>
           <tbody>';
 				if ($modul == 'weekday') {
@@ -623,6 +621,9 @@ function module_out($modul) {
 						for ($goid = 1; $goid < $startid; $goid++)
 							next($module_werte);
 					}
+					$avg_bar_length = round(prozent($average_value, 
+							($config_stat_long_bars ? $max : $gesamt)) / 100
+							* $config_stat_bar_length);
 					for ($togo = count($module_werte); $togo > 0; $togo--) {
 						if (current($module_werte) === false) {
 							reset($module_werte); // start from the beginning
@@ -634,10 +635,11 @@ function module_out($modul) {
 								|| ($_SESSION['set_' . $modul . '_all']
 										|| $i < $config_stat_limit[$modul])) {
 							$prozent = prozent($anzahl, $gesamt);
-							if ($config_stat_long_bars && isset($max))
+							if ($config_stat_long_bars && isset($max)) {
 								$prozent2 = round(
 										prozent($anzahl, $max) / 100
-												* $config_stat_bar_length);
+												* $config_stat_bar_length);											
+							}												
 							else
 								$prozent2 = round(
 										$prozent / 100
@@ -712,13 +714,31 @@ function module_out($modul) {
 										. '><td' . $markiere . '>' . $eintrag
 										. '</td>';
 							echo '<td' . $markiere . '>' . $anzahl . '</td><td'
-									. $markiere
-									. '><img src="img/bar1.gif" height="10" width="'
-									. $prozent2 . '" title="' . $prozent
-									. '%" alt="' . $prozent
-									. '%" /><img src="img/bar0.gif" height="10" width="'
-									. $rest . '" title="' . $prozent
-									. '%" alt="" /></td></tr>' . "\n    ";
+									. $markiere. ' style="padding:0">';
+							if($prozent2 < $avg_bar_length) {
+								echo '<img src="img/bar1.gif" height="18" width="'
+										. $prozent2 . '" title="' . $prozent
+										. '%" alt="' . $prozent. '%" />'
+										. '<img src="img/bar0.gif" height="18" width="'
+										. ($avg_bar_length - $prozent2) . '" title="' . $prozent
+										. '%" alt="" />'
+										. '<img src="img/bar2.gif" width="1" height="18" />'
+										. '<img src="img/bar0.gif" height="18" width="'
+										. ($config_stat_bar_length - $avg_bar_length-1) . '" title="' . $prozent
+										. '%" alt="" />';
+							} else {
+								echo '<img src="img/bar1.gif" height="18" width="'
+										. $avg_bar_length . '" title="' . $prozent
+										. '%" alt="' . $prozent. '%" />'
+										. '<img src="img/bar2.gif" width="1" height="18" />'
+										. '<img src="img/bar1.gif" height="18" width="'
+										. ($prozent2 - $avg_bar_length - 1) . '" title="' . $prozent
+										. '%" alt="" />'
+										. '<img src="img/bar0.gif" height="18" width="'
+										. ($config_stat_bar_length - $prozent2) . '" title="' . $prozent
+										. '%" alt="" />';
+							}
+							echo '</td></tr>' . "\n    ";
 							unset($eintrag_ungekuertzt);
 							$i++;
 						} else
@@ -895,8 +915,10 @@ function average($gesamt, $module_werte) {
 	$c = count($module_werte) - $i;
 	if ($c == 0)
 		return 0;
-	return number_format($gesamt / $c, 2, L_DECIMAL_SEPARATOR,
-			L_THOUSANDS_SEPARATOR);
+	return $gesamt / $c;
 }
 
-   ?>
+function my_number_format($x, $n = 2) {
+	return number_format($x, $n, L_DECIMAL_SEPARATOR, L_THOUSANDS_SEPARATOR);
+}
+?>
