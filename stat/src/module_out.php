@@ -643,7 +643,7 @@ function module_out($modul) {
 										$prozent / 100
 												* $config_stat_bar_length);
 							$rest = $config_stat_bar_length - $prozent2;
-							if (isset($max) && $anzahl == $max
+							if (isset($max) && $anzahl == $max  && $anzahl > 0
 									&& !in_array($modul, $list_modules_limit))
 								$markiere = " class='max'";
 							else
