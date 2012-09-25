@@ -205,6 +205,7 @@ else // Login-form
     refresh_rand();
     pass2=MD5(MD5(pass+salt)+rand);
     document.getElementById('md5Input').value=pass2;
+    document.getElementById('passInput').setAttribute('autocomplete','off');
     document.getElementById('passInput').value='********';
     <?php if($config_stat_password_md5 && isset($_GET['change_pass'])) { ?>
     var passNeu=document.getElementById('passwort_neuInput').value;
