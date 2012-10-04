@@ -176,7 +176,7 @@ define('L_SHOWSTAT_PRESETS_MANAGE','Manage Presets');
 define('L_SHOWSTAT_CLEAR_CACHE','Clear cache');
 define('L_SHOWSTAT_REFRESH_ALL','Refresh all');
 define('L_SHOWSTAT_LOGS','Logs');
-define('L_SHOWSTAT_MSG_OK_WAIT','The operation you requested takes a moment. Probably the statistic has to be regenerated which may take some time.');
+define('L_SHOWSTAT_MSG_OK_WAIT','The operation you requested may take a moment because some statistics may have to be regenerated.');
 
 // preset-specific
 define('L_PRESET_DEFAULT_YEAR','last 12 months');
