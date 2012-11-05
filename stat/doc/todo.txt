@@ -1,4 +1,6 @@
 ToDos and Ideas for CrazyStat:
+ - days module: if the days-module does not aggregate multiple days,
+   highlight weekends(suturday+sunday) somehow
  - calendar: next to the calendar-icon, add an arrow to open a drop-down menu
    with all the important (relative) timespans like today, last24h, this week,
    last 7 days, this month, a month's time, this year, 12 months, all time
