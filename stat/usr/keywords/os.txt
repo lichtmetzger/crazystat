@@ -35,6 +35,7 @@ OS/2
 Unix
 Symbian
 SymbOS=Symbian
+RIM Tablet OS
 Profile/MIDP-2.0 Configuration/CLDC-1.1=Mobile Phone
 profile/MIDP-2.0 configuration/CLDC-1.1=Mobile Phone
 Profile/MIDP-2.1 Configuration/CLDC-1.1=Mobile Phone

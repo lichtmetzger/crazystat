@@ -13,6 +13,7 @@ Crawler
 bot.htm
 bot.php
 spider.htm
+facebookexternalhit
 msnbot
 Ask Jeeves/Teoma
 Google Web Preview
@@ -122,3 +123,5 @@ yoogliFetchAgent/
 Zao/
 Zealbot
 ZyBorg/
+Evernote Clip Resolver
+PHPCrawl

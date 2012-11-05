@@ -6,6 +6,16 @@ K-Meleon
 Nautilus
 KHTML
 Camino
+Firefox/30=Firefox 30
+Firefox/29=Firefox 29
+Firefox/28=Firefox 28
+Firefox/27=Firefox 27
+Firefox/26=Firefox 26
+Firefox/25=Firefox 25
+Firefox/24=Firefox 24
+Firefox/23=Firefox 23
+Firefox/22=Firefox 22
+Firefox/21=Firefox 21
 Firefox/20=Firefox 20
 Firefox/19=Firefox 19
 Firefox/18=Firefox 18
@@ -37,6 +47,7 @@ Galeon
 Links
 Lynx
 Mosaic
+Midori
 WebTV
 Xbox
 Navigator/9=Netscape 9
@@ -81,4 +92,5 @@ HTTrack
 CFNetwork
 Java
 WebCapture
+NetSurf
 Mozilla
