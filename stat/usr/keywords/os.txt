@@ -7,6 +7,7 @@ Windows 2000=Win 2000
 NT 5.2=Win 2003
 NT 6.0=Win Vista
 NT 6.1=Win 7
+NT 6.2=Win 8
 NT 4=Win NT
 NT4=Win NT
 Media Center=Win XP Media
