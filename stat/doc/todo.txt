@@ -1,4 +1,10 @@
 ToDos and Ideas for CrazyStat:
+ - detect Google Chrome Frame
+   see http://www.chromium.org/developers/how-tos/chrome-frame-getting-started 
+ - automatically check for updates of keyword-files and ask the user if
+   keywords should be updated. (grab files from svn/website)
+ - bar charts: skip 0px-wide images (show up in some browsers as 1ps-wide)
+ - cache pie charts (not always regenerate them)
  - days module: if the days-module does not aggregate multiple days,
    highlight weekends(suturday+sunday) somehow
  - calendar: next to the calendar-icon, add an arrow to open a drop-down menu
