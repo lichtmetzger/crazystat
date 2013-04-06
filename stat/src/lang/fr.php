@@ -7,7 +7,7 @@ define('L_PASSWORD_MES_ERR_NEW_INVALID','Nouveau mot de passe vide ou n&#39est p
 define('L_PASSWORD_MES_ERR_NOT_CHANGED','Mot de passe inchangé!');
 define('L_PASSWORD_MES_ERR_RETRY','Réessayer');
 define('L_PASSWORD_MES_ERR_WRITING_FAILED','Le fichier de mot de passe ne peut être ouvert en écriture , veuillez vérifier les droits.');
-define('L_PASSWORD_MES_ERR_SEE_README','Bienvenue! Il semble que vous n&#39avez pas installé CrazyStat . Référez vous à l&#39<a href="../doc/README_en.html" target="_blank">Readme</a> installation de CrazyStat.');
+define('L_PASSWORD_MES_ERR_SEE_README','Bienvenue! Il semble que vous n&#39avez pas installé correctement CrazyStat . Référez vous à l&#39<a href="../doc/README_en.html" target="_blank">Readme</a> installation de CrazyStat.');
 define('L_PASSWORD_MES_OK_CHANGED','Mot de passe changé!');
 define('L_PASSWORD_MES_ERR_NOT_LOGGED_IN','Session expirée ou vous n&#39êtes pas connecté.');
 define('L_PASSWORD_MES_ERR_RELOGIN','Reconnexion');
@@ -45,13 +45,13 @@ define('L_ABOUT_FAQ','FAQ');
 define('L_ABOUT_FOR_HELP','pour de l&#39aide.');
 
 // password_protect.php and index.php
-define('L_LOGIN_MENU_HOME','Home');
+define('L_LOGIN_MENU_HOME','Acceuil');
 define('L_LOGIN_MENU_LOGIN','Connexion');
 define('L_LOGIN_MENU_CHANGE_PASSWORD','Changer le mot de passe');
 
 // calendar.php
 define('L_CALENDAR_TITLE','Definir la période');
-define('L_CALENDAR_MSG_ERR_YEAR_INVALID','Années invalide , utilisez seulement des chiffres.');
+define('L_CALENDAR_MSG_ERR_YEAR_INVALID','Année invalide , utilisez seulement des chiffres.');
 define('L_CALENDAR_MSG_ERR_MONTH_ONLY','Erreur.Sélectionnez le mois <i>et</i> l&#39année .');
 define('L_CALENDAR_MSG_ERR_NO_JS','Comme vous utilisez un navigateur qui ne supporte pas JavaScript ou vous avez désactivé JavaScript, vous devez cliquer pour continuer:');
 define('L_CALENDAR_LIMIT_YEAR','Limite par années');
@@ -60,7 +60,7 @@ define('L_CALENDAR_LIMIT_PERIOD','Limite par période de temps');
 define('L_CALENDAR_MONTH_ABR','Jan Fev Mar Avr Mai Juin Juil Aout Sept Oct Nov Dec');
 define('L_CALENDAR_MONTH_NAMES','Janvier Février Mars Avril Mai Juin Juillet Août Septembre Octobre Novembre Décembre');
 define('L_CALENDAR_WEEKDAYS_ABR','D L M M J V S');
-define('L_CALENDAR_WEEKDAYS','Dimanche Lundi Mardi Mercredi Jeudi Vendredi Samed');
+define('L_CALENDAR_WEEKDAYS','Dimanche Lundi Mardi Mercredi Jeudi Vendredi Samedi');
 define('L_CALENDAR_TODAY','Aujourd&#39hui');
 define('L_CALENDAR_WEEK_START_DAY',0);
 define('L_CALENDAR_START','Début');
@@ -68,7 +68,7 @@ define('L_CALENDAR_END','Fin');
 define('L_CALENDAR_RELATIVE','Relative');
 define('L_CALENDAR_ABSOLUTE','Absolue');
 define('L_CALENDAR_RELATIVE_PRESET','Préréglage');
-define('L_CALENDAR_RELATIVE_CUSTOM','Custom');
+define('L_CALENDAR_RELATIVE_CUSTOM','Personnalisé');
 define('L_CALENDAR_RELATIVE_THIS_WEEK','Cette semaine');
 define('L_CALENDAR_RELATIVE_THIS_MONTH','Ce mois');
 define('L_CALENDAR_RELATIVE_THIS_YEAR','Cette année');
@@ -236,9 +236,9 @@ define('L_PRESETEDITOR_SAVE_PRESET_MSG_ABS','ATTENTION: Vos paramètres actuels 
 define('L_PRESETEDITOR_SAVE_PRESET_MSG_ABS2','L&#39intervale de temps n&#39a aucun sens!');
 define('L_PRESETEDITOR_SAVE_PRESET_DUPLICATE','Ce préréglage est le même que:');
 define('L_PRESETEDITOR_SAVE_PRESET_DUPLICATE_CANNOT_BE_SAVED','Vous ne pouvez sauvegarder que des préréglages différents de ceux éxistant.');
-define('L_PRESETEDITOR_CACHE','Cacher ce préréglage');
-define('L_PRESETEDITOR_CACHE_NOT','Ne pas cacher ce préréglage');
-define('L_PRESETEDITOR_CACHE_UNCACHEABLE','Ce préréglage ne peut être caché');
+define('L_PRESETEDITOR_CACHE','Mettre en cache ce préréglage');
+define('L_PRESETEDITOR_CACHE_NOT','Ne pas mettre en cache ce préréglage');
+define('L_PRESETEDITOR_CACHE_UNCACHEABLE','Ce préréglage ne peut être mis en cache');
 define('L_PRESETEDITOR_MSG_ERR_GUEST','Vous n&#39êtes pas autorisé à gérer les préréglages. Voir <a href="../doc/config_settings_en.html#config_stat_guest_préréglage_manage" target="_blank">$config_stat_guest_préréglage_manage</a> et <a href="../doc/config_settings_en.html#config_stat_user_préréglage_manage" target="_blank">$config_stat_user_préréglage_manage</a>.');
 define('L_PRESETEDITOR_MSG_PRESET_DELETE','Voulez-vous réellement supprimer ce préréglages');
 define('L_PRESETEDITOR_MSG_PRESET_DELETED','Préréglage supprimé');
