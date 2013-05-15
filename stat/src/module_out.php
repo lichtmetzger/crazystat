@@ -656,7 +656,8 @@ function module_out($modul) {
 								if (!isset($config_stat_files_hide_dir)
 										|| $config_stat_files_hide_dir)
 									$eintrag = basename($eintrag);
-								if ($eintrag_ungekuertzt[strlen(
+								if (strlen($eintrag_ungekuertzt)>0 &&
+										$eintrag_ungekuertzt[strlen(
 										$eintrag_ungekuertzt) - 1] == '/')
 									$eintrag .= '/';
 								if (strlen($eintrag)

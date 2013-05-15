@@ -24,9 +24,9 @@ Web: http://www.christosoft.de
 Version: 1.71
 
 *** module_refresh.js ***
-Funktion:    Ajax-Funktion zum Neuladen von Modulen
-Aufrufbar:   nein
-Eingebunden: von show_stat.php
+Function:          Ajax-function to reload modules (optionally with different settings)
+Directly callable: no
+Included:          by show_stat.php as JavaScript
 */
 
 
