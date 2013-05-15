@@ -35,7 +35,7 @@ define ('L_INDEX_NEWS', 'Vijesti od');
 
 // About.php
 define ('L_ABOUT_PLEASE_SEE', 'Molimo pogledajte');
-define ('L_ABOUT_README ',' Pročitaj ');
+define ('L_ABOUT_README','Pročitaj');
 define ('L_ABOUT_FAQ', 'FAQ');
 define ('L_ABOUT_FOR_HELP', 'Za pomoć.');
 
@@ -49,23 +49,23 @@ define ('L_CALENDAR_TITLE', 'Definiraj razdoblje');
 define ('L_CALENDAR_MSG_ERR_YEAR_INVALID', 'Neispravna godina, molimo Vas da koristite samo znamenke.');
 define ('L_CALENDAR_MSG_ERR_MONTH_ONLY', 'Pogreška:. Molimo odaberite mjesec <i> i </ i> godinu dana');
 define ('L_CALENDAR_MSG_ERR_NO_JS', 'Kako da koristite preglednik koji ne podržava JavaScript ili ste isključili JavaScript, morate kliknuti za nastavak:');
-define ('L_CALENDAR_LIMIT_YEAR ',' Limit po godini');
-define ('L_CALENDAR_LIMIT_MONTH ',' Limit po mjesecu');
-define ('L_CALENDAR_LIMIT_PERIOD ',' Limit po vremenskom razdoblju');
+define ('L_CALENDAR_LIMIT_YEAR',' Limit po godini');
+define ('L_CALENDAR_LIMIT_MONTH',' Limit po mjesecu');
+define ('L_CALENDAR_LIMIT_PERIOD',' Limit po vremenskom razdoblju');
 define ('L_CALENDAR_MONTH_ABR', 'Sij Velj Ožu Tra Svi Lip Srp Kol Ruj Lis Stu Pro');
-define ('L_CALENDAR_MONTH_NAMES se', 'Siječanj Veljača Ožujak Travanj Svibanj Lipanj Srpanj Kolovoz Rujan Listopad Studeni Prosinac');
+define ('L_CALENDAR_MONTH_NAMES', 'Siječanj Veljača Ožujak Travanj Svibanj Lipanj Srpanj Kolovoz Rujan Listopad Studeni Prosinac');
 define ('L_CALENDAR_WEEKDAYS_ABR', 'SMTWTF S');
-define ('L_CALENDAR_WEEKDAYS se', 'Nedjelja Ponedjeljak Utorak Srijeda Četvrtak Petak Subota');
+define ('L_CALENDAR_WEEKDAYS', 'Nedjelja Ponedjeljak Utorak Srijeda Četvrtak Petak Subota');
 define ('L_CALENDAR_TODAY', 'Danas');
 define ('L_CALENDAR_WEEK_START_DAY', 0);
 define ('L_CALENDAR_START', 'Početak');
 define ('L_CALENDAR_END', 'Kraj');
 define ('L_CALENDAR_RELATIVE', 'Relativna');
 define ('L_CALENDAR_ABSOLUTE', 'Apsolutnog');
-define ('L_CALENDAR_RELATIVE_PRESET ',' Postavke ');
+define ('L_CALENDAR_RELATIVE_PRESET','Postavke');
 define ('L_CALENDAR_RELATIVE_CUSTOM', 'Prilagođen');
 define ('L_CALENDAR_RELATIVE_THIS_WEEK', 'Ovaj tjedan');
-define ('L_CALENDAR_RELATIVE_THIS_MONTH ',' Ovaj mjesec ');
+define ('L_CALENDAR_RELATIVE_THIS_MONTH','Ovaj mjesec');
 define ('L_CALENDAR_RELATIVE_THIS_YEAR', 'Ova godina');
 define ('L_CALENDAR_RELATIVE_CHECK', 'Provjeri');
 define ('L_CALENDAR_RELATIVE_HELP', 'Molimo Vas pročitajte helpdatoteku o tome kako to radi.');
@@ -134,7 +134,7 @@ define ('L_SHOWLOG_FILTERED', 'Filtrirani');
 define ('L_SHOWLOG_ROWS_FOUND', 'Red(ovi) nađe se!');
 
 // Logs.php
-define ('L_LOGS_SEARCH_CONTAINS se', 'Sadrži');
+define ('L_LOGS_SEARCH_CONTAINS', 'Sadrži');
 define ('L_LOGS_SEARCH_CONTAINS_NOT', 'Ne sadrži');
 define ('L_LOGS_SEARCH_UNEQUAL', 'Nejednako');
 define ('L_LOGS_VALUE', 'Vrijednost');
@@ -155,7 +155,7 @@ define ('L_LOGS_MSG_ERR_GUEST_DOWNLOAD', 'Nemate ovlasti za preuzimanje logfiles
 define ('L_LOGS_MSG_ERR_GUEST_DELETE', 'Nemate ovlasti za brisanje logfiles. Vidi <a href="../doc/config_settings_en.html#config_stat_guest_log_delete" target="_blank"> $ config_stat_guest_log_delete </ a> i <a href = " .. / doc / config_settings_en.html # config_stat_user_log_delete "target =" _blank "> $ config_stat_user_log_delete </ a>');
 
 // Show_stat.php
-define ('L_SHOWSTAT_PRESETS se', 'Postavke');
+define ('L_SHOWSTAT_PRESETS', 'Postavke');
 define ('L_SHOWSTAT_PRESETS_DEFAULT', 'Default');
 define ('L_SHOWSTAT_PRESETS_DEFAULT_OLD', 'Stari Default');
 define ('L_SHOWSTAT_PRESETS_IP1', 'Blokiraj po IP');
@@ -163,7 +163,7 @@ define ('L_SHOWSTAT_PRESETS_IP0', 'Ne blokiraj IP od');
 define ('L_SHOWSTAT_PRESETS_PIE_CHARTS', 'Pie charts');
 define ('L_SHOWSTAT_PRESETS_BAR_CHARTS', 'Bar charts');
 define ('L_SHOWSTAT_PRESETS_THIS_YEAR', 'Ova godina');
-define ('L_SHOWSTAT_PRESETS_THIS_MONTH ',' Ovaj mjesec ');
+define ('L_SHOWSTAT_PRESETS_THIS_MONTH',' Ovaj mjesec ');
 define ('L_SHOWSTAT_PRESETS_ALL', 'Prikaži sve (sve)');
 define ('L_SHOWSTAT_PRESETS_LIMIT', 'Prikaži samo prvi (limit)');
 define ('L_SHOWSTAT_PRESETS_SCROLL1', 'Modul-scrollbars na');
@@ -191,6 +191,8 @@ define ('L_MODULEOUT_HITS_USER_ONLINE', 'Korisnika');
 define ('L_MODULEOUT_HITS_MAX_DAY', 'Maksimalna Posjeta dan');
 define ('L_MODULEOUT_HITS_AV_PER_DAY', 'Prosječne posjeta dnevno');
 define ('L_MODULEOUT_HITS_HITS_PER_USER', 'Prosječna Pregled stranica / Posjetioci');
+define('L_MODULEOUT_HITS_VISIT_TIME_AVG','Average visiting time');
+define('L_MODULEOUT_HITS_VISIT_TIME_TOTAL','Total visiting time');
 define ('L_MODULEOUT_IP0', 'Pregleda stranica (ne blokira IP)');
 define ('L_MODULEOUT_IP1', '(Posjeta blokirana IP)');
 define ('L_MODULEOUT_NO_DATA', 'Nema podataka');
@@ -206,7 +208,7 @@ define ('L_MODULEOUT_NUM_ABR', 'Broj.');
 define ('L_MODULEOUT_PER', 'Perc.');
 define ('L_MODULEOUT_TOTAL', 'Ukupno');
 define ('L_MODULEOUT_RATIO', 'Omjer');
-define ('L_MODULEOUT_DOMAINS se', 'Domene');
+define ('L_MODULEOUT_DOMAINS', 'Domene');
 define ('L_MODULEOUT_PAGES', 'Stranice');
 define ('L_MODULEOUT_COLORS', 'Boje');
 define ('L_MODULEOUT_CONSOLE_PERIOD', 'Razdoblje');
@@ -226,21 +228,21 @@ define ('L_MODULEOUT_CONSOLE_TREE_EXPAND', 'Proširite stablo');
 define ('L_MODULEOUT_PRETTYINT_SUFFIX', 'm bn trilion kvadrilion quintillion sextillion');
 
 // Preset_editor.php
-define ('L_PRESETEDITOR_MANAGE_PRESETS se', 'Upravljanje postavkama');
+define ('L_PRESETEDITOR_MANAGE_PRESETS', 'Upravljanje postavkama');
 define ('L_PRESETEDITOR_ID', 'ID');
-define ('L_PRESETEDITOR_CACHE_SIZE ',' Cache velicina');
+define ('L_PRESETEDITOR_CACHE_SIZE',' Cache velicina');
 define ('L_PRESETEDITOR_SAVE_PRESET', 'Save unaprijed');
 define ('L_PRESETEDITOR_SAVE_PRESET_TEXT', 'Ovo ce spremiti trenutne postavke (sve od njih) kao unaprijed podesena za buduću uporabu . Sve postavke se automatski detektiraju..');
 define ('L_PRESETEDITOR_SAVE_PRESET_MSG_ABS', 'Upozorenje: sadrzi apsolutne trenutne postavke vremenske raspone za sljedeci modul (i)');
 define ('L_PRESETEDITOR_SAVE_PRESET_MSG_ABS2', 'Apsolutno vremenski rasponi nema puno smisla spremiti kao unaprijed!');
 define ('L_PRESETEDITOR_SAVE_PRESET_DUPLICATE', 'Ovo postavke se  tocno isto kao sto su:');
 define ('L_PRESETEDITOR_SAVE_PRESET_DUPLICATE_CANNOT_BE_SAVED', 'Vi samo mozete spremiti postavke koji su drugaciji od onih postojecih.');
-define ('L_PRESETEDITOR_CACHE ',' Cache to unaprijed');
+define ('L_PRESETEDITOR_CACHE',' Cache to unaprijed');
 define ('L_PRESETEDITOR_CACHE_NOT', 'Ne predmemoriju ovu Postavke');
 define ('L_PRESETEDITOR_CACHE_UNCACHEABLE', 'Ove postavke ne mogu biti spremljene');
 define('L_PRESETEDITOR_MSG_ERR_GUEST','Nemate ovlasti za upravljanje postavkama. Vidi <a href="../doc/config_settings_en.html#config_stat_guest_preset_manage" target="_blank">$config_stat_guest_preset_manage</a> i  <a href="../doc/config_settings_en.html#config_stat_user_preset_manage" target="_blank">$config_stat_user_preset_manage</a>.');
 define ('L_PRESETEDITOR_MSG_PRESET_DELETE', 'Da li stvarno zelite izbrisati ove postavke');
-define ('L_PRESETEDITOR_MSG_PRESET_DELETED ','Postavke izbrisana');
+define ('L_PRESETEDITOR_MSG_PRESET_DELETED','Postavke izbrisana');
 define ('L_PRESETEDITOR_MSG_PRESET_SAVED', 'Spremljeno podesenu');
 
 // Anonymous_redirect.php
@@ -299,7 +301,7 @@ define ('L_GO', 'Idi');
 define ('L_PLEASE_WAIT', 'Molimo pričekajte ... ');
 define ('L_HITS', 'Posjeta');
 define ('L_VISITS', 'Posjete');
-define ('L_PAGEIMPRESSIONS se', 'Pregledi stranice');
+define ('L_PAGEIMPRESSIONS', 'Pregledi stranice');
 define ('L_BACK', 'Povratak');
 define ('L_CANCEL', 'Odustani');
 define ('L_DELETE', 'Obriši');
