@@ -379,6 +379,15 @@ if (empty($message_fatal)) {
 					}
 				}
 			}
+			foreach ($list_modules as $module) {
+				// we used PFC, therefore we cannot rely on session cache!
+				// Why? It might be the case that the new preset has the same settings
+				// as the old one (i.e. $changed[$module]=false), but the preset
+				// loading algorithm loaded (potentially) old data and nulled it.
+				// This means the data we had before in session-cache is gone and
+				// we need to reanalyze it.
+				$cached[$module]=false;
+			}
 		} elseif (isset($_GET['clearcache']) || !$cached['keyword']) {
 			if (isset($_GET['clearcache'])
 					&& ($config_stat_password_protect
