@@ -15,14 +15,25 @@
 <h3>Version 1.71</h3>
 <h4>1.71 RC2</h4>
 <ul>
+ <li>New translations: Portuguese (thanks to Pedro Cruz - http://pedrocruz.tk ), French (thanks to Yannou90) and Croatian (thanks to rmare).</li>
+ <li>New feature: added vertical line representing the average ratio</li>
  <li>show_log.php: Added buttons to the toolbar to download and search the current logfile directly</li>
  <li>AjaxTree: Now there is also a link to the domain (base hostname / node), not only links to the subpages.</li>
+ <li>module_out.php: If several items all have the same maximum amount of hits/visits, all of them are now highlighted.
+ Do not highlight entries as maximum entry if the value of these entries (i.e. all entries) is 0<br />
+config_default.php: Added background-color to $config_stat_max_style</li>
  <li>Fix: of a bug around AjaxTree: When clicking Plus-symbol, nothing happened sometimes.</li>
  <li>Fix: Always checking ID parameters of logfile-ids for validity. This might have been an XSS problem, but I think Ids have never been echoed (before), so no security issue I guess. Worst case would have probably been some php errors happening when somebody tries to inject invalid IDs.</li>
  <li>Fix: logs.php: deleting of logfiles: Checking if logfile (still) exists before deleting (would have produced PHP error before)</li>
  <li>Fix: logs_search.php: The toolbar-link to logs.php had a refresh-symbol, which does not make sense here. Replaced it with a logs-symbol, which is semantically correct.</li>
+ <li>Fix: If Suhosin PHP Extension was installed with default settings, CrazyStat did show up errors about broken cache-files on every login.</li>
+ <li>Fix: If $config_xhtml = true, users without JavaScript (mostly Bots) where not logged because subfolder "src" was missing in the path of the image inside the noscript part </li>
+ <li>password_protect.php: Before changing the password-input to ********, turn off autocompletion. Chrome's password manager otherwise stores ******** as password, which is useless/annoying.
+This way, browsers that store the password before it is changed to stars, still are able to store it. Browsers like chrome that do store what is finally transferred, will not store any password.
+There needs to be a better solution to support chrome password manager in the future, but this at least makes it less annoying.</li>
  <li>Documentation slightly improved (invalid XHTML, corrected links etc.)</li>
  <li>translated some code and comments into English</li>
+ <li>Updated keyword files for new browsers, os (most importantly Windows 8) and bots</li> 
 </ul>
       
 
