@@ -1,4 +1,12 @@
 ToDos and Ideas for CrazyStat:
+ - browser module: zoom of pie chart: HTML code shown (i.e. for PSP)
+ - resolution module: pie chart zoom shows ? instead of "no JavaScript" in legend.
+   Same holds for the mouse-over alt-text of both the zoomed and the small pie chart.  
+ - month module: (optionally) "normalize" bar-lengths based on Visitors/day
+   so the bar of February is not shorter just because it has less days
+   same for current month.
+   Same for current entry in modules "day", "weekday", "hour"
+ - bug: Module "weekday" calculates wrong average (/8 instead of /7)
  - detect Google Chrome Frame
    see http://www.chromium.org/developers/how-tos/chrome-frame-getting-started 
  - automatically check for updates of keyword-files and ask the user if
