@@ -30,33 +30,30 @@ Included:          by show_stat.php as JavaScript
 */
 
 
-var zeit;
 var mod_count=0;
 var all=false;
 var list_modules= new Array('hit','weekday','month','day','hour','browser','file','resolution','colordepth','system','referer','keyword');
 var mk=false;
 var ajaxTree=true;
-var modul='';
 
-function refresh(lmodul,parameter)  // Refresh module data via ajax
+function refresh(module,parameter)  // Refresh module data via ajax
  {
  waitmessage();
  if(!use_ajax) return true;
- zeit=new Date();          // time will be appended to Request to avoid browser caching
- ajaxObj_Refresh=ajax();    // XMLHttpRequest-Object
- if(lmodul=='ALL')
+ var timeNow=new Date();          // time will be appended to Request to avoid browser caching
+ var ajaxObj_Refresh=ajax();    // XMLHttpRequest-Object
+ if(module=='ALL')
   {
-  modul=list_modules[mod_count];
+  module=list_modules[mod_count];
   mod_count ++;
   if(list_modules[mod_count]) all=true;
   else all=false;
   }
  else
   {
-  modul=lmodul;
   all=false;
   }
- ajaxObj_Refresh.open('get','module_out.php?'+sid+'&modul='+(modul)+'&'+parameter+'&stamp='+zeit.getTime(),true);
+ ajaxObj_Refresh.open('get','module_out.php?'+sid+'&modul='+(module)+'&'+parameter+'&stamp='+timeNow.getTime(),true);
  switch(parameter)
   {
   case 'mode=referer_tree_mk':
@@ -72,12 +69,12 @@ function refresh(lmodul,parameter)  // Refresh module data via ajax
    ajaxTree=true;
    break;
   }
- ajaxObj_Refresh.onreadystatechange=replaceData;
+ ajaxObj_Refresh.onreadystatechange=function() { replaceData(module, ajaxObj_Refresh); };
  ajaxObj_Refresh.send(null);
  return false;
  }
 
-function replaceData()  // got new data from server, replace HTML with net data
+function replaceData(module, ajaxObj_Refresh)  // got new data from server, replace HTML with net data
  {
  if(ajaxObj_Refresh.readyState==4)
   {
@@ -87,14 +84,14 @@ function replaceData()  // got new data from server, replace HTML with net data
    }
   else
    {
-   if(modul=='referer' && ajaxTree) refreshJSdata();
-   document.getElementById('module_'+modul).innerHTML=ajaxObj_Refresh.responseText;
-   if(modul!='referer' || !ajaxTree) hide_waitbox();
+   if(module=='referer' && ajaxTree) refreshJSdata();
+   document.getElementById('module_'+module).innerHTML=ajaxObj_Refresh.responseText;
+   if(module!='referer' || !ajaxTree) hide_waitbox();
    }
-  if(modul=='referer' && mk) convertTrees();
+  if(module=='referer' && mk) convertTrees();
   ajaxObj_Refresh=null;
   if(all) refresh('ALL','mode=refresh');
-  if(sortabletable && modul!='hit' && (modul!='referer' || (!mk && !ajaxTree))) t=new SortableTable(document.getElementById('daten_'+modul), 100);
+  if(sortabletable && module!='hit' && (module!='referer' || (!mk && !ajaxTree))) t=new SortableTable(document.getElementById('daten_'+module), 100);
   if(lytebox)
    {
    myLytebox=null;
@@ -106,8 +103,9 @@ function replaceData()  // got new data from server, replace HTML with net data
 
 function refreshJSdata() // Refresh data array "js_data" with new values via AJAX (JSON)
  {
+ var timeNow=new Date();       // time will be appended to Request to avoid browser caching
  ajaxObj_Refresh_js=ajax();    // XMLHttpRequest-Object
- ajaxObj_Refresh_js.open('get','module_out.php?'+sid+'&modul=referer&js_data=1&stamp='+zeit.getTime(),true);
+ ajaxObj_Refresh_js.open('get','module_out.php?'+sid+'&modul=referer&js_data=1&stamp='+timeNow.getTime(),true);
  ajaxObj_Refresh_js.onreadystatechange=replaceJSData;
  ajaxObj_Refresh_js.send(null);
  }
