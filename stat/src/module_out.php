@@ -91,9 +91,9 @@ if (isset($_GET['modul']) && in_array($_GET['modul'], $list_modules)) {
 // Print module-data
 function module_out($modul) {
 	global $list_modules_limit, $list_modules_diagram, $config_stat_max_style, $config_stat_limit, $config_stat_pie_colors,
-	       $config_stat_referer_ignore, $config_stat_long_bars, $config_stat_scroll_middle, $config_stat_scroll_right,
-	       $config_stat_files_maxlength, $config_stat_bar_length, $config_stat_pie_size, $config_stat_files_hide_dir,
-	       $config_stat_ext_lytebox, $ajaxRefresh, $config_stat_files_link, $config_stat_weekdays_sunday_first;
+		$config_stat_referer_ignore, $config_stat_long_bars, $config_stat_scroll_middle, $config_stat_scroll_right,
+		$config_stat_files_maxlength, $config_stat_bar_length, $config_stat_pie_size, $config_stat_files_hide_dir,
+		$config_stat_ext_lytebox, $ajaxRefresh, $config_stat_files_link, $config_stat_weekdays_sunday_first;
 
 	$module_werte = $_SESSION['module_' . $modul . '_data'];
 	$gesamt = $_SESSION['module_' . $modul . '_total'];
@@ -589,20 +589,6 @@ function module_out($modul) {
 											. $h . 'px; overflow:auto; ' : '')
 							. 'width:100%;">';
 				}
-				$average_value = average($gesamt, $module_werte);
-				echo '<table class="daten" id="daten_' . $modul
-						. '"><thead><tr><th title="' . L_MODULEOUT_SORT_BY
-						. ' ' . $name . '">' . $name . '</th><th title="'
-						. L_MODULEOUT_SORT_BY_NUM . '">'
-						. ($modul == 'day' ? L_MODULEOUT_NUM_ABR
-								: L_MODULEOUT_NUM) . '</th><th title="'
-						. L_MODULEOUT_SORT_BY_RATIO . '">' . L_MODULEOUT_RATIO
-						. '</th></tr></thead>
-          <tfoot><tr class="gesamt"><td>' . L_MODULEOUT_TOTAL . '</td><td>'
-						. $gesamt . '</td><td>' . '(' . L_AVG_SYMBOL . ' '
-						. my_number_format($average_value)
-						. ')</td></tr></tfoot>
-          <tbody>';
 				if ($modul == 'weekday') {
 					if (!$config_stat_weekdays_sunday_first
 							&& isset($module_werte[0])) {
@@ -612,6 +598,20 @@ function module_out($modul) {
 					$tag_namen = explode(' ', L_CALENDAR_WEEKDAYS);
 					$tag_namen[] = $tag_namen[0];
 				}
+				$average_value = average($gesamt, $module_werte);
+				echo '<table class="daten" id="daten_' . $modul
+						. '"><thead><tr><th title="' . L_MODULEOUT_SORT_BY
+						. ' ' . $name . '">' . $name . '</th><th title="'
+						. L_MODULEOUT_SORT_BY_NUM . '">'
+						. ($modul == 'day' ? L_MODULEOUT_NUM_ABR
+								: L_MODULEOUT_NUM) . '</th><th title="'
+						. L_MODULEOUT_SORT_BY_RATIO . '">' . L_MODULEOUT_RATIO
+						. '</th></tr></thead>
+						<tfoot><tr class="gesamt"><td>' . L_MODULEOUT_TOTAL . '</td><td>'
+						. $gesamt . '</td><td>' . '(' . L_AVG_SYMBOL . ' '
+						. my_number_format($average_value)
+						. ')</td></tr></tfoot>
+						<tbody>';
 				$i = 0;
 				if (isset($module_werte)) {
 					reset($module_werte);
@@ -638,8 +638,8 @@ function module_out($modul) {
 							if ($config_stat_long_bars && isset($max)) {
 								$prozent2 = round(
 										prozent($anzahl, $max) / 100
-												* $config_stat_bar_length);											
-							}												
+												* $config_stat_bar_length);
+							}
 							else
 								$prozent2 = round(
 										$prozent / 100
@@ -897,26 +897,29 @@ function prettyInt($number) {
 }
 
 // percentage-function
-function prozent($teil, $gesamt) {
-	if ($gesamt == 0)
+function prozent($part, $total) {
+	if ($total == 0)
 		return 0;
-	return @round($teil / $gesamt * 100);
+	return @round($part / $total * 100);
 }
 
-function average($gesamt, $module_werte) {
-	if (empty($module_werte))
+function average($total, $module_values) {
+	if (empty($module_values))
 		return 0;
-	$i = 0;
-	foreach ($module_werte as $wert) {
-		if ($wert != 0)
-			$i = 0;
+	// do not include empty entries *at the end* in the average
+	// this is due to the fact that they likely are in the future
+	// for example the dates-module can have lots of empty entries for future dates
+	$emptyEndEntries = 0;
+	foreach ($module_values as $value) {
+		if ($value != 0)
+			$emptyEndEntries = 0;
 		else
-			$i++;
+			$emptyEndEntries++;
 	}
-	$c = count($module_werte) - $i;
-	if ($c == 0)
+	$entries = count($module_values) - $emptyEndEntries;
+	if ($entries == 0)
 		return 0;
-	return $gesamt / $c;
+	return $total / $entries;
 }
 
 function my_number_format($x, $n = 2) {

@@ -93,7 +93,7 @@ if (!is_file($logdatei_name) && !is_file($logdatei_name . '.gz')
 			. $logdatei_name . '). ' . L_ANAYLZE_MSG_ERR_CHECK_RIGHTS;
 
 function clear_module($modul) {
-	global $time, $config_stat_weekdays_sunday_first;
+	global $time;
 	$_SESSION['module_' . $modul . '_data'] = array();
 	$_SESSION['module_' . $modul . '_data_timestamps'] = array();
 	$_SESSION['module_' . $modul . '_total'] = 0;
@@ -102,12 +102,8 @@ function clear_module($modul) {
 
 	switch ($modul) {
 	case 'weekday':
-		if ($config_stat_weekdays_sunday_first)
-			$_SESSION['module_weekday_data'][0] = 0;
-		for ($i = 1; $i <= 6; $i++)
+		for ($i = 0; $i <= 6; $i++)
 			$_SESSION['module_weekday_data'][$i] = 0;
-		if (!$config_stat_weekdays_sunday_first)
-			$_SESSION['module_weekday_data'][7] = 0;
 		break;
 	case 'hit':
 		$_SESSION['module_hit_data']['gesamt'] = 0;
