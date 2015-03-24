@@ -8,6 +8,8 @@ NT 5.2=Win 2003
 NT 6.0=Win Vista
 NT 6.1=Win 7
 NT 6.2=Win 8
+NT 6.3=Win 8.1
+NT 10.0=Win 10
 NT 4=Win NT
 NT4=Win NT
 Media Center=Win XP Media
@@ -44,6 +46,13 @@ NetFront=Mobile Phone
 Opera Mini=Mobile Phone
 Opera Mobi=Mobile Phone
 WAP Browser=Mobile Phone
-PLAYSTATION 3=Playstation 3
+Xbox One
+Xbox=Xbox 360
+PlayStation 3
+PLAYSTATION 3=PlayStation 3
+PlayStation 4
+PlayStation Portable
+PlayStation Vita
+Playstation Vita=PlayStation Vita
 XP=Win XP
 Win
