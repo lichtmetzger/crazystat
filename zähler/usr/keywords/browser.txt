@@ -1,56 +1,98 @@
-Chrome=Google Chrome
-Opera
+Opera=Opera (Presto)
+OPR=Opera (Blink)
 Konqueror
-Safari
 K-Meleon
 Nautilus
-KHTML
 Camino
-Firefox/30=Firefox 30
-Firefox/29=Firefox 29
-Firefox/28=Firefox 28
-Firefox/27=Firefox 27
-Firefox/26=Firefox 26
-Firefox/25=Firefox 25
-Firefox/24=Firefox 24
-Firefox/23=Firefox 23
-Firefox/22=Firefox 22
-Firefox/21=Firefox 21
-Firefox/20=Firefox 20
-Firefox/19=Firefox 19
-Firefox/18=Firefox 18
-Firefox/17=Firefox 17
-Firefox/16=Firefox 16
-Firefox/15=Firefox 15
-Firefox/14=Firefox 14
-Firefox/13=Firefox 13
-Firefox/12=Firefox 12
-Firefox/11=Firefox 11
-Firefox/10=Firefox 10
-Firefox/9=Firefox 9
-Firefox/8=Firefox 8
-Firefox/7=Firefox 7
-Firefox/6=Firefox 6
-Firefox/5=Firefox 5
-Firefox/4=Firefox 4
+Firefox/38=Firefox 30-39
+Firefox/37=Firefox 30-39
+Firefox/36=Firefox 30-39
+Firefox/35=Firefox 30-39
+Firefox/34=Firefox 30-39
+Firefox/33=Firefox 30-39
+Firefox/32=Firefox 30-39
+Firefox/31=Firefox 30-39
+Firefox/30=Firefox 30-39
+Firefox/29=Firefox 20-29
+Firefox/28=Firefox 20-29
+Firefox/27=Firefox 20-29
+Firefox/26=Firefox 20-29
+Firefox/25=Firefox 20-29
+Firefox/24=Firefox 20-29
+Firefox/23=Firefox 20-29
+Firefox/22=Firefox 20-29
+Firefox/21=Firefox 20-29
+Firefox/20=Firefox 20-29
+Firefox/19=Firefox 10-19
+Firefox/18=Firefox 10-19
+Firefox/17=Firefox 10-19
+Firefox/16=Firefox 10-19
+Firefox/15=Firefox 10-19
+Firefox/14=Firefox 10-19
+Firefox/13=Firefox 10-19
+Firefox/12=Firefox 10-19
+Firefox/11=Firefox 10-19
+Firefox/10=Firefox 10-19
+Firefox/9=Firefox 4-9
+Firefox/8=Firefox 4-9
+Firefox/7=Firefox 4-9
+Firefox/6=Firefox 4-9
+Firefox/5=Firefox 4-9
+Firefox/4=Firefox 4-9
 Firefox/3=Firefox 3.x
 Firefox/2=Firefox 2.x
 Firefox/1=Firefox 1.x
 Firefox/0=Firefox 0.x
 Firefox
 Firebird
+ABrowse
+Acoo Browser
+AmigaVoyager
+Arora
 Avant
+Browzar
+Charon
+Classilla
+CometBird
+Comodo_Dragon
 CrazyBrowser
 Crazy Browser=CrazyBrowser
+Dooble
+Epiphany
+Escape
 FastWeb
+Galaxy
 Galeon
+GreenBrowser
+Hana
+IBrowse
+iCab
+IceCat
+icecat=IceCat
+Iron
 Links
+Elinks
+LeechCraft
+Leechcraft=LeechCraft
+Lunascape
 Lynx
+Maxthon
 Mosaic
 Midori
+OmniWeb
+PaleMoon
+QtWeb
+rekonq
+Shiira
+Sleipnir
+uzbl
+Uzbl=uzbl
+TencentTraveler
 WebTV
+WeltweitimnetzBrowser
 Xbox
 Navigator/9=Netscape 9
+Netscape/9=Netscape 9
 Netscape/8=Netscape 8
 Netscape/7=Netscape 7
 Netscape6/6=Netscape 6
@@ -65,9 +107,10 @@ Yahoo-MMCrawler=Yahoo! Bilder
 ia_archiver=Alexa Bot
 Ask Jeeves/Teoma
 AOL
+AOLBuild=AOL
 T-Online
-Trident/5.0=MSIE 9
-Trident/4.0=MSIE 8
+MSIE 12
+MSIE 11
 MSIE 10
 MSIE 9
 MSIE 8
@@ -77,20 +120,74 @@ MSIE 5.0
 MSIE 5.5
 MSIE 5
 MSIE 4
-Seamonkey
 SeaMonkey
+Xbox One
+Xbox=Xbox 360
+PlayStation 3
+PLAYSTATION 3=PlayStation 3
+PlayStation 4
+PlayStation Portable
+PlayStation Vita
+Playstation Vita=PlayStation Vita
 MultiZilla
 Iceweasel
-Gecko
-PSP (PlayStation Portable)=<span title="PlayStation Portable">PSP</span>
 Wget
 LeechGet
-FDM=<span title="Free Download Manager">FDM</span>
-DA=<span title="Download Accelerator">DA</span>
+FDM=Free Download Manager
+DA=Download Accelerator
 HiDownload
 HTTrack
 CFNetwork
 Java
 WebCapture
 NetSurf
+Chrome/45=Google Chrome 41-50
+Chrome/44=Google Chrome 41-50
+Chrome/43=Google Chrome 41-50
+Chrome/42=Google Chrome 41-50
+Chrome/41=Google Chrome 41-50
+Chrome/40=Google Chrome 31-40
+Chrome/39=Google Chrome 31-40
+Chrome/38=Google Chrome 31-40
+Chrome/37=Google Chrome 31-40
+Chrome/36=Google Chrome 31-40
+Chrome/35=Google Chrome 31-40
+Chrome/34=Google Chrome 31-40
+Chrome/33=Google Chrome 31-40
+Chrome/32=Google Chrome 31-40
+Chrome/31=Google Chrome 31-40
+Chrome/30=Google Chrome 21-30
+Chrome/29=Google Chrome 21-30
+Chrome/28=Google Chrome 21-30
+Chrome/27=Google Chrome 21-30
+Chrome/26=Google Chrome 21-30
+Chrome/25=Google Chrome 21-30
+Chrome/24=Google Chrome 21-30
+Chrome/23=Google Chrome 21-30
+Chrome/22=Google Chrome 21-30
+Chrome/21=Google Chrome 21-30
+Chrome/20=Google Chrome 11-20
+Chrome/19=Google Chrome 11-20
+Chrome/18=Google Chrome 11-20
+Chrome/17=Google Chrome 11-20
+Chrome/16=Google Chrome 11-20
+Chrome/15=Google Chrome 11-20
+Chrome/14=Google Chrome 11-20
+Chrome/13=Google Chrome 11-20
+Chrome/12=Google Chrome 11-20
+Chrome/11=Google Chrome 11-20
+Chrome/10=Google Chrome 1-10
+Chrome/8=Google Chrome 1-10
+Chrome/7=Google Chrome 1-10
+Chrome/6=Google Chrome 1-10
+Chrome/5=Google Chrome 1-10
+Chrome/4=Google Chrome 1-10
+Chrome/3=Google Chrome 1-10
+Chrome/2=Google Chrome 1-10
+Chrome/1=Google Chrome 1-10
+Chrome/0=Google Chrome 0.x
+Chrome=Google Chrome
+Safari
 Mozilla
+Gecko
+KHTML
