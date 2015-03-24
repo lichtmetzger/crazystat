@@ -8,7 +8,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
  <head>
   <title>CrazyStat - Example file</title>
   <style type="text/css">
-  .crazystat_counter /* Layout of the textcounter (if activated) */
+  .crazyzähler_counter /* Layout of the textcounter (if activated) */
    {
    /* you can modify these as desired */
    font-family: Arial;
@@ -23,17 +23,17 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
  <h1>Example file</h1>
  <p>This is some dummy text... and now CrazyStat is included:</p>
  <?php
- @include_once("stat/src/include.php");
+ @include_once("zähler/src/include.php");
  // Output text counter (if activated)
- if(isset($counter_value)) echo '<span class="crazystat_counter">'.$counter_value.'</span>';
+ if(isset($counter_value)) echo '<span class="crazyzähler_counter">'.$counter_value.'</span>';
  ?>
  <p>
  That's the include-code:</p>
- <p><code style="font-family:Courier">&lt;?php @include_once("stat/src/include.php"); ?&gt;</code></p>
+ <p><code style="font-family:Courier">&lt;?php @include_once("zähler/src/include.php"); ?&gt;</code></p>
  <p>
  You have to put this code between &lt;body&gt; and &lt;/body&gt; because the statistic includes an image (even if counter is disabled).<br />
  <strong>Files in which this code is included must have '.php' as file extension.</strong><br />
- More information in <a href="stat/doc/README_en.html#installation">README_en.html</a> (English) or <a href="stat/doc/README_de.html#installation">README_de.html</a> (German).<br />
+ More information in <a href="zähler/doc/README_en.html#installation">README_en.html</a> (English) or <a href="zähler/doc/README_de.html#installation">README_de.html</a> (German).<br />
  This is a XHTML-page and <u>if you set $config_xhtml=true</u>, this page is valid XHTML.
  </p>
  </body>
