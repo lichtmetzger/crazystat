@@ -155,7 +155,7 @@ function CrazyStat()
  {
  if (typeof(crazystat_oldOnLoad)=='function') crazystat_oldOnLoad();
  var jetzt=new Date();
- var CrazyStatUrl='<?php echo $config_rel_path; ?>src/zählen.php.php?<?php if($set_user) echo 'user='.$set_user.'&'; ?>breite='+screen.width+'&hoehe='+screen.height+'&colors='+screen.colorDepth+'&datei=<?php echo urlencode($_SERVER['REQUEST_URI']).'&referer='.urlencode(getenv('HTTP_REFERER')).str_replace('&amp;','&',$crazystat_add); ?>&t='+jetzt.getTime();
+ var CrazyStatUrl='<?php echo $config_rel_path; ?>src/zählen.php?<?php if($set_user) echo 'user='.$set_user.'&'; ?>breite='+screen.width+'&hoehe='+screen.height+'&colors='+screen.colorDepth+'&datei=<?php echo urlencode($_SERVER['REQUEST_URI']).'&referer='.urlencode(getenv('HTTP_REFERER')).str_replace('&amp;','&',$crazystat_add); ?>&t='+jetzt.getTime();
  if(document.getElementById) var obj=document.getElementById('Zählerbild'); else if(document.all) var obj=document.all('Zählerbild');
  if(obj) { obj.src=CrazyStatUrl; obj.width=<?php echo $crazystat_breite; ?>; }
  }
