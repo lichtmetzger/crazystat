@@ -20,6 +20,8 @@ Win95=Win 95
 Win 9x=Win 9x
 CE=Win CE
 OS2=OS/2
+Sailfish=Sailfish OS
+Jolla=Sailfish OS
 Android
 Kindle
 Blackberry
