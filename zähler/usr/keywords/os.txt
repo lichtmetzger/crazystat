@@ -22,6 +22,7 @@ CE=Win CE
 OS2=OS/2
 Sailfish=Sailfish OS
 Jolla=Sailfish OS
+Tizen
 Android
 Kindle
 Blackberry

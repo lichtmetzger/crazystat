@@ -88,6 +88,7 @@ Sleipnir
 uzbl
 Uzbl=uzbl
 TencentTraveler
+TizenBrowser
 WebTV
 WeltweitimnetzBrowser
 Xbox
