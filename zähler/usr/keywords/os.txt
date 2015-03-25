@@ -22,6 +22,8 @@ CE=Win CE
 OS2=OS/2
 Sailfish=Sailfish OS
 Jolla=Sailfish OS
+Mozilla/5.0 (Mobile=Firefox OS
+Mozilla/5.0 (Tablet=Firefox OS
 Tizen
 Android
 Kindle
