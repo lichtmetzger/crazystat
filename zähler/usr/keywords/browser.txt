@@ -191,6 +191,7 @@ Chrome/1=Google Chrome 1-10
 Chrome/0=Google Chrome 0.x
 Chrome=Google Chrome
 Safari
+AppleWebKit=Safari
 Mozilla
 Gecko
 KHTML
