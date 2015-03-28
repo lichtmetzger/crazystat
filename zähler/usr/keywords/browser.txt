@@ -82,6 +82,7 @@ Midori
 OmniWeb
 PaleMoon
 QtWeb
+QuickLook/5.0=Apple Mail
 rekonq
 Shiira
 Sleipnir
