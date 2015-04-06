@@ -110,7 +110,7 @@ Ask Jeeves/Teoma
 AOL
 AOLBuild=AOL
 T-Online
-MSIE 12
+Edge/12.0=MSIE 12
 MSIE 11
 rv:11.0=MSIE 11
 MSIE 10
