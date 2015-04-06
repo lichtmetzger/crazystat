@@ -92,7 +92,6 @@ TencentTraveler
 TizenBrowser
 WebTV
 WeltweitimnetzBrowser
-Xbox
 Navigator/9=Netscape 9
 Netscape/9=Netscape 9
 Netscape/8=Netscape 8
