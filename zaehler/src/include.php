@@ -155,17 +155,17 @@ function CrazyStat()
  {
  if (typeof(crazystat_oldOnLoad)=='function') crazystat_oldOnLoad();
  var jetzt=new Date();
- var CrazyStatUrl='<?php echo $config_rel_path; ?>src/zählen.php?<?php if($set_user) echo 'user='.$set_user.'&'; ?>breite='+screen.width+'&hoehe='+screen.height+'&colors='+screen.colorDepth+'&datei=<?php echo urlencode($_SERVER['REQUEST_URI']).'&referer='.urlencode(getenv('HTTP_REFERER')).str_replace('&amp;','&',$crazystat_add); ?>&t='+jetzt.getTime();
- if(document.getElementById) var obj=document.getElementById('Zählerbild'); else if(document.all) var obj=document.all('Zählerbild');
+ var CrazyStatUrl='<?php echo $config_rel_path; ?>src/zaehlen.php?<?php if($set_user) echo 'user='.$set_user.'&'; ?>breite='+screen.width+'&hoehe='+screen.height+'&colors='+screen.colorDepth+'&datei=<?php echo urlencode($_SERVER['REQUEST_URI']).'&referer='.urlencode(getenv('HTTP_REFERER')).str_replace('&amp;','&',$crazystat_add); ?>&t='+jetzt.getTime();
+ if(document.getElementById) var obj=document.getElementById('Zaehlerbild'); else if(document.all) var obj=document.all('Zaehlerbild');
  if(obj) { obj.src=CrazyStatUrl; obj.width=<?php echo $crazystat_breite; ?>; }
  }
 var crazystat_oldOnLoad=window.onload;
 window.onload=CrazyStat;
 /* ]]> */
 </script>
-<?php echo $crazystat_link; ?><img id="Zählerbild" src="<?php echo $config_rel_path; ?>src/img/kleinbild.gif" <?php echo $crazystat_attribute; ?> width="1" /><?php if(!empty($crazystat_link)) echo '</a>';
+<?php echo $crazystat_link; ?><img id="Zaehlerbild" src="<?php echo $config_rel_path; ?>src/img/kleinbild.gif" <?php echo $crazystat_attribute; ?> width="1" /><?php if(!empty($crazystat_link)) echo '</a>';
 if($config_xhtml_noscript) { ?>
-<noscript><?php echo $crazystat_link; ?><img src="<?php echo $config_rel_path; ?>src/zählen.php?datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add.'&amp;t='.$crazystat_zeit; ?>" <?php echo $crazystat_attribute.' width="'.$crazystat_breite.'"'; ?> /><?php if(!empty($crazystat_link)) echo '</a>'; ?></noscript>
+<noscript><?php echo $crazystat_link; ?><img src="<?php echo $config_rel_path; ?>src/zaehlen.php?datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add.'&amp;t='.$crazystat_zeit; ?>" <?php echo $crazystat_attribute.' width="'.$crazystat_breite.'"'; ?> /><?php if(!empty($crazystat_link)) echo '</a>'; ?></noscript>
 <?php
  } }
 else
@@ -173,7 +173,7 @@ else
 ?>
 //<!--
 var jetzt=new Date();
-document.write ('<?php echo $crazystat_link; ?><img src=\"<?php echo $config_rel_path; ?>src/zählen.php?<?php if($set_user) echo 'user='.$set_user.'&'; ?>breite='+screen.width+'&amp;hoehe='+screen.height+'&amp;colors='+screen.colorDepth+'&amp;datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add.'&amp;t='; ?>'+jetzt.getTime()+'\" alt=\"<?php echo $config_alt_text.$crazystat_c; ?>\" title=\"<?php echo $config_alt_text.$crazystat_c; ?>\"<?php echo ($crazystat_breite>0?' width="'.$crazystat_breite.'"':'').($crazystat_hoehe>0?' height="'.$crazystat_hoehe.'"':''); ?> style="border: 0;" /><?php if(!empty($crazystat_link)) echo '<\/a>'; ?>');
+document.write ('<?php echo $crazystat_link; ?><img src=\"<?php echo $config_rel_path; ?>src/zaehlen.php?<?php if($set_user) echo 'user='.$set_user.'&'; ?>breite='+screen.width+'&amp;hoehe='+screen.height+'&amp;colors='+screen.colorDepth+'&amp;datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add.'&amp;t='; ?>'+jetzt.getTime()+'\" alt=\"<?php echo $config_alt_text.$crazystat_c; ?>\" title=\"<?php echo $config_alt_text.$crazystat_c; ?>\"<?php echo ($crazystat_breite>0?' width="'.$crazystat_breite.'"':'').($crazystat_hoehe>0?' height="'.$crazystat_hoehe.'"':''); ?> style="border: 0;" /><?php if(!empty($crazystat_link)) echo '<\/a>'; ?>');
 //-->
 </script>
-<noscript><div><?php echo $crazystat_link; ?><img src="<?php echo $config_rel_path; ?>src/zählen.php?datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add; ?>" alt="<?php echo $config_alt_text.$crazystat_c; ?>" title="<?php echo $config_alt_text.$crazystat_c; ?>"<?php echo ($crazystat_breite>0?' width="'.$crazystat_breite.'"':'').($crazystat_hoehe>0?' height="'.$crazystat_hoehe.'"':''); ?> style="border:0;"<?php echo ($config_xhtml_old?' /':''); ?>><?php if(!empty($crazystat_link)) echo '</a>'; ?></div></noscript><?php } echo "\n".base64_decode('PCEtLSBFTkQgQ3JhenlTdGF0IC8tLT4=')."\n"; ?>
+<noscript><div><?php echo $crazystat_link; ?><img src="<?php echo $config_rel_path; ?>src/zaehlen.php?datei=<?php echo urlencode($_SERVER["REQUEST_URI"])."&amp;referer=".urlencode(getenv("HTTP_REFERER")).$crazystat_add; ?>" alt="<?php echo $config_alt_text.$crazystat_c; ?>" title="<?php echo $config_alt_text.$crazystat_c; ?>"<?php echo ($crazystat_breite>0?' width="'.$crazystat_breite.'"':'').($crazystat_hoehe>0?' height="'.$crazystat_hoehe.'"':''); ?> style="border:0;"<?php echo ($config_xhtml_old?' /':''); ?>><?php if(!empty($crazystat_link)) echo '</a>'; ?></div></noscript><?php } echo "\n".base64_decode('PCEtLSBFTkQgQ3JhenlTdGF0IC8tLT4=')."\n"; ?>
