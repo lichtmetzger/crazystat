@@ -142,17 +142,17 @@ Opdatering fra CrazyStat 1.5x eller 1.6x er alene beskrevet i den <a href="faq_d
 <p>Denne guide er tilt&aelig;nkt erfarne brugere.</p>
 <ol>
  <li>Pak filen ud</li>
- <li>(V&aelig;lg/download t&aelig;ller-design (grafik findes i stat/usr/counter_styles/ - andre designs findes p&aring;
+ <li>(V&aelig;lg/download t&aelig;ller-design (grafik findes i zaehler/usr/counter_styles/ - andre designs findes p&aring;
      <a href="http://en.christosoft.de/Crazystat/Counter_styles" target="_blank">http://en.christosoft.de/Crazystat/Counter_styles</a>)</li>
  <li>(Konvert&eacute;r t&aelig;ller-designet til PNG (eller gif, hvis du har GDLib-underst&oslash;ttelse af gif) (<a href="faq_en.html#faq1" target="_blank">se FAQ</a>) og         
-     gem i &quot;stat/usr/counter_styles&quot;)</li>
- <li>&Aring;ben stat/usr/config.php og tilpas indstillingerne (is&aelig;r $config_rel_path)</li>
+     gem i &quot;zaehler/usr/counter_styles&quot;)</li>
+ <li>&Aring;ben zaehler/usr/config.php og tilpas indstillingerne (is&aelig;r $config_rel_path)</li>
  <li>Upload &quot;stat&quot;-mappen inklusiv alle filer og undermapper</li>
- <li>Anvend chmod 777 p&aring; stat/usr og alle mappens filer samt undermapper. G&oslash;r det samme med stat/src/log-tool</li>
- <li>Inds&aelig;t &lt;?php @include_once(&quot;stat/src/include.php&quot;); ?&gt; mellem &lt;body&gt; og &lt;/body&gt;
+ <li>Anvend chmod 777 p&aring; zaehler/usr og alle mappens filer samt undermapper. G&oslash;r det samme med zaehler/src/log-tool</li>
+ <li>Inds&aelig;t &lt;?php @include_once(&quot;zaehler/src/include.php&quot;); ?&gt; mellem &lt;body&gt; og &lt;/body&gt;
      p&aring; alle de sider, som skal t&aelig;lles med, <u>skift filendelse fra &quot;.html&quot; eller &quot;.htm&quot; til &quot;.php&quot;</u> (hvis endelsen ikke i forvejen er &quot;.php&quot;).
      Se FAQ: &quot;CrazyStat i .html-filer&quot;, &quot;T&aelig;l sider, som ligger i forskellige mapper&quot;</li>
- <li>&Aring;ben statistikken (http://www.example.com/stat/). Hvis du har valgt at beskytte siden med adgangskode, bedes du &aelig;ndre adgangskoden, n&aring;r du logger ind. Har du ikke foretaget &aelig;ndringer mht. brugernavn og adgangskode er brugernavnet &quot;admin&quot;, adgangskoden er &quot;pass&quot;.</li>
+ <li>&Aring;ben statistikken (http://www.example.com/zaehler/). Hvis du har valgt at beskytte siden med adgangskode, bedes du &aelig;ndre adgangskoden, n&aring;r du logger ind. Har du ikke foretaget &aelig;ndringer mht. brugernavn og adgangskode er brugernavnet &quot;admin&quot;, adgangskoden er &quot;pass&quot;.</li>
 </ol>
 
 <p>Hvis du har &aelig;ndret &quot;stat&quot; til noget andet, skal du tilpasse koden (trin 7) og $config_rel_path (trin 4)!</p>
@@ -160,44 +160,44 @@ Opdatering fra CrazyStat 1.5x eller 1.6x er alene beskrevet i den <a href="faq_d
 <h3><a name="installation_detailed_counter">Detaljeret installationsproces <i>med</i> t&aelig;ller</a></h3>
 <ol>
  <li>Pak filen ud et eller andet sted p&aring; din egen harddisk (benyt f.eks. <a href="http://www.7-zip.org/" target="_blank">7-Zip</a>)</li>
- <li>V&aelig;lg et design til t&aelig;lleren. Du finder forskellige designs i mappen &quot;stat/usr/counter_styles&quot;, som er klar til brug.
+ <li>V&aelig;lg et design til t&aelig;lleren. Du finder forskellige designs i mappen &quot;zaehler/usr/counter_styles&quot;, som er klar til brug.
    P&aring; <a href="http://en.christosoft.de/Crazystat/Counter_styles" target="_blank">http://en.christosoft.de/Crazystat/Counter_styles</a>
    kan du finde endnu flere designs, links til sider med stadig flere designs s&aring;vel som tips til, hvordan du selv kan designe en t&aelig;ller.</li>
  <li>Du skal sikre dig, at t&aelig;lleren er gemt i PNG-format (eller GIF hvis din server underst&oslash;tter det).
-   I ofte stillede sp&oslash;rgsm&aring;l - eller FAQ - finder du instruktioner i, hvordan man konverterer sit t&aelig;ller-design til PNG. Plac&eacute;r dit design i mappen &quot;stat/usr/counter_styles&quot;.</li>
- <li>&Aring;ben &quot;stat/usr/config.php&quot; i et rent tekstprogram (s&aring;som Notesblok eller <a href="http://www.pspad.com/en/" target="_blank">PSPad</a>)
+   I ofte stillede sp&oslash;rgsm&aring;l - eller FAQ - finder du instruktioner i, hvordan man konverterer sit t&aelig;ller-design til PNG. Plac&eacute;r dit design i mappen &quot;zaehler/usr/counter_styles&quot;.</li>
+ <li>&Aring;ben &quot;zaehler/usr/config.php&quot; i et rent tekstprogram (s&aring;som Notesblok eller <a href="http://www.pspad.com/en/" target="_blank">PSPad</a>)
      og tilpas indstillingerne efter dine behov (is&aelig;r $config_rel_path). T&aelig;llerens filnavn skal angives i $config_counter_file_name og for at aktivere t&aelig;lleren <strong>skal</strong> der endvidere st&aring; $config_counter_enabled=true;<br />
      <a href="config_settings_da.html">Mere information om alle konfigurationsindstillingerne</a></li>
  <li>Upload &quot;stat&quot;-mappen med alle filer og undermapper til din server 
      (f.eks. via FTP med <a href="http://filezilla-project.org/" target="_blank">FileZilla</a>)</li>
- <li>Anvend chmod 777 p&aring; mappen &quot;stat/usr&quot; inklusiv alle mappens filer og undermapper. Gentag med mappen &quot;stat/src/log-tool&quot;. Se FAQ hvis du ikke ved, hvordan dette g&oslash;res.</li>
- <li>Inds&aelig;t &lt;?php @include_once(&quot;stat/src/include.php&quot;); ?&gt; mellem &lt;body&gt; og &lt;/body&gt;
+ <li>Anvend chmod 777 p&aring; mappen &quot;zaehler/usr&quot; inklusiv alle mappens filer og undermapper. Gentag med mappen &quot;zaehler/src/log-tool&quot;. Se FAQ hvis du ikke ved, hvordan dette g&oslash;res.</li>
+ <li>Inds&aelig;t &lt;?php @include_once(&quot;zaehler/src/include.php&quot;); ?&gt; mellem &lt;body&gt; og &lt;/body&gt;
      p&aring; alle de sider, som skal t&aelig;lles med, <u>skift filendelse fra &quot;.html&quot; eller &quot;.htm&quot; til &quot;.php&quot;</u> (hvis siderne ikke allerede har endelsen &quot;.php&quot;).
      Se FAQ: &quot;<a href="faq_en.html#faq32" target="_blank">CrazyStat i .html-filer</a>&quot;, &quot;<a href="faq_en.html#faq14" target="_blank">T&aelig;l sider, som ligger i forskellige mapper</a>&quot;</li>
- <li>&Aring;ben statistikken (http://www.example.com/stat/). Hvis du har valgt at beskytte siden med adgangskode, bedes du &aelig;ndre adgangskoden, n&aring;r du logger ind. Har du ikke foretaget &aelig;ndringer mht. brugernavn og adgangskode er brugernavnet &quot;admin&quot;, adgangskoden er &quot;pass&quot;.</li>
+ <li>&Aring;ben statistikken (http://www.example.com/zaehler/). Hvis du har valgt at beskytte siden med adgangskode, bedes du &aelig;ndre adgangskoden, n&aring;r du logger ind. Har du ikke foretaget &aelig;ndringer mht. brugernavn og adgangskode er brugernavnet &quot;admin&quot;, adgangskoden er &quot;pass&quot;.</li>
 </ol>
 
 
 <h3><a name="installation_detailed_no_counter">Detaljeret installationsproces <i>uden</i> t&aelig;ller</a></h3>
 <ol>
  <li>Pak filen ud et eller andet sted p&aring; din egen harddisk (benyt f.eks. <a href="http://www.7-zip.org/" target="_blank">7-Zip</a>)</li>
- <li>&Aring;ben &quot;stat/usr/config.php&quot; i et rent tekstprogram (s&aring;som Notesblok eller <a href="http://www.pspad.com/en/" target="_blank">PSPad</a>)
+ <li>&Aring;ben &quot;zaehler/usr/config.php&quot; i et rent tekstprogram (s&aring;som Notesblok eller <a href="http://www.pspad.com/en/" target="_blank">PSPad</a>)
      og tilpas indstillingerne efter dine behov (is&aelig;r $config_rel_path). S&aelig;t $config_counter_enabled=false;
      hvis du vil deaktivere t&aelig;lleren.<br />
      <a href="config_settings_da.html">Mere information om alle konfigurationsindstillingerne</a></li>
  <li>Upload &quot;stat&quot;-mappen med alle filer og undermapper til din server 
      (f.eks. via FTP med <a href="http://filezilla-project.org/" target="_blank">FileZilla</a>)</li>
- <li>Anvend chmod 777 p&aring; mappen &quot;stat/usr&quot; inklusiv alle mappens filer og undermapper. Gentag med mappen &quot;stat/src/log-tool&quot;. <a href="faq_en.html#faq2" target="_blank">Se FAQ</a> hvis du ikke ved, hvordan dette g&oslash;res.</li>
- <li>Inds&aelig;t &lt;?php @include_once(&quot;stat/src/include.php&quot;); ?&gt; mellem &lt;body&gt; og &lt;/body&gt;
+ <li>Anvend chmod 777 p&aring; mappen &quot;zaehler/usr&quot; inklusiv alle mappens filer og undermapper. Gentag med mappen &quot;zaehler/src/log-tool&quot;. <a href="faq_en.html#faq2" target="_blank">Se FAQ</a> hvis du ikke ved, hvordan dette g&oslash;res.</li>
+ <li>Inds&aelig;t &lt;?php @include_once(&quot;zaehler/src/include.php&quot;); ?&gt; mellem &lt;body&gt; og &lt;/body&gt;
      p&aring; alle de sider, som skal t&aelig;lles med, <u>skift filendelse fra &quot;.html&quot; eller &quot;.htm&quot; til &quot;.php&quot;</u> (hvis siderne ikke allerede har endelsen &quot;.php&quot;).
      Se FAQ: &quot;<a href="faq_en.html#faq32" target="_blank">CrazyStat i .html-filer</a>&quot;, &quot;<a href="faq_en.html#faq14" target="_blank">T&aelig;l sider, som ligger i forskellige mapper</a>&quot;</li>
- <li>&Aring;ben statistikken (http://www.example.com/stat/). Hvis du har valgt at beskytte siden med adgangskode, bedes du &aelig;ndre adgangskoden, n&aring;r du logger ind. Har du ikke foretaget &aelig;ndringer mht. brugernavn og adgangskode er brugernavnet &quot;admin&quot;, adgangskoden er &quot;pass&quot;.</li>
+ <li>&Aring;ben statistikken (http://www.example.com/zaehler/). Hvis du har valgt at beskytte siden med adgangskode, bedes du &aelig;ndre adgangskoden, n&aring;r du logger ind. Har du ikke foretaget &aelig;ndringer mht. brugernavn og adgangskode er brugernavnet &quot;admin&quot;, adgangskoden er &quot;pass&quot;.</li>
 </ol>
 
 <h3><a name="installation_after">Efter installationen</a></h3>
 <ul>
- <li>Du kan &aring;bne statistikken med din browser ved at g&aring; til adressen &quot;http://example.com/stat/&quot;</li>
- <li>Log-v&aelig;rkt&oslash;jet (kun tysk indtil videre) findes p&aring; adressen &quot;http://example.com/stat/log-tool/&quot; (<a href="faq_en.html#faq12" target="_blank">se FAQ</a>)</li>
+ <li>Du kan &aring;bne statistikken med din browser ved at g&aring; til adressen &quot;http://example.com/zaehler/&quot;</li>
+ <li>Log-v&aelig;rkt&oslash;jet (kun tysk indtil videre) findes p&aring; adressen &quot;http://example.com/zaehler/log-tool/&quot; (<a href="faq_en.html#faq12" target="_blank">se FAQ</a>)</li>
 </ul>
 
 <p><a href="#top">G&aring; til top</a></p>

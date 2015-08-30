@@ -198,7 +198,7 @@
       If you work directly on the server running Linux/Unix, you can change the rights in your file manager
       such as Konqueror. Just right click the file and select Properties and then
       Permissions. Alternatively, you can use the chmod command in the shell (e.g. via ssh).
-      Example: "chmod-R 777 stat/usr stat/src/log-tool". See "man chmod" for details.
+      Example: "chmod-R 777 zaehler/usr zaehler/src/log-tool". See "man chmod" for details.
     </p>
     <p>
       <a href="#top">Top</a>
@@ -219,11 +219,11 @@
       <a name="faq3" id="faq40"></a> How do I update from version 1.7x?
     </h3>
     <p>
-       Replace the folders <b>"stat/src"</b> and <b>"stat/doc"</b> with the new ones. Make sure 
-       "stat/src/log-tool" still has CHMOD 777. To get the newest presets, copy all files from
-       <b>"stat/usr/presets"</b> from the new version into the "stat/usr/presets" folder of your installation.
+       Replace the folders <b>"zaehler/src"</b> and <b>"zaehler/doc"</b> with the new ones. Make sure 
+       "zaehler/src/log-tool" still has CHMOD 777. To get the newest presets, copy all files from
+       <b>"zaehler/usr/presets"</b> from the new version into the "zaehler/usr/presets" folder of your installation.
        To get the newest detection files for browsers, operating systems, search engines and robots,
-       copy all files from <b>"stat/usr/keywords"</b> from the new version into the "stat/usr/keywords" folder of
+       copy all files from <b>"zaehler/usr/keywords"</b> from the new version into the "zaehler/usr/keywords" folder of
        your installation.<br />
        Clean the cache after updating.
     </p>
@@ -401,7 +401,7 @@
     <p>
       It is located in "src/log-tool". If you have already uploaded CrazyStat 1.7x to a web
       server, set the CHMOD of the folder "log-tool" to 777, if you have not already (see <a href=
-      "#faq2">FAQ</a>). Call it then (http://example.com/stat/src/log-tool/) and enter user and
+      "#faq2">FAQ</a>). Call it then (http://example.com/zaehler/src/log-tool/) and enter user and
       password. If you only want to run the logtool, you can use the standalone version, which
       is available online <a href="http://en.christosoft.de/Download">http://en.christosoft.de/Download</a>.
     </p>
@@ -436,8 +436,8 @@
       Suppose that the statistic is in the folder "stat". You now want to include it in the file
       "picture1.php" in the "pictures" folder and in the file "index.php" in the root directory. Then 
       the codes to include the statistics are as follows:<br />
-      pictures/picture1.php: &lt;?php $set_rel_path="../stat/"; @include_once("../stat/src/include.php"); ?&gt;<br />
-      index.php: &lt;?php $set_rel_path="stat/"; @include_once ("stat/src/include.php"); ?&gt;<br />
+      pictures/picture1.php: &lt;?php $set_rel_path="../zaehler/"; @include_once("../zaehler/src/include.php"); ?&gt;<br />
+      index.php: &lt;?php $set_rel_path="zaehler/"; @include_once ("zaehler/src/include.php"); ?&gt;<br />
       So in $set_rel_path the relative path to the statistics is specified. A final
       slash is required. The function include_once has to be provided with the relative path to the file "include.php"
       in the statistics folder. When using this feature, it is recommended to specify $set_rel_path in all files
@@ -445,12 +445,12 @@
       <br />
       --- Option 2: ---<br />
       You set <a href="config_settings_en.html#config_rel_path">$config_rel_path</a> to the absolute path without the domain, starting with a slash. Example:
-      "http://www.example.com/stat/" -&gt; $config_rel_path = "/stat/".<br />
+      "http://www.example.com/zaehler/" -&gt; $config_rel_path = "/zaehler/".<br />
       This option might not work in all cases, but is usually simpler than option 1.<br />
       <br />
       --- Option 3: ---<br />
       You set <a href="config_settings_en.html#config_rel_path">$config_rel_path</a> to the absolute path (URI) of the statistics including the domain, e.g.
-      "http://www.example.com/stat/".<br />
+      "http://www.example.com/zaehler/".<br />
       This option might not work in all cases, but is usually simpler than option 1.
     </p>
     <p>
@@ -461,9 +461,9 @@
     </h3>
     <p>
       By using the following code on the page where the counter should appear:<br />
-      &lt;?php $set_counter_enabled = true; @include_once("stat/src/include.php"); ?&gt;<br />
+      &lt;?php $set_counter_enabled = true; @include_once("zaehler/src/include.php"); ?&gt;<br />
       And the following code on the page where is should not appear:<br />
-      &lt;?php $set_counter_enabled = false; @include_once("stat/src/include.php"); ?&gt;
+      &lt;?php $set_counter_enabled = false; @include_once("zaehler/src/include.php"); ?&gt;
     </p>
     <p>
       <a href="#top">Top</a>
@@ -474,7 +474,7 @@
     <p>
       You can set the counter graphic for each page by using the following code to include:<br />
       &lt;?php <a href="config_settings_en.html#config_counter_file_name">$set_counter_file_name</a> = 'ch_arial_blue.png';<br />
-      @include_once("stat/src/include.php"); ?&gt;<br />
+      @include_once("zaehler/src/include.php"); ?&gt;<br />
       The counters styles should all be in the same folder and the file name must be adjusted in the
       code above of course.
     </p>
@@ -488,7 +488,7 @@
     <p>
       Whether CrazyStat is included in HTML or XHTML mode can be controlled by <a href="config_settings_en.html#config_xhtml">$config_xhtml</a>.
       If not all pages are of the same kine, $set_xhtml can be used.<br />
-      Example: &lt;?php $set_xhtml = true; @include_once("stat/src/include.php"); ?&gt;<br />
+      Example: &lt;?php $set_xhtml = true; @include_once("zaehler/src/include.php"); ?&gt;<br />
       Also <a href="config_settings_en.html#config_xhtml_noscript">$config_xhtml_noscript</a> can be changed using $set_xhtml_noscript.
     </p>
     <p>
@@ -708,11 +708,11 @@
 &lt;script type="text/javascript" language="javascript"&gt;<br />
 var jetzt=new Date();<br />
 document.write ('&lt;img
-src=\"PATH/src/stat.php?breite='+screen.width+'&amp;amp;hoehe='+screen.height+'&amp;amp;colors='+screen.colorDepth+'&amp;amp;datei=FILE&amp;amp;referer='+encodeURIComponent(document.referrer)+'&amp;amp;t='+jetzt.getTime()+'\"
+src=\"PATH/src/zaehlen.php?breite='+screen.width+'&amp;amp;hoehe='+screen.height+'&amp;amp;colors='+screen.colorDepth+'&amp;amp;datei=FILE&amp;amp;referer='+encodeURIComponent(document.referrer)+'&amp;amp;t='+jetzt.getTime()+'\"
 alt=\" - - - By CrazyStat - - - \" title=\" - - - By CrazyStat - - - \" border="0"
 /&gt;');<br />
 &lt;/script&gt;<br />
-&lt;noscript&gt;&lt;img src="PATH/src/stat.php?datei=FILE&amp;amp;referer=noJS" alt=" - - - By
+&lt;noscript&gt;&lt;img src="PATH/src/zaehlen.php?datei=FILE&amp;amp;referer=noJS" alt=" - - - By
 CrazyStat - - - " title="- - - By CrazyStat - - - " border="0" /&gt;&lt;/noscript&gt;<br />
 &lt;!-- END CrazyStat /--&gt;</p>
     <p>
@@ -743,7 +743,7 @@ function CrazyStat()<br />
 if (typeof(crazystat_oldOnLoad)=='function') crazystat_oldOnLoad();<br />
 var jetzt=new Date();<br />
 var
-CrazyStatUrl='PATH/src/stat.php?breite='+screen.width+'&amp;hoehe='+screen.height+'&amp;colors='+screen.colorDepth+'&amp;datei=FILE&amp;referer='+encodeURIComponent(document.referrer)+'&amp;t='+jetzt.getTime();<br />
+CrazyStatUrl='PATH/src/zaehlen.php?breite='+screen.width+'&amp;hoehe='+screen.height+'&amp;colors='+screen.colorDepth+'&amp;datei=FILE&amp;referer='+encodeURIComponent(document.referrer)+'&amp;t='+jetzt.getTime();<br />
 
 if(document.getElementById) obj=document.getElementById('CrazyStatImage'); else
 if(document.all) obj=document.all('CrazyStatImage');<br />
@@ -755,7 +755,7 @@ window.onload=CrazyStat;<br />
 &lt;/script&gt;<br />
 &lt;img id="CrazyStatImage" src="PATH/src/img/blind.gif" alt=" - - - By CrazyStat - - - " title=" -
 - - By CrazyStat - - - " style="border:0px" /&gt;<br />
-&lt;noscript&gt;&lt;img src="PATH/src/stat.php?datei=FILE&amp;amp;referer=noJS" alt=" - - - By
+&lt;noscript&gt;&lt;img src="PATH/src/zaehlen.php?datei=FILE&amp;amp;referer=noJS" alt=" - - - By
 CrazyStat - - - " title=" - - - By CrazyStat - - - " style="border:0px"
 /&gt;&lt;/noscript&gt;<br />
 &lt;!-- END CrazyStat /--&gt;

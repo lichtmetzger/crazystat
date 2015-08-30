@@ -152,17 +152,17 @@ CrazyStat entschieden haben.</p>
 <p>Diese Anleitung ist f&uuml;r erfahrenere Anwender gedacht.</p>
 <ol>
  <li>Entpacken der Dateien auf die Festplatte</li>
- <li>(Countergrafik ausw&auml;hlen/herunterladen (Grafiken unter stat/usr/counter_styles/ - weitere Designs und Seiten unter
+ <li>(Countergrafik ausw&auml;hlen/herunterladen (Grafiken unter zaehler/usr/counter_styles/ - weitere Designs und Seiten unter
      <a href="http://www.christosoft.de/Crazystat/Countergrafiken" target="_blank">http://www.christosoft.de/Crazystat/Countergrafiken</a>)</li>
  <li>(Design evtl. in PNG umwandeln (oder gif, falls GDLib gifs unterst&uuml;tzt) und         
-     in Ordner "stat/usr/counter_styles" abspeichern)</li>
- <li>stat/usr/config.php &ouml;ffnen und Einstellungen nach Wunsch anpassen (v.a. $config_rel_path)</li>
+     in Ordner "zaehler/usr/counter_styles" abspeichern)</li>
+ <li>zaehler/usr/config.php &ouml;ffnen und Einstellungen nach Wunsch anpassen (v.a. $config_rel_path)</li>
  <li>Hochladen des Ordners "stat" inkl. aller Unterordner und Dateien</li>
- <li>Allen Dateien und Unterordnern von stat/usr sowie dem Order stat/src/log-tool CHMOD 777 setzten</li>
- <li>Auf jede Seite &lt;?php @include_once("stat/src/include.php"); ?&gt; innerhalb des &lt;body&gt;-Tags
+ <li>Allen Dateien und Unterordnern von zaehler/usr sowie dem Order zaehler/src/log-tool CHMOD 777 setzten</li>
+ <li>Auf jede Seite &lt;?php @include_once("zaehler/src/include.php"); ?&gt; innerhalb des &lt;body&gt;-Tags
      einf&uuml;gen, <u>Dateiendung von ".html" oder ".html" nach ".php" &auml;ndern</u> (falls noch nicht ".php").
      Siehe auch FAQ zu: <a href="faq_de.html#faq32">CrazyStat in .html-Dateien</a>, <a href="faq_de.html#faq14">CrazyStat in unterschiedlichen Verzeichnissen einbinden</a></li>
- <li>Die Statistik aufrufen (http://www.meineseite.de/stat/). Falls Passwortschutz
+ <li>Die Statistik aufrufen (http://www.meineseite.de/zaehler/). Falls Passwortschutz
    aktiv bitte das Passwort &uuml;ber "Passwort &auml;ndern" ab&auml;ndern. Die Default-Werte
    sind User "admin" und Passwort "pass".</li>
 </ol>
@@ -172,28 +172,28 @@ CrazyStat entschieden haben.</p>
 <h3><a name="installation_ausf_counter">Ausf&uuml;hrliche Erkl&auml;rung: Installation <i>mit</i> Counter</a></h3>
 <ol>
  <li>Entpacken Sie die ZIP-Datei in einen Ordner auf Ihrer Festplatte (z.B. mit <a href="http://www.7-zip.de/" target="_blank">7-Zip</a>)</li>
- <li>Dann m&uuml;ssen Sie ein Design f&uuml;r den Counter ausw&auml;hlen. Sie finden im Ordner "stat/usr/counter_styles" einige.
+ <li>Dann m&uuml;ssen Sie ein Design f&uuml;r den Counter ausw&auml;hlen. Sie finden im Ordner "zaehler/usr/counter_styles" einige.
    Unter <a href="http://www.christosoft.de/Crazystat/Countergrafiken" target="_blank">http://www.christosoft.de/Crazystat/Countergrafiken</a>
    sind weitere Countergrafiken, Seiten mit weiteren
    Grafiken und weitere Hinweise zu Countergrafiken zu finden.</li>
  <li>Jetzt m&uuml;ssen Sie sicherstellen, dass die Countergrafik eine PNG- oder GIF-Datei ist.
    Sollte sie es nicht sein, oder Ihr Server keine GIF-Grafiken unterst&uuml;tzen, lesen Sie
    in den FAQ nach, <a href="faq_de.html#faq1">wie man Grafiken in das PNG-Format konvertiert</a>. Dann legen sie die
-   Grafik unter "stat/usr/counter_styles" ab.</li>
- <li>&Ouml;ffnen Sie die Datei "stat/usr/config.php" in einem Texteditor (z.B. Notepad oder <a href="http://www.pspad.com/de/" target="_blank">PSPad</a>)
+   Grafik unter "zaehler/usr/counter_styles" ab.</li>
+ <li>&Ouml;ffnen Sie die Datei "zaehler/usr/config.php" in einem Texteditor (z.B. Notepad oder <a href="http://www.pspad.com/de/" target="_blank">PSPad</a>)
      und passen Sie die Einstellungen nach Wunsch an (v.a. $config_rel_path). Der Dateiname der Countergrafik
      muss in $config_counter_file_name eingetragen werden und f&uuml;r den Counter muss $config_counter_enabled=true; sein.<br />
      <a href="config_settings_de.html">Informationen zu weiteren Konfigurations-Einstellungen</a></li>
  <li>Hochladen des Ordners "stat" inkl. aller Unterordner und Dateien auf Ihren Server
      (z.B. per FTP mit <a href="http://filezilla-project.org/" target="_blank">FileZilla</a>)</li>
- <li>Allen Dateien und Unterordnern von "stat/usr" sowie dem Order "stat/src/log-tool" CHMOD 777 setzten.
+ <li>Allen Dateien und Unterordnern von "zaehler/usr" sowie dem Order "zaehler/src/log-tool" CHMOD 777 setzten.
      Wie das geht steht unter <a href="faq_de.html#faq2">FAQ</a>.</li>
  <li>Auf jede Seite, deren Besuche gez&auml;hlt werden sollen,
-     &lt;?php @include_once("stat/src/include.php"); ?&gt; nach &lt;body&gt; und vor &lt;/body&gt;
+     &lt;?php @include_once("zaehler/src/include.php"); ?&gt; nach &lt;body&gt; und vor &lt;/body&gt;
      einf&uuml;gen. <u>Dateiendung von ".html" oder ".html" nach ".php" &auml;ndern</u> falls noch nicht ".php"
      (Dateien umbenennen und Links anpassen).
      Siehe auch FAQ zu: <a href="faq_de.html#faq32">CrazyStat in .html-Dateien</a>, <a href="faq_de.html#faq14">CrazyStat in unterschiedlichen Verzeichnissen einbinden</a></li>
- <li>Rufen Sie jetzt sie Statistik auf (im Browser http://www.meineseite.de/stat/). Falls Passwortschutz
+ <li>Rufen Sie jetzt sie Statistik auf (im Browser http://www.meineseite.de/zaehler/). Falls Passwortschutz
    aktiv bitte das Passwort &uuml;ber "Passwort &auml;ndern" ab&auml;ndern. Die Default-Werte
    sind User "admin" und Passwort "pass".</li>
 </ol>
@@ -202,20 +202,20 @@ CrazyStat entschieden haben.</p>
 <h3><a name="installation_ausf_ohne_counter">Ausf&uuml;hrliche Erkl&auml;rung: Installation <i>ohne</i> Counter</a></h3>
 <ol>
  <li>Entpacken Sie die ZIP-Datei in einen Ordner auf Ihrer Festplatte (z.B. mit <a href="http://www.7-zip.de/" target="_blank">7-Zip</a>)</li>
- <li>&Ouml;ffnen Sie die Datei "stat/usr/config.php" in einem Texteditor (z.B. Notepad oder <a href="http://www.pspad.com/de/" target="_blank">PSPad</a>)
+ <li>&Ouml;ffnen Sie die Datei "zaehler/usr/config.php" in einem Texteditor (z.B. Notepad oder <a href="http://www.pspad.com/de/" target="_blank">PSPad</a>)
      und passen Sie die Einstellungen nach Wunsch an (v.a. $config_rel_path). Um den Counter
      zu deaktivieren muss $config_counter_enabled=false; sein.<br />
      <a href="config_settings_de.html">Informationen zu weiteren Konfigurations-Einstellungen</a></li>
  <li>Hochladen des Ordners "stat" inkl. aller Unterordner und Dateien auf Ihren Server
      (z.B. per FTP mit <a href="http://filezilla-project.org/" target="_blank">FileZilla</a>)</li>
- <li>Allen Dateien und Unterordnern von "stat/usr" sowie dem Order "stat/src/log-tool" CHMOD 777 setzten.
+ <li>Allen Dateien und Unterordnern von "zaehler/usr" sowie dem Order "zaehler/src/log-tool" CHMOD 777 setzten.
      Wie das geht steht unter <a href="faq_de.html#faq2">FAQ</a>.</li>
  <li>Auf jede Seite, deren Besuche gez&auml;hlt werden sollen,
-     &lt;?php @include_once("stat/src/include.php"); ?&gt; nach &lt;body&gt; und vor &lt;/body&gt;
+     &lt;?php @include_once("zaehler/src/include.php"); ?&gt; nach &lt;body&gt; und vor &lt;/body&gt;
      einf&uuml;gen. <u>Dateiendung von ".html" oder ".html" nach ".php" &auml;ndern</u> falls noch nicht ".php"
      (Dateien umbenennen und Links anpassen).
      Siehe auch FAQ zu: <a href="faq_de.html#faq32">CrazyStat in .html-Dateien</a>, <a href="faq_de.html#faq14">CrazyStat in unterschiedlichen Verzeichnissen einbinden</a></li>
- <li>Rufen Sie jetzt sie Statistik auf (im Browser http://www.meineseite.de/stat/). Falls Passwortschutz
+ <li>Rufen Sie jetzt sie Statistik auf (im Browser http://www.meineseite.de/zaehler/). Falls Passwortschutz
    aktiv bitte das Passwort &uuml;ber "Passwort &auml;ndern" ab&auml;ndern. Die Default-Werte
    sind User "admin" und Passwort "pass".</li>
 </ol>
@@ -224,8 +224,8 @@ CrazyStat entschieden haben.</p>
 
 <h3><a name="installation_danach">Nach der Installation</a></h3>
 <ul>
- <li>Sie k&ouml;nnen Ihre Statistik &uuml;ber "http://ihrserver.de/stat/" aufrufen</li>
- <li>Das Log-Tool erreichen Sie &uuml;ber "http://ihrserver.de/stat/log-tool/" (<a href="faq_de.html#faq12">s. FAQ</a>)</li>
+ <li>Sie k&ouml;nnen Ihre Statistik &uuml;ber "http://ihrserver.de/zaehler/" aufrufen</li>
+ <li>Das Log-Tool erreichen Sie &uuml;ber "http://ihrserver.de/zaehler/log-tool/" (<a href="faq_de.html#faq12">s. FAQ</a>)</li>
 </ul>
 
 <p><a href="#top">Nach oben</a></p>

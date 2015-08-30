@@ -96,7 +96,7 @@ Rechten, also alle H&auml;kchen angeklickt.<br />
 Sollten Sie direkt auf dem Server unter Linux arbeiten, k&ouml;nnen Sie die Rechte mit dem
 Dateimanager, z.B. Konqueror, &auml;ndern. Dazu klicken Sie die Datei rechts an und w&auml;hlen
 Eigenschaften und dann "Berechtigungen". Alternativ k&ouml;nnen Sie in der Shell (z.B. &uuml;ber
-ssh) den Befehl chmod verwenden (z.B. "chmod -R 777 stat/usr stat/src/log-tool". Siehe "man chmod").</p>
+ssh) den Befehl chmod verwenden (z.B. "chmod -R 777 zaehler/usr zaehler/src/log-tool". Siehe "man chmod").</p>
 
 <p><a href="#top">Nach oben</a></p><h3><a name="faq3"></a>Wie update ich von Version 1.6x oder 1.5x?</h3>
 <p><i>Bitte lesen Sie diese Anleitung zun&auml;chst in Ruhe durch, bevor Sie sie ausf&uuml;hren.</i><br />
@@ -110,23 +110,23 @@ setzen <a href="config_settings_de.html#config_rel_path">$config_rel_path</a> ab
 aus der alten &uuml;bernehmen). Achtung: Einige Einstellungen haben neue Namen. Au&szlig;erdem
 enth&auml;lt config.php nur noch die wichtigsten Einstellungen, weitere k&ouml;nnen hinzugef&uuml;gt werden.
 Bitte beachten Sie hierzu <a href="config_settings_de.html">config_settings_de.html</a></li>
-<li>Kopieren Sie die Logdateien aus dem alten Verzeichnis (z.B. stat/logs)
+<li>Kopieren Sie die Logdateien aus dem alten Verzeichnis (z.B. zaehler/logs)
 in den logs-Ordner des neuen Verzeichnis (z.B. stat_/usr/logs).</li>
 <li>Rufen Sie das CrazyStat-Log-Tool im Browser auf
 (z.B. /stat_/src/log-tool/index.php) und folgen dem Assistenten. Wichtig ist, dass die Logdateien keine "einfache Kompression"
 mehr verwenden, sondern gz-Kompression oder gar keine und im Log-Format "1.6" gespeichert sind.</li>
-<li>Einbindungscode: Die Datei "stat/eintrag.php", welche zur Statistik-Erfassung eingebunden wird,
-hei&szlig;t jetzt "stat/src/include.php". Sie k&ouml;nnen dies &uuml;berall, wo CrazyStat eingebunden wird &auml;ndern, falls
+<li>Einbindungscode: Die Datei "zaehler/eintrag.php", welche zur Statistik-Erfassung eingebunden wird,
+hei&szlig;t jetzt "zaehler/src/include.php". Sie k&ouml;nnen dies &uuml;berall, wo CrazyStat eingebunden wird &auml;ndern, falls
 dies wenig Arbeit ist. Wenn Sie die M&ouml;glichkeit haben, einen Symlink zu erstellen (z.B. &uuml;ber ssh) ist auch dies m&ouml;glich:<br />
-ln -s stat/src/include.php stat/eintrag.php<br />
-Als dritte M&ouml;glichkeit k&ouml;nnen Sie einfach eine Datei mit folgendem Inhalt als stat/eintrag.php anlegen:<br />
+ln -s zaehler/src/include.php zaehler/eintrag.php<br />
+Als dritte M&ouml;glichkeit k&ouml;nnen Sie einfach eine Datei mit folgendem Inhalt als zaehler/eintrag.php anlegen:<br />
 <code>
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;CrazyStat&nbsp;backwards-compatibility-file&nbsp;stat/eintrag.php<br /><span style="color: #007700">include_once(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">).</span><span style="color: #DD0000">'/src/include.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;<br /></span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;CrazyStat&nbsp;backwards-compatibility-file&nbsp;zaehler/eintrag.php<br /><span style="color: #007700">include_once(</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">).</span><span style="color: #DD0000">'/src/include.php'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;<br /></span>
 </span>
 </code></li>
 <li>Benennen Sie den alten Ordner um (z.B. in "stat_back"). Benennen Sie den neuen
 Ordner in den Namen des alten um (z.B. in "stat").</li>
-<li>Rufen Sie die Statistik im Browser auf (z.B. "stat/<u>src/</u>show_stat.php").
+<li>Rufen Sie die Statistik im Browser auf (z.B. "zaehler/<u>src/</u>show_stat.php").
 User und Passwort sind auf die Default-Werte "admin" und 
 Passwort "pass" zur&uuml;ckgesetzt und k&ouml;nnen beim Anmelden ge&auml;ndert werden. Siehe
 <a href="#faq5">"Wie kann ich Usernamen &auml;ndern, neue User anlegen oder Passw&ouml;rter zur&uuml;cksetzen?"</a> wenn Sie
@@ -137,10 +137,10 @@ problemlos funktioniert.</li>
 </ol>
 
 <p><a href="#top">Nach oben</a></p><h3><a name="faq40"></a>Wie update ich von Version 1.7x?</h3>
-<p>Ersetzen Sie den Ordner <b>"stat/src"</b> und den Ordner <b>"stat/doc"</b> durch die der neuen Version. Achten Sie darauf, dass
-"stat/src/log-tool" weiterhin CHMOD 777 hat. Um die neusten Presets zu erhalten, kopieren Sie alle Dateien aus
-<b>"stat/usr/presets"</b> von der neuen Version in den bisherigen Ordner. Um die neusten Erkennungsdaten f&uuml;r Browser,
-Betriebssysteme, Suchmaschinen und Robots zu erhalten, kopieren Sie alle Dateien aus <b>"stat/usr/keywords"</b> von der neun Version
+<p>Ersetzen Sie den Ordner <b>"zaehler/src"</b> und den Ordner <b>"zaehler/doc"</b> durch die der neuen Version. Achten Sie darauf, dass
+"zaehler/src/log-tool" weiterhin CHMOD 777 hat. Um die neusten Presets zu erhalten, kopieren Sie alle Dateien aus
+<b>"zaehler/usr/presets"</b> von der neuen Version in den bisherigen Ordner. Um die neusten Erkennungsdaten f&uuml;r Browser,
+Betriebssysteme, Suchmaschinen und Robots zu erhalten, kopieren Sie alle Dateien aus <b>"zaehler/usr/keywords"</b> von der neun Version
 in den bisherigen Ordner.<br />
 Leeren Sie den Cache nach dem Update.</p>
 
@@ -267,7 +267,7 @@ wertet die Logdateien nicht aus (daf&uuml;r ist CrazyStat zust&auml;ndig).</p>
 Es befindet sich im Ordner "src/log-tool". Wenn Sie CrazyStat 1.7x bereits auf einen
 Webserver hochgeladen haben, setzen Sie dem CHMOD des Ordners "log-tool" auf 777, falls nicht
 schon geschehen (s. <a href="#faq2">FAQ</a>). Rufen
-Sie es dann auf (http://ihrserver.de/stat/src/log-tool/) und geben Sie die Zugangsdaten ein.
+Sie es dann auf (http://ihrserver.de/zaehler/src/log-tool/) und geben Sie die Zugangsdaten ein.
 Wenn Sie das Logtool allein ausf&uuml;hren m&ouml;chten, verwenden Sie bitte die Standalone-
 Version, die es unter <a href="#linkCrazyStat/Download">http://www.christosoft.de/Download</a> als Download gibt.<br />
 </p>
@@ -290,8 +290,8 @@ $config_different_rel_paths=true;<br />
 Nehmen wir an, die Statistik liegt im Ordner "stat". Sie m&ouml;chten sie jetzt in der Datei
 "Bild1.php" im Ordner "Bilder" und die Datei "index.php" im Stammverzeichnis
 einbinden. Dann sehen die Codes zum Einbinden der Statistik wie folgt aus:<br />
-Bild1.php: &lt;?php $set_rel_path="../stat/"; @include_once("../stat/src/include.php"); ?&gt;<br />
-index.php: &lt;?php $set_rel_path="stat/"; @include_once("stat/src/include.php"); ?&gt;<br />
+Bild1.php: &lt;?php $set_rel_path="../zaehler/"; @include_once("../zaehler/src/include.php"); ?&gt;<br />
+index.php: &lt;?php $set_rel_path="zaehler/"; @include_once("zaehler/src/include.php"); ?&gt;<br />
 In $set_rel_path wird also der relative Pfad von der Datei zur Statistik angegeben. Hier
 ist ein abschlie&szlig;ender Slash erforderlich. Die Funktion include_once bekommt den
 relativen Pfad zur Datei "include.php" im Statistik-Ordner &uuml;bergeben. Bei Verwendung
@@ -299,27 +299,27 @@ dieses Features m&ouml;glichst in allen Dateien $set_rel_path festlegen.<br />
 <br />
 --- 2. M&ouml;glichkeit: ---<br />
 Sie setzen $config_rel_path auf den Pfad von der Domain aus gesehen, beginnend mit einem
-Slash. Beispiel: "http://www.meineseite.de/stat/" --&gt; $config_rel_path="/stat/".<br />
+Slash. Beispiel: "http://www.meineseite.de/zaehler/" --&gt; $config_rel_path="/zaehler/".<br />
 Diese M&ouml;glichkeit funktioniert eventuell nicht immer, ist aber meist leichter umzusetzen als M&ouml;glichkeit 1.<br />
 <br />
 --- 3. M&ouml;glichkeit: ---<br />
 Sie setzen $config_rel_path auf den absoluten Pfad (URI) zur Statistik, also z.B.
-"http://www.meineseite.de/stat/".<br />
+"http://www.meineseite.de/zaehler/".<br />
 Diese M&ouml;glichkeit funktioniert eventuell nicht immer, ist aber meist leichter umzusetzen als M&ouml;glichkeit 1.
 </p>
 
 <p><a href="#top">Nach oben</a></p><h3><a name="faq15"></a>Wie kann ich den Counter nur auf bestimmten Seiten anzeigen lassen?</h3>
 <p>Indem Sie folgenden Code auf der Seite verwenden, auf der der Counter angezeigt werden
 soll:<br />
-&lt;?php $set_counter_enabled=true; @include_once("stat/src/include.php"); ?&gt;<br />
+&lt;?php $set_counter_enabled=true; @include_once("zaehler/src/include.php"); ?&gt;<br />
 Und folgenden Code auf der Seite, auf der er nicht angezeigt werden soll:<br />
-&lt;?php $set_counter_enabled=false; @include_once("stat/src/include.php"); ?&gt;</p>
+&lt;?php $set_counter_enabled=false; @include_once("zaehler/src/include.php"); ?&gt;</p>
 
 <p><a href="#top">Nach oben</a></p><h3><a name="faq16"></a>Wie kann ich auf unterschiedlichen Seiten unterschiediche Counterlayouts nutzen?</h3>
 <p>Sie k&ouml;nnen die Countergrafik f&uuml;r jede Seite einzeln festlegen, indem Sie
 folgenden Code zum Einbinden verwenden:<br />
 &lt;?php $set_counter_file_name='ch_arial_blue.png';<br />
-@include_once("stat/src/include.php"); ?&gt;<br />
+@include_once("zaehler/src/include.php"); ?&gt;<br />
 Die Countergrafiken m&uuml;ssen alle im selben Ordner liegen, der Dateiname muss oben
 im Beispiel nat&uuml;rlich angepasst werden.</p>
 
@@ -328,7 +328,7 @@ einbinden?</h3>
 <p>In welchem Modus CrazyStat eingebunden wird kann &uuml;ber $config_xhtml gestuert werden.
 Wenn diese Einstellung auf nicht auf alle Seiten zutrifft, kann per $set_xhtml der
 Modus vor dem Einbinden gesetzt werden.<br />
-Beispiel: &lt;?php $set_xhtml=true; @include_once("stat/src/include.php"); ?&gt;<br />
+Beispiel: &lt;?php $set_xhtml=true; @include_once("zaehler/src/include.php"); ?&gt;<br />
 Auch $config_xhtml_noscript kann &uuml;ber $set_xhtml_noscript angepasst werden.</p>
 
 <p><a href="#top">Nach oben</a></p><h3><a name="faq18"></a>Der Counter war vor dem Aufrufen der Statistik noch h&ouml;her als danach!?</h3>
@@ -461,11 +461,11 @@ werden.</p>
 &lt;script type="text/javascript" language="javascript"&gt;<br />
 var jetzt=new Date();<br />
 document.write ('&lt;img
-src=\"PFAD/src/stat.php?breite='+screen.width+'&amp;amp;hoehe='+screen.height+'&amp;amp;colors='+screen.colorDepth+'&amp;amp;datei=DATEI&amp;amp;referer='+encodeURIComponent(document.referrer)+'&amp;amp;t='+jetzt.getTime()+'\"
+src=\"PFAD/src/zaehlen.php?breite='+screen.width+'&amp;amp;hoehe='+screen.height+'&amp;amp;colors='+screen.colorDepth+'&amp;amp;datei=DATEI&amp;amp;referer='+encodeURIComponent(document.referrer)+'&amp;amp;t='+jetzt.getTime()+'\"
 alt=\" - - - By CrazyStat - - - \" title=\" - - - By CrazyStat - - - \" border="0"
 /&gt;');<br />
 &lt;/script&gt;<br />
-&lt;noscript&gt;&lt;img src="PFAD/src/stat.php?datei=DATEI&amp;amp;referer=keinJS" alt=" - - - By
+&lt;noscript&gt;&lt;img src="PFAD/src/zaehlen.php?datei=DATEI&amp;amp;referer=keinJS" alt=" - - - By
 CrazyStat - - - " title="- - - By CrazyStat - - - " border="0" /&gt;&lt;/noscript&gt;<br />
 &lt;!-- ENDE CrazyStat /--&gt;</p>
 
@@ -493,7 +493,7 @@ function CrazyStat()<br />
 if (typeof(crazystat_oldOnLoad)=='function') crazystat_oldOnLoad();<br />
 var jetzt=new Date();<br />
 var
-CrazyStatUrl='PFAD/src/stat.php?breite='+screen.width+'&amp;hoehe='+screen.height+'&amp;colors='+screen.colorDepth+'&amp;datei=DATEI&amp;referer='+encodeURIComponent(document.referrer)+'&amp;t='+jetzt.getTime();<br />
+CrazyStatUrl='PFAD/src/zaehlen.php?breite='+screen.width+'&amp;hoehe='+screen.height+'&amp;colors='+screen.colorDepth+'&amp;datei=DATEI&amp;referer='+encodeURIComponent(document.referrer)+'&amp;t='+jetzt.getTime();<br />
 
 if(document.getElementById) obj=document.getElementById('CrazyStatImage'); else
 if(document.all) obj=document.all('CrazyStatImage');<br />
@@ -505,7 +505,7 @@ window.onload=CrazyStat;<br />
 &lt;/script&gt;<br />
 &lt;img id="CrazyStatImage" src="PFAD/src/img/blind.gif" alt=" - - - By CrazyStat - - - " title=" -
 - - By CrazyStat - - - " style="border:0px" /&gt;<br />
-&lt;noscript&gt;&lt;img src="PFAD/src/stat.php?datei=DATEI&amp;amp;referer=keinJS" alt=" - - - By
+&lt;noscript&gt;&lt;img src="PFAD/src/zaehlen.php?datei=DATEI&amp;amp;referer=keinJS" alt=" - - - By
 CrazyStat - - - " title=" - - - By CrazyStat - - - " style="border:0px"
 /&gt;&lt;/noscript&gt;<br />
 &lt;!-- ENDE CrazyStat /--&gt;</p>
