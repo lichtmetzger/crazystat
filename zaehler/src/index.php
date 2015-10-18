@@ -59,7 +59,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="generator" content="CrazyStat" />
-  <title>CrazyStat 1.71 RC2</title>
+  <title>CrazyStat Unofficial</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="style2.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
@@ -75,9 +75,10 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
      <p><?php echo L_INDEX_THIS_IS_CRAZYSTAT; ?></p>
      <p><?php echo L_INDEX_INFORMATION; ?><br />
      <a href="<?php echo $christosoft_url; ?>" target="_blank"><?php echo $christosoft_url; ?></a></p>
+     <p><font style="color:red;font-weight:bold;">This is an unofficial continuation, maintained by <a href="https://github.com/schmatzler/crazystat" target="_blank">schmatzler</a>.</font></p>
      <table class="gitter">
       <tr><td><?php echo L_INDEX_INSTALLED_VERSION; ?></td><td style="vertical-align:top"><?php echo L_INDEX_CURRENT_VERSION; ?></td></tr>
-      <tr><td width="200">1.71 RC2</td><td style="vertical-align:top; padding:0px; margin:0px;"><iframe src="http://www.christosoft.de/crazystat_version.php?v=171" frameborder="0" height="60" width="200"></iframe></td></tr>
+      <tr><td width="200">19.10.2015</td><td style="vertical-align:top; padding:0px; margin:0px;"><iframe src="https://raw.githubusercontent.com/schmatzler/crazystat/master/lastupdate.txt" frameborder="0" height="60" width="200"></iframe></td></tr>
      </table>
      <p>
       <?php echo L_INDEX_NEWS; ?> <a href="<?php echo $christosoft_url; ?>" target="_blank"><?php echo $christosoft_url; ?></a>:<br />
