@@ -4,6 +4,7 @@ Konqueror
 K-Meleon
 Nautilus
 Camino
+Firefox/49=Firefox 40-49
 Firefox/48=Firefox 40-49
 Firefox/47=Firefox 40-49
 Firefox/46=Firefox 40-49
@@ -153,6 +154,11 @@ CFNetwork
 Java
 WebCapture
 NetSurf
+Chrome/55=Google Chrome 51-60
+Chrome/54=Google Chrome 51-60
+Chrome/53=Google Chrome 51-60
+Chrome/52=Google Chrome 51-60
+Chrome/51=Google Chrome 51-60
 Chrome/50=Google Chrome 41-50
 Chrome/49=Google Chrome 41-50
 Chrome/48=Google Chrome 41-50
