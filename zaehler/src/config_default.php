@@ -33,7 +33,7 @@ These settings are used if there is no such setting in usr/config.php.
 
 */
 
-$config_rel_path="stat/";
+$config_rel_path="zaehler/";
 $config_different_rel_paths=false;
 $config_logfile_folder="logs";
 $config_logfile_name="stat.log";

@@ -52,7 +52,7 @@ For more information, see:
 
 // +++++ General settings +++++
 
-$config_rel_path="stat/"; // Path to CrazyStat
+$config_rel_path="zaehler/"; // Path to CrazyStat
 $config_xhtml=false; // CrazyStat included in XHTML?
 $config_ip_anonymous=true; // anonymize IPs? (data privacy)
 $config_respect_dnt=false; // do not record users that send Do-not-track header?
