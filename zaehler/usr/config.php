@@ -72,5 +72,6 @@ $config_counter_file_name="ch_nicefont_wb.png"; // Counter-grafic
 $config_counter_digits=6; // digits of the counter
 $config_counter_transparency=false; // Enable transparency for counter?
 
-
+// +++++ Disable backlink spammers by default +++++
+$config_stat_referer_ignore=array("http://success-seo.com","http://best-seo-offer.com","http://buttons-for-website.com","http://100dollars-seo.com");
 ?>

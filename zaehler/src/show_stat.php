@@ -237,7 +237,7 @@ if(is_file('extensions/ajaxTree/ajaxTree.js') && is_file('extensions/ajaxTree/aj
 <?php if($config_stat_preset_file_cache) { ?>
     <a href="show_stat.php?<?php echo SIDX; ?>&amp;clearcache=true&amp;reload=true" onclick="waitmessage();"><img src="img/cache_clear.png" alt="<?php echo L_SHOWSTAT_CLEAR_CACHE; ?>" title="<?php echo L_SHOWSTAT_CLEAR_CACHE; ?>" /></a>
 <?php } ?>
-    <a href="about.php" target="_blank" rel="lyteframe" rev="width: 420px; height: 380px; scrolling: no;"><img src="img/about.png" alt="<?php echo L_MENU_ABOUT; ?>" title="<?php echo L_MENU_ABOUT; ?>" /></a>
+    <a href="about.php" target="_blank" rel="lyteframe" rev="width: 420px; height: 420px; scrolling: no;"><img src="img/about.png" alt="<?php echo L_MENU_ABOUT; ?>" title="<?php echo L_MENU_ABOUT; ?>" /></a>
     <a href="anonymous_redirect.php?go_anonym=<?php echo 'http://'.($config_stat_lang=='de'?'www':'en').'.christosoft.de'; ?>" target="_blank"><img src="img/website.png" alt="<?php echo L_MENU_WEBSITE; ?>" title="<?php echo L_MENU_WEBSITE; ?>" /></a>
 <?php if($config_stat_cache) { 
 // onclick="refresh('ALL','mode=refresh'); return false;"
