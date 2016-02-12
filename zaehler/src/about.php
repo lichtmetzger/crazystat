@@ -78,7 +78,7 @@ echo '<?xml version="1.0" encoding="UTF-8" ?>'."\n";
 <p><font style="color:red;font-weight:bold;">This is an unofficial continuation, maintained by <a href="https://github.com/schmatzler/crazystat" target="_blank">schmatzler</a>.</font></p>
 <table class="gitter">
  <tr><td><?php echo L_INDEX_INSTALLED_VERSION; ?></td><td style="vertical-align:top"><?php echo L_INDEX_CURRENT_VERSION; ?></td></tr>
- <tr><td width="200">08.12.2015</td><td style="vertical-align:top; padding-top:10px; margin:0px;"><iframe src="http://schmatzler.de/lastupdate.txt" frameborder="0" height="40" width="200"></iframe></td></tr>
+ <tr><td width="200">12.02.2016</td><td style="vertical-align:top; padding-top:10px; margin:0px;"><iframe src="http://schmatzler.de/lastupdate.txt" frameborder="0" height="40" width="200"></iframe></td></tr>
 </table>
 <p><?php echo L_ABOUT_PLEASE_SEE; ?>
  <a href="../doc/README_<?php echo (is_file('../doc/README_'.$config_stat_lang.'.html')?$config_stat_lang:'en'); ?>.html" target="_blank"><?php echo L_ABOUT_README; ?></a>
