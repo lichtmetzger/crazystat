@@ -24,6 +24,7 @@ Sailfish=Sailfish OS
 Jolla=Sailfish OS
 Mozilla/5.0 (Mobile=Firefox OS
 Mozilla/5.0 (Tablet=Firefox OS
+Mozilla/5.0 (BB10=BlackBerry 10
 Tizen
 Android
 Kindle

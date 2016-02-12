@@ -15,6 +15,7 @@ Opera/11=Presto (Opera)
 Opera/12=Presto (Opera)
 Opera=Elektra (Opera)
 Konqueror=Webkit (KDE)
+BB10=Webkit
 Safari=Webkit
 K-Meleon=Gecko (Mozilla)
 Nautilus=Gecko (Mozilla)
