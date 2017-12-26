@@ -69,17 +69,10 @@ elseif($counter_quell_datei_typ=="image/gif" && is_callable('imagecreatefromgif'
 elseif(!is_callable('imagecreatefromgif') && $counter_quell_datei_typ=='image/gif') show_error(L_COUNTER_GIF_NOT_SUPPORTED);
 else show_error(L_COUNTER_TYPE_NOT_SUPPORTED);
 // Vornullen werden angefuegt
-if(strlen($counter_value)<$config_counter_digits)
- {
- while(strlen($counter_value)<$config_counter_digits)
-  {
-  $counter_value="0".$counter_value;
-  }
- }
- 
+$counter_value = str_pad($counter_value, $config_counter_digits, '0', STR_PAD_LEFT);
+
 // Ziffern werden auseinander genommen
-$counter_value=chunk_split($counter_value,1,' ');
-$counter_value=explode(' ',$counter_value);
+$counter_value=str_split($counter_value);
 // fuer jede Ziffer wird die Entsprechende Grafik aus der Countergrafik kopiert
 foreach($counter_value as $counter_stelle => $counter_ziffer)
  {
